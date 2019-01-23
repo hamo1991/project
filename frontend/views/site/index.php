@@ -1,9 +1,9 @@
 <aside id="colorlib-hero">
-    <div class="flexslider">
-        <ul class="slides">
+    <div class="flexslider ">
+        <ul class="slides ">
             <li style="background-image: url(<?= \yii\helpers\Url::to(['/']) ?>images/img_bg_1.jpg);">
                 <div class="overlay"></div>
-                <div class="container-fluid">
+                <div class="container-fluid ">
                     <div class="row">
                         <div class="col-sm-6 offset-sm-3 text-center slider-text">
                             <div class="slider-text-inner">
@@ -68,7 +68,7 @@
         </div>
     </div>
 </div>
-<div class="colorlib-product">
+<div class="colorlib-product container">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6 text-center">

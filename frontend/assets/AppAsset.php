@@ -50,4 +50,14 @@ class AppAsset extends AssetBundle
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
     ];
+
+//    public function init()
+//    {
+//        if (\Yii::$app->controller->action->id === 'about') {
+//            $this->js[] = 'js/script.js';
+//        }
+//        if (\Yii::$app->controller->action->id === 'about') {
+//            $this->css[] = 'css/style.css';
+//        }
+//    }
 }

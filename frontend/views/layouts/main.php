@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this \yii\web\View */
+
 /* @var $content string */
 
 use yii\helpers\Html;
@@ -47,35 +48,38 @@ AppAsset::register($this);
                 </div>
                 <div class="row">
                     <div class="col-sm-12 text-left menu-1">
-                        <ul>
-                            <li class="cart"><a href="cart.html"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
-                        </ul>
-                        <?php
-                        $menuItems = [
-                            ['label' => 'Home', 'url' => ['/']],
-                            ['label' => 'Men', 'url' => ['men']],
-                            ['label' => 'Women', 'url' => ['women']],
-                            ['label' => 'About', 'url' => ['about']],
-                            ['label' => 'Contact', 'url' => ['contact']],
-                        ];
-                        if (Yii::$app->user->isGuest) {
-                            $menuItems[] = ['label' => 'Signup', 'url' => ['signup']];
-                            $menuItems[] = ['label' => 'Login', 'url' => ['login']];
-                        } else {
-                            $menuItems[] = '<li>'
-                                . Html::beginForm(['/site/logout'], 'post')
-                                . Html::submitButton(
-                                    'Logout (' . Yii::$app->user->identity->username . ')',
-                                    ['class' => 'btn btn-link logout']
-                                )
-                                . Html::endForm()
-                                . '</li>';
-                        }
-                        echo Nav::widget([
-                            'options' => ['class' => 'active'],
-                            'items' => $menuItems,
-                        ]);
-                        ?>
+
+                            <?php
+                            $menuItems = [
+                                ['label' => 'Home', 'url' => ['/']],
+                                ['label' => 'Men', 'url' => ['men']],
+                                ['label' => 'Women', 'url' => ['women']],
+                                ['label' => 'About', 'url' => ['about']],
+                                ['label' => 'Contact', 'url' => ['contact']],
+
+                            ];
+
+                            if (Yii::$app->user->isGuest) {
+                                $menuItems[] = ['label' => 'Signup', 'url' => ['signup']];
+                                $menuItems[] = ['label' => 'Login', 'url' => ['login']];
+                            } else {
+                                $menuItems[] = "<li class='logout-btn'>"
+                                    . Html::beginForm(['/site/logout'], 'post')
+                                    . Html::submitButton(
+                                        'Logout (' . Yii::$app->user->identity->username . ')',
+                                        ['class' => 'btn btn-link logout']
+                                    )
+                                    . Html::endForm()
+                                    . "</li>";
+                            }
+                            $menuItems[] = ['label' => ' Cart [0]', 'options'=> ['id'=>'cart'], 'url' => ['cart',]];
+                            echo Nav::widget([
+                                'options' => ['class' => 'active'],
+                                'items' => $menuItems,
+                            ]);
+                            ?>
+<!--                            <li class="cart"><a href="../site/cart.php"><i class="icon-shopping-cart"></i> Cart [0]</a></li>-->
+
                     </div>
                 </div>
             </div>
