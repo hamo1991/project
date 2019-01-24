@@ -217,4 +217,8 @@ class SiteController extends Controller {
 
         return $this->render('cart');
     }
+
+    public function actionComplete() {
+        return $this->render('complete');
+    }
 }

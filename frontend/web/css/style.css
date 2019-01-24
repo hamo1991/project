@@ -11800,13 +11800,24 @@ input[type="text"] {
 }
 
 #colorlib-offcanvas a {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.5);;
 }
 
 #colorlib-offcanvas a:hover {
     color: white;
     background: unset
 }
+
+#colorlib-offcanvas .btn:hover {
+    color: white;
+    background: unset
+}
+
+
+#colorlib-offcanvas .btn{
+    color: rgba(255, 255, 255, 0.5);
+}
+
 
 #colorlib-offcanvas ul {
     padding: 0;

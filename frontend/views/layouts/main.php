@@ -48,7 +48,6 @@ AppAsset::register($this);
                 </div>
                 <div class="row">
                     <div class="col-sm-12 text-left menu-1">
-
                             <?php
                             $menuItems = [
                                 ['label' => 'Home', 'url' => ['/']],
