@@ -13,6 +13,9 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use frontend\models\Categories;
+use frontend\models\Products;
+use frontend\models\Brands;
 
 /**
  * Site controller
@@ -69,7 +72,12 @@ class SiteController extends Controller {
      * @return mixed
      */
     public function actionIndex() {
-        return $this->render('index');
+
+        $categories = Categories::find()->asArray()->all();
+
+        return $this->render('index',[
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -220,5 +228,9 @@ class SiteController extends Controller {
 
     public function actionComplete() {
         return $this->render('complete');
+    }
+
+    public function actionDetails() {
+        return $this->render('details');
     }
 }

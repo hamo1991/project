@@ -1,5 +1,5 @@
 <aside id="colorlib-hero">
-    <div class="flexslider ">
+    <div class="flexslider" >
         <ul class="slides ">
             <li style="background-image: url(<?= \yii\helpers\Url::to(['/']) ?>images/img_bg_1.jpg);">
                 <div class="overlay"></div>
@@ -75,7 +75,7 @@
                 <div class="featured">
                     <a href="#" class="featured-img" style="background-image: url(<?= \yii\helpers\Url::to(['/']) ?>images/men.jpg);"></a>
                     <div class="desc">
-                        <h2><a href="#">Shop Men's Collection</a></h2>
+                        <h2><a href="#">Shop <?= $categories[0]['title'] ?> Collection</a></h2>
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                 <div class="featured">
                     <a href="#" class="featured-img" style="background-image: url(<?= \yii\helpers\Url::to(['/']) ?>images/women.jpg);"></a>
                     <div class="desc">
-                        <h2><a href="#">Shop Women's Collection</a></h2>
+                        <h2><a href="#">Shop <?= $categories[1]['title'] ?> Collection</a></h2>
                     </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@
         <div class="row row-pb-md">
             <div class="col-lg-3 mb-4 text-center">
                 <div class="product-entry border">
-                    <a href="#" class="prod-img">
+                    <a href="site/details" class="prod-img">
                         <img src="<?= \yii\helpers\Url::to(['/']) ?>images/item-1.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
                     </a>
                     <div class="desc">
