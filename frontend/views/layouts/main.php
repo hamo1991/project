@@ -28,7 +28,7 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-<div id="page">
+<main id="page">
     <header>
         <nav class="colorlib-nav" role="navigation">
             <div class="top-menu">
@@ -52,11 +52,8 @@ AppAsset::register($this);
                             <?php
                             $menuItems = [
                                 ['label' => 'Home', 'url' => ['/']],
-                                ['label' => 'Men', 'url' => ['men']],
-                                ['label' => 'Women', 'url' => ['women']],
                                 ['label' => 'About', 'url' => ['about']],
                                 ['label' => 'Contact', 'url' => ['contact']],
-
                             ];
 
                             if (Yii::$app->user->isGuest) {
@@ -191,7 +188,7 @@ Copyright &copy;2019 All rights reserved <i class="icon-heart" aria-hidden="true
             </div>
         </div>
     </footer>
-</div>
+</main>
 
 <div class="gototop js-top">
     <a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>

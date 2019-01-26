@@ -74,9 +74,11 @@ class SiteController extends Controller {
     public function actionIndex() {
 
         $categories = Categories::find()->asArray()->all();
+        $hitProducts = Products::find()->where(['best' => '1'])->limit('8')->asArray()->all();
 
         return $this->render('index',[
             'categories' => $categories,
+            'hitProducts' => $hitProducts
         ]);
     }
 
@@ -232,5 +234,12 @@ class SiteController extends Controller {
 
     public function actionDetails() {
         return $this->render('details');
+    }
+
+    public function actionAll() {
+        $Products = Products::find()->asArray()->all();
+        return $this->render('all',[
+            'products' => $Products
+        ]);
     }
 }

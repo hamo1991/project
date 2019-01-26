@@ -623,6 +623,11 @@ pre code {
     padding-left: 15px;
 }
 
+#kids {
+    margin-left: auto;
+    margin-right: auto
+}
+
 .col {
     -ms-flex-preferred-size: 0;
     flex-basis: 0;
@@ -10355,9 +10360,10 @@ h1, h2, h3, h4, h5,
     letter-spacing: 2px;
 }
 
-#cart {
 
-    margin-left: 370px;
+
+#cart {
+   margin-left: 43%;
 }
 
 #cart a {
