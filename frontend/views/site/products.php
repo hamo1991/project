@@ -1,4 +1,7 @@
+<?php
 
+$this->title = 'App Products';
+?>
 <div class="colorlib-product">
     <div class="container">
         <div class="row">
@@ -15,6 +18,12 @@
                     <div class="col-lg-3 mb-4 text-center">
                         <div class="product-entry border">
                             <a href="#" class="prod-img">
+                                <?php if ($cat['is_new']) : ?>
+                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png'?>" alt="new">
+                                <?php endif ?>
+                                <?php if ($cat['is_sale']) : ?>
+                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png'?>" alt="sale">
+                                <?php endif ?>
                                 <?= \yii\helpers\Html::img("@web/images/{$cat['image']}", ['alt' => "picture",'class' => 'img-fluid']) ?>
                             </a>
                             <div class="desc">

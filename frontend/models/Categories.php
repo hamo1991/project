@@ -11,6 +11,7 @@ use Yii;
  * @property string $title
  * @property string $description
  * @property string $image
+ * @property string $info_image
  * @property string $slug
  *
  * @property Brands[] $brands
@@ -32,9 +33,9 @@ class Categories extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'image', 'slug'], 'required'],
+            [['title', 'image', 'info_image', 'slug'], 'required'],
             [['description'], 'string'],
-            [['title', 'image'], 'string', 'max' => 255],
+            [['title', 'image','info_image'], 'string', 'max' => 255],
             [['slug'], 'string', 'max' => 150],
         ];
     }
@@ -50,6 +51,7 @@ class Categories extends \yii\db\ActiveRecord
             'description' => 'Description',
             'image' => 'Image',
             'slug' => 'Slug',
+            'info_image' => 'Info Image',
         ];
     }
 

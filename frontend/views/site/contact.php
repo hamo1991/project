@@ -1,3 +1,8 @@
+<?php
+
+$this->title = 'Contact';
+?>
+
 <div class="breadcrumbs">
     <div class="container">
         <div class="row">

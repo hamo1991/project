@@ -15,6 +15,8 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\Categories;
 use frontend\models\Products;
+use frontend\models\Cart;
+use yii\db\Query;
 use frontend\models\Brands;
 
 /**
@@ -76,7 +78,7 @@ class SiteController extends Controller {
         $categories = Categories::find()->asArray()->all();
         $hitProducts = Products::find()->where(['best' => '1'])->limit('8')->asArray()->all();
 
-        return $this->render('index',[
+        return $this->render('index', [
             'categories' => $categories,
             'hitProducts' => $hitProducts
         ]);
@@ -213,15 +215,6 @@ class SiteController extends Controller {
         ]);
     }
 
-    public function actionMen() {
-
-        return $this->render('men');
-    }
-
-    public function actionWomen() {
-
-        return $this->render('women');
-    }
 
     public function actionCart() {
 
@@ -236,10 +229,25 @@ class SiteController extends Controller {
         return $this->render('details');
     }
 
-    public function actionAll() {
+    public function actionProducts() {
         $Products = Products::find()->asArray()->all();
-        return $this->render('all',[
+        return $this->render('products', [
             'products' => $Products
         ]);
     }
+
+
+    public function actionCategories($id) {
+        $id = Yii::$app->request->get('id');
+        $products = Products::find()->where(['cat_id' => $id])->asArray()->all();
+        $categories = Categories::find()->where(['id' => $id])->asArray()->all();
+
+        return $this->render('categories',[
+            'id' => $id,
+            'products' => $products,
+            'categories' => $categories
+        ]);
+    }
+
+
 }

@@ -1,3 +1,7 @@
+<?php
+
+$this->title = 'About';
+?>
 <div class="breadcrumbs">
     <div class="container">
         <div class="row">

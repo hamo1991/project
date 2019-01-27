@@ -42,6 +42,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'site/categories/<id:\d+>' => 'site/categories',
             ],
         ],
 

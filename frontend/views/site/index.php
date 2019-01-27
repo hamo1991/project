@@ -81,14 +81,13 @@
                             <a href="<?= $cat['slug'] ?>" class="featured-img"
                                style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/' . $cat['image'] ?>);"></a>
                             <div class="desc">
-                                <h2><a href="<?= $cat['slug'] ?>">Shop <?= $cat['title'] ?> Collection</a></h2>
+                                <h2><a href="<?= \yii\helpers\Url::to(['/']) . 'site/categories/' . $cat['id'] ?>">Shop <?= $cat['title'] ?> Collection</a></h2>
                             </div>
                         </div>
                     </div>
                     <?php
 
                 }
-
             }
             ?>
         </div>
@@ -109,8 +108,16 @@
                     ?>
 
                     <div class="col-lg-3 mb-4 text-center">
+
                         <div class="product-entry border">
+
                             <a href="#" class="prod-img">
+                                <?php if ($hit['is_new']) : ?>
+                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png'?>" alt="new">
+                                <?php endif ?>
+                                <?php if ($hit['is_sale']) : ?>
+                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png'?>" alt="sale">
+                                <?php endif ?>
                                 <img src="<?= \yii\helpers\Url::to(['/']) . 'images/' . $hit['image'] ?>"
                                      class="img-fluid" alt="Free html5 bootstrap 4 template">
                             </a>
@@ -126,10 +133,12 @@
 
             }
             ?>
+
+
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <p><a href="site/all" class="btn btn-primary btn-lg">Shop All Products</a></p>
+                <p><a href="<?= \yii\helpers\Url::to(['/']) ?>site/products" class="btn btn-primary btn-lg">Shop All Products</a></p>
             </div>
         </div>
     </div>
@@ -165,4 +174,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>                                                                             

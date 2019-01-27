@@ -1,3 +1,8 @@
+<?php
+
+$this->title = 'Complete';
+?>
+
 <div class="colorlib-product">
     <div class="container">
         <div class="row">

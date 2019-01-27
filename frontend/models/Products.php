@@ -16,6 +16,7 @@ use Yii;
  * @property int $quantity
  * @property int $available_stock
  * @property string $is_new
+ * @property string $is_sale
  * @property string $image
  * @property string $is_feature
  * @property string $cat_id
@@ -43,7 +44,7 @@ class Products extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'price', 'sku', 'quantity', 'available_stock', 'cat_id', 'brand_id', 'slug'], 'required'],
-            [['description', 'is_new'], 'string'],
+            [['description', 'is_new','is_sale'], 'string'],
             [['price', 'sale_prise'], 'number'],
             [['quantity', 'available_stock', 'cat_id', 'brand_id'], 'integer'],
             [['title', 'image', 'is_feature'], 'string', 'max' => 255],
@@ -69,6 +70,7 @@ class Products extends \yii\db\ActiveRecord
             'quantity' => 'Quantity',
             'available_stock' => 'Available Stock',
             'is_new' => 'Is New',
+            'is_sale' => 'Is Sale',
             'image' => 'Image',
             'is_feature' => 'Is Feature',
             'cat_id' => 'Cat ID',
