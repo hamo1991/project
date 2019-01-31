@@ -81,7 +81,7 @@
                             <a href="<?= $cat['slug'] ?>" class="featured-img"
                                style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/' . $cat['image'] ?>);"></a>
                             <div class="desc">
-                                <h2><a href="<?= \yii\helpers\Url::to(['/']) . 'site/categories/' . $cat['id'] ?>">Shop <?= $cat['title'] ?> Collection</a></h2>
+                                <h2><a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['id'] ?>">Shop <?= $cat['title'] ?> Collection</a></h2>
                             </div>
                         </div>
                     </div>
@@ -138,7 +138,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <p><a href="<?= \yii\helpers\Url::to(['/']) ?>site/products" class="btn btn-primary btn-lg">Shop All Products</a></p>
+                <p><a href="<?= \yii\helpers\Url::to(['/']) ?>products/" class="btn btn-primary btn-lg">All Products</a></p>
             </div>
         </div>
     </div>

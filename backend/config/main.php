@@ -17,6 +17,23 @@ return [
             'csrfParam' => '_csrf-backend',
             'baseUrl' => '/admin'
         ],
+
+        'assetManager' => [
+            'bundles' => [
+                'dmstr\web\AdminLteAsset' => [
+                    'skin' => 'skin-purple',
+                ],
+            ],
+        ],
+
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@app/views' => '@web/views/layouts'
+                ],
+            ],
+        ],
+
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,

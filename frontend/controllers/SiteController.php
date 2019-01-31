@@ -13,11 +13,11 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
-use frontend\models\Categories;
-use frontend\models\Products;
-use frontend\models\Cart;
+use common\models\Categories;
+use common\models\Products;
+use common\models\Cart;
 use yii\db\Query;
-use frontend\models\Brands;
+use common\models\Brands;
 
 /**
  * Site controller
@@ -227,26 +227,6 @@ class SiteController extends Controller {
 
     public function actionDetails() {
         return $this->render('details');
-    }
-
-    public function actionProducts() {
-        $Products = Products::find()->asArray()->all();
-        return $this->render('products', [
-            'products' => $Products
-        ]);
-    }
-
-
-    public function actionCategories($id) {
-        $id = Yii::$app->request->get('id');
-        $products = Products::find()->where(['cat_id' => $id])->asArray()->all();
-        $categories = Categories::find()->where(['id' => $id])->asArray()->all();
-
-        return $this->render('categories',[
-            'id' => $id,
-            'products' => $products,
-            'categories' => $categories
-        ]);
     }
 
 

@@ -7,7 +7,7 @@ $this->title = $categories[0]['title'] . " Collection";
     <div class="container">
         <div class="row">
             <div class="col">
-                <p class="bread"><span><?=$categories[0]['title']?> Collection</span></p>
+                <p class="bread"><span><?= $categories[0]['title'] ?> Collection</span></p>
             </div>
         </div>
     </div>
@@ -16,8 +16,9 @@ $this->title = $categories[0]['title'] . " Collection";
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="breadcrumbs-img" style="background-image: url(<?= \yii\helpers\Url::to(['/']) .'images/' . $categories[0]['info_image']?>);">
-                    <h2><?=$categories[0]['title']?></h2>
+                <div class="breadcrumbs-img"
+                     style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/' . $categories[0]['info_image'] ?>);">
+                    <h2><?= $categories[0]['title'] ?></h2>
                 </div>
             </div>
         </div>
@@ -30,6 +31,24 @@ $this->title = $categories[0]['title'] . " Collection";
         <div class="row">
             <div class="col-lg-3 col-xl-3">
                 <div class="row">
+                    <div class="col-sm-12">
+                        <div class="side border mb-1">
+                            <h3>Categories</h3>
+                            <ul><?php
+                                if (!empty($category)) {
+                                    foreach ($category as $cat) {
+                                        ?>
+                                        <li>
+                                            <a href="<?= \yii\helpers\Url::to(['/']) . $cat['slug'] . $cat['id'] ?>"><?= $cat['title'] ?></a>
+                                        </li>
+                                        <?php
+                                    }
+                                }
+                                ?>
+
+                            </ul>
+                        </div>
+                    </div>
                     <div class="col-sm-12">
                         <div class="side border mb-1">
                             <h3>Brand</h3>
@@ -116,12 +135,16 @@ $this->title = $categories[0]['title'] . " Collection";
                                 <div class="product-entry border">
                                     <a href="#" class="prod-img">
                                         <?php if ($prod['is_new']) : ?>
-                                            <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png'?>" alt="new">
+                                            <img class="new-sale"
+                                                 src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png' ?>" alt="new">
                                         <?php endif ?>
                                         <?php if ($prod['is_sale']) : ?>
-                                            <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png'?>" alt="sale">
+                                            <img class="new-sale"
+                                                 src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png' ?>"
+                                                 alt="sale">
                                         <?php endif ?>
-                                        <img src="<?= \yii\helpers\Url::to(['/']) . 'images/' . $prod['image'] ?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
+                                        <img src="<?= \yii\helpers\Url::to(['/']) . 'images/' . $prod['image'] ?>"
+                                             class="img-fluid" alt="Free html5 bootstrap 4 template">
                                     </a>
                                     <div class="desc">
                                         <h2><a href="#"><?= $prod['title'] ?></a></h2>
@@ -166,19 +189,24 @@ $this->title = $categories[0]['title'] . " Collection";
         </div>
         <div class="row">
             <div class="col partner-col text-center">
-                <img src="<?= \yii\helpers\Url::to(['/']) ?>images/brand-1.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
+                <img src="<?= \yii\helpers\Url::to(['/']) ?>images/brand-1.jpg" class="img-fluid"
+                     alt="Free html4 bootstrap 4 template">
             </div>
             <div class="col partner-col text-center">
-                <img src="<?= \yii\helpers\Url::to(['/']) ?>images/brand-2.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
+                <img src="<?= \yii\helpers\Url::to(['/']) ?>images/brand-2.jpg" class="img-fluid"
+                     alt="Free html4 bootstrap 4 template">
             </div>
             <div class="col partner-col text-center">
-                <img src="<?= \yii\helpers\Url::to(['/']) ?>images/brand-3.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
+                <img src="<?= \yii\helpers\Url::to(['/']) ?>images/brand-3.jpg" class="img-fluid"
+                     alt="Free html4 bootstrap 4 template">
             </div>
             <div class="col partner-col text-center">
-                <img src="<?= \yii\helpers\Url::to(['/']) ?>images/brand-4.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
+                <img src="<?= \yii\helpers\Url::to(['/']) ?>images/brand-4.jpg" class="img-fluid"
+                     alt="Free html4 bootstrap 4 template">
             </div>
             <div class="col partner-col text-center">
-                <img src="<?= \yii\helpers\Url::to(['/']) ?>images/brand-5.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
+                <img src="<?= \yii\helpers\Url::to(['/']) ?>images/brand-5.jpg" class="img-fluid"
+                     alt="Free html4 bootstrap 4 template">
             </div>
         </div>
     </div>

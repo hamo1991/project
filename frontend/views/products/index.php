@@ -1,6 +1,6 @@
 <?php
 
-$this->title = 'App Products';
+$this->title = 'All Products';
 ?>
 <div class="colorlib-product">
     <div class="container">
@@ -72,4 +72,4 @@ $this->title = 'App Products';
             </div>
         </div>
     </div>
-</div>
+</div>/
