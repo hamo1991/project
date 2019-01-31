@@ -136,8 +136,6 @@ $this->title = $categories[0]['title'] . " Collection";
                     }
                     ?>
 
-
-
                 </div>
                 <div class="row">
                     <div class="col-md-12 text-center">
