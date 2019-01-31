@@ -22,13 +22,13 @@ class CategoryController extends Controller {
 
         $id = Yii::$app->request->get('id');
         $products = Products::find()->where(['cat_id' => $id])->asArray()->all();
-        $categories = Categories::find()->where(['id' => $id])->asArray()->all();
-        $category = Categories::find()->asArray()->all();
+        $categories = Categories::find()->asArray()->all();
+        $brands = Brands::find()->asArray()->all();
         return $this->render('index',[
             'id' => $id,
             'products' => $products,
             'categories' => $categories,
-            'category' => $category
+            'brands' => $brands
         ]);
     }
 }

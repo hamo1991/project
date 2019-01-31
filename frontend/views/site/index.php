@@ -13,7 +13,7 @@
                                     <h2 class="head-2">Shoes</h2>
                                     <h2 class="head-3">Collection</h2>
                                     <p class="category"><span>New trending shoes</span></p>
-                                    <p><a href="#" class="btn btn-primary">Shop Collection</a></p>
+<!--                                    <p><a href="#" class="btn btn-primary">Shop Collection</a></p>-->
                                 </div>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                                     <h2 class="head-2">Sale</h2>
                                     <h2 class="head-3"><strong class="font-weight-bold">50%</strong> Off</h2>
                                     <p class="category"><span>Big sale sandals</span></p>
-                                    <p><a href="#" class="btn btn-primary">Shop Collection</a></p>
+<!--                                    <p><a href="#" class="btn btn-primary">Shop Collection</a></p>-->
                                 </div>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                                     <h2 class="head-2">Arrival</h2>
                                     <h2 class="head-3">up to <strong class="font-weight-bold">30%</strong> off</h2>
                                     <p class="category"><span>New stylish shoes for men</span></p>
-                                    <p><a href="#" class="btn btn-primary">Shop Collection</a></p>
+<!--                                    <p><a href="#" class="btn btn-primary">Shop Collection</a></p>-->
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                             <a href="<?= $cat['slug'] ?>" class="featured-img"
                                style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/' . $cat['image'] ?>);"></a>
                             <div class="desc">
-                                <h2><a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['id'] ?>">Shop <?= $cat['title'] ?> Collection</a></h2>
+                                <h2><a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['id'] ?>"><?= $cat['title'] ?> Collection</a></h2>
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
         </div>
     </div>
 </div>
-
+<hr>
 <div class="colorlib-product">
     <div class="container">
         <div class="row">

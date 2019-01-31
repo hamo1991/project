@@ -1,29 +1,40 @@
 <?php
+if (!empty($categories)) {
+    foreach ($categories as $cat) {
+        if (Yii::$app->request->get('id') == $cat['id']) {
+            $this->title = $cat['title'] . " Collection";
+            ?>
 
-$this->title = $categories[0]['title'] . " Collection";
-?>
+            <div class="breadcrumbs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
 
-<div class="breadcrumbs">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <p class="bread"><span><?= $categories[0]['title'] ?> Collection</span></p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="breadcrumbs-two">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="breadcrumbs-img"
-                     style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/' . $categories[0]['info_image'] ?>);">
-                    <h2><?= $categories[0]['title'] ?></h2>
+                            <p class="bread"><span><?= $cat['title'] ?> Collection</span></p>
+
+
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+            <div class="breadcrumbs-two">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="breadcrumbs-img"
+                                 style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/' . $cat['info_image'] ?>);">
+                                <h2><?= $cat['title'] ?></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php
+        }
+    }
+}
+
+?>
 
 
 <div class="colorlib-product">
@@ -34,11 +45,18 @@ $this->title = $categories[0]['title'] . " Collection";
                     <div class="col-sm-12">
                         <div class="side border mb-1">
                             <h3>Categories</h3>
-                            <ul><?php
-                                if (!empty($category)) {
-                                    foreach ($category as $cat) {
+                            <ul>
+                                <?php
+                                if (!empty($categories)) {
+                                    foreach ($categories as $cat) {
                                         ?>
-                                        <li>
+                                        <?php if (Yii::$app->request->get('id') == $cat['id']) {
+                                            $name = 'category';
+                                        } else {
+                                            $name = '';
+                                        }
+                                        ?>
+                                        <li id="<?= $name ?>">
                                             <a href="<?= \yii\helpers\Url::to(['/']) . $cat['slug'] . $cat['id'] ?>"><?= $cat['title'] ?></a>
                                         </li>
                                         <?php
@@ -51,13 +69,25 @@ $this->title = $categories[0]['title'] . " Collection";
                     </div>
                     <div class="col-sm-12">
                         <div class="side border mb-1">
-                            <h3>Brand</h3>
+                            <h3>Brands</h3>
                             <ul>
-                                <li><a href="#">Nike</a></li>
-                                <li><a href="#">Adidas</a></li>
-                                <li><a href="#">Merrel</a></li>
-                                <li><a href="#">Gucci</a></li>
-                                <li><a href="#">Skechers</a></li>
+                                <?php
+                                if (!empty($brands)) {
+                                    foreach ($brands as $brand) {
+                                        ?>
+                                        <!--                                        --><?php //if (Yii::$app->request->get('id') == $cat['id']) {
+//                                            $name = 'category';
+//                                        } else {
+//                                            $name = '';
+//                                        }
+//                                        ?>
+                                        <li>
+                                            <a href="<?= \yii\helpers\Url::to(['/']) . $brand['slug'] ?>"><?= $brand['title'] ?></a>
+                                        </li>
+                                        <?php
+                                    }
+                                }
+                                ?>
                             </ul>
                         </div>
                     </div>
@@ -91,18 +121,6 @@ $this->title = $categories[0]['title'] . " Collection";
                                     <li><a href="#">W</a></li>
                                 </ul>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="side border mb-1">
-                            <h3>Style</h3>
-                            <ul>
-                                <li><a href="#">Slip Ons</a></li>
-                                <li><a href="#">Boots</a></li>
-                                <li><a href="#">Sandals</a></li>
-                                <li><a href="#">Lace Ups</a></li>
-                                <li><a href="#">Oxfords</a></li>
-                            </ul>
                         </div>
                     </div>
                     <div class="col-sm-12">
@@ -158,7 +176,6 @@ $this->title = $categories[0]['title'] . " Collection";
 
                     }
                     ?>
-
                 </div>
                 <div class="row">
                     <div class="col-md-12 text-center">
