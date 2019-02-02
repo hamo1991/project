@@ -18,24 +18,31 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Products', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
+    <?php \yii\widgets\Pjax::begin();?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'id',
             'title',
             'description:ntext',
             'price',
+
             'sale_prise',
             //'sku',
             //'quantity',
             //'available_stock',
             //'is_new',
             //'is_sale',
-            //'image',
+//            'image',
+            [
+                'attribute' => 'image',
+                'format' => 'raw',
+                'value' => function($model){
+                    return Html::img(\yii\helpers\Url::to('../frontend/web/images/uploads/products/'. $model->image),['width' => '100px','height' => '100px',]);
+                }
+            ] ,
             //'is_feature',
             //'cat_id',
             //'brand_id',
@@ -45,4 +52,5 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+    <?php  \yii\widgets\Pjax::end();?>
 </div>

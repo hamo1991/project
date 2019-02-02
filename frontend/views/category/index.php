@@ -1,37 +1,34 @@
 <?php
-if (!empty($categories)) {
-    foreach ($categories as $cat) {
-        if (Yii::$app->request->get('id') == $cat['id']) {
-            $this->title = $cat['title'] . " Collection";
-            ?>
+if (!empty($category)) {
 
-            <div class="breadcrumbs">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
+    $this->title = $category['title'] . " Collection";
+    ?>
 
-                            <p class="bread"><span><?= $cat['title'] ?> Collection</span></p>
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+
+                    <p class="bread"><span><?= $category['title'] ?> Collection</span></p>
 
 
-                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="breadcrumbs-two">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="breadcrumbs-img"
+                         style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $category['info_image'] ?>);">
+                        <h2><?= $category['title'] ?></h2>
                     </div>
                 </div>
             </div>
-            <div class="breadcrumbs-two">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <div class="breadcrumbs-img"
-                                 style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/' . $cat['info_image'] ?>);">
-                                <h2><?= $cat['title'] ?></h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <?php
-        }
-    }
+        </div>
+    </div>
+    <?php
 }
 
 ?>
@@ -50,14 +47,14 @@ if (!empty($categories)) {
                                 if (!empty($categories)) {
                                     foreach ($categories as $cat) {
                                         ?>
-                                        <?php if (Yii::$app->request->get('id') == $cat['id']) {
+                                        <?php if ($category['id'] == $cat['id']) {
                                             $name = 'category';
                                         } else {
                                             $name = '';
                                         }
                                         ?>
                                         <li id="<?= $name ?>">
-                                            <a href="<?= \yii\helpers\Url::to(['/']) . $cat['slug'] . $cat['id'] ?>"><?= $cat['title'] ?></a>
+                                            <a href="<?= \yii\helpers\Url::to(['/category/'. $cat['slug']])  ?>"><?= $cat['title'] ?></a>
                                         </li>
                                         <?php
                                     }
@@ -72,8 +69,8 @@ if (!empty($categories)) {
                             <h3>Brands</h3>
                             <ul>
                                 <?php
-                                if (!empty($brands)) {
-                                    foreach ($brands as $brand) {
+                                if (!empty($category['brands'])) {
+                                    foreach ($category['brands'] as $brand) {
                                         ?>
                                         <!--                                        --><?php //if (Yii::$app->request->get('id') == $cat['id']) {
 //                                            $name = 'category';
@@ -145,8 +142,8 @@ if (!empty($categories)) {
                 <div class="row row-pb-md">
 
                     <?php
-                    if (!empty($products)) {
-                        foreach ($products as $prod) {
+                    if (!empty($category['products'])) {
+                        foreach ($category['products'] as $prod) {
                             ?>
 
                             <div class="col-lg-4 mb-4 text-center">
@@ -154,19 +151,30 @@ if (!empty($categories)) {
                                     <a href="#" class="prod-img">
                                         <?php if ($prod['is_new']) : ?>
                                             <img class="new-sale"
-                                                 src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png' ?>" alt="new">
+                                                 src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/new.png' ?>" alt="new">
                                         <?php endif ?>
                                         <?php if ($prod['is_sale']) : ?>
                                             <img class="new-sale"
-                                                 src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png' ?>"
+                                                 src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/sale.png' ?>"
                                                  alt="sale">
                                         <?php endif ?>
-                                        <img src="<?= \yii\helpers\Url::to(['/']) . 'images/' . $prod['image'] ?>"
+                                        <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $prod['image'] ?>"
                                              class="img-fluid" alt="Free html5 bootstrap 4 template">
                                     </a>
                                     <div class="desc">
                                         <h2><a href="#"><?= $prod['title'] ?></a></h2>
-                                        <span class="price"><?= $prod['price'] ?></span>
+                                        <?php
+                                        if($prod['sale_price']){
+                                            ?>
+                                            <span class="price"><del><?= $prod['price']?></del></span>
+                                            <span class="price"><?= $prod['sale_price']?></span>
+                                            <?php
+                                        }else {
+                                            ?>
+                                            <span class="price"><?= $prod['price']?></span>
+                                            <?php
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>

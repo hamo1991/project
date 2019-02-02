@@ -10721,14 +10721,18 @@ h1, h2, h3, h4, h5,
 }
 
 .product-entry .desc h2 a {
-    color: #000;
+    color: black;
+}
+
+.product-entry .desc h2 a:hover {
+    color: #2CC8BC;
 }
 
 .product-entry .desc span.price {
     display: block;
     font-family: "Rokkitt", Georgia, serif;
-    font-size: 18px;
-    color: #000;
+    font-size: 20px;
+    color: black;
     font-weight: 400;
 }
 

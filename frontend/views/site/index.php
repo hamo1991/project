@@ -2,7 +2,7 @@
 <aside id="colorlib-hero">
     <div class="flexslider">
         <ul class="slides ">
-            <li style="background-image: url(<?= \yii\helpers\Url::to(['/']) ?>images/img_bg_1.jpg);">
+            <li style="background-image: url(<?= \yii\helpers\Url::to(['/']) ?>images/uploads/products/img_bg_1.jpg);">
                 <div class="overlay"></div>
                 <div class="container-fluid ">
                     <div class="row">
@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </li>
-            <li style="background-image: url(<?= \yii\helpers\Url::to(['/']) ?>images/img_bg_2.jpg);">
+            <li style="background-image: url(<?= \yii\helpers\Url::to(['/']) ?>images/uploads/products//img_bg_2.jpg);">
                 <div class="overlay"></div>
                 <div class="container-fluid">
                     <div class="row">
@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </li>
-            <li style="background-image: url(<?= \yii\helpers\Url::to(['/']) ?>images/img_bg_3.jpg);">
+            <li style="background-image: url(<?= \yii\helpers\Url::to(['/']) ?>images/uploads/products//img_bg_3.jpg);">
                 <div class="overlay"></div>
                 <div class="container-fluid">
                     <div class="row">
@@ -79,9 +79,9 @@
                     <div class="col-sm-6 text-center" id="kids">
                         <div class="featured">
                             <a href="<?= $cat['slug'] ?>" class="featured-img"
-                               style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/' . $cat['image'] ?>);"></a>
+                               style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $cat['image'] ?>);"></a>
                             <div class="desc">
-                                <h2><a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['id'] ?>"><?= $cat['title'] ?> Collection</a></h2>
+                                <h2><a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['slug'] ?>"><?= $cat['title'] ?> Collection</a></h2>
                             </div>
                         </div>
                     </div>
@@ -113,17 +113,28 @@
 
                             <a href="#" class="prod-img">
                                 <?php if ($hit['is_new']) : ?>
-                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png'?>" alt="new">
+                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/new.png'?>" alt="new">
                                 <?php endif ?>
                                 <?php if ($hit['is_sale']) : ?>
-                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png'?>" alt="sale">
+                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/sale.png'?>" alt="sale">
                                 <?php endif ?>
-                                <img src="<?= \yii\helpers\Url::to(['/']) . 'images/' . $hit['image'] ?>"
+                                <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $hit['image'] ?>"
                                      class="img-fluid" alt="Free html5 bootstrap 4 template">
                             </a>
                             <div class="desc">
                                 <h2><a href="<?= $hit['slug'] ?>"><?= $hit['title'] ?></a></h2>
-                                <span class="price"><?= $hit['price'] ?></span>
+                                <?php
+                                if($hit['sale_price']){
+                                    ?>
+                                    <span class="price"><del><?= $hit['price']?></del></span>
+                                    <span class="price"><?= $hit['sale_price']?></span>
+                                    <?php
+                                }else {
+                                    ?>
+                                    <span class="price"><?= $hit['price']?></span>
+                                    <?php
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
