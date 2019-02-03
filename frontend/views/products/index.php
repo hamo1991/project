@@ -17,7 +17,7 @@ $this->title = 'All Products';
 
                     <div class="col-lg-3 mb-4 text-center">
                         <div class="product-entry border">
-                            <a href="#" class="prod-img">
+                            <a href="<?= \yii\helpers\Url::to(['product/','slug'=>$product['slug']])?>" class="prod-img">
                                 <?php if ($product['is_new']) : ?>
                                     <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png'?>" alt="new">
                                 <?php endif ?>
@@ -27,7 +27,7 @@ $this->title = 'All Products';
                                 <?= \yii\helpers\Html::img("@web/images/uploads/products/{$product['image']}", ['alt' => "picture",'class' => 'img-fluid']) ?>
                             </a>
                             <div class="desc">
-                                <h2><a href="<?= $product['slug'] ?>"><?= $product['title'] ?></a></h2>
+                                <h2><a href="<?= \yii\helpers\Url::to(['product/','slug'=>$product['slug']])?>"><?= $product['title'] ?></a></h2>
                                 <?php
                                 if($product['sale_price']){
                                     ?>

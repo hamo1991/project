@@ -225,9 +225,5 @@ class SiteController extends Controller {
         return $this->render('complete');
     }
 
-    public function actionDetails() {
-        return $this->render('details');
-    }
-
 
 }

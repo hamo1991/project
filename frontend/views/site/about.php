@@ -6,7 +6,7 @@ $this->title = 'About';
     <div class="container">
         <div class="row">
             <div class="col">
-                <p class="bread"><span><a href="index.html">Home</a></span> / <span>About</span></p>
+                <p class="bread"><span><a href="<?= \yii\helpers\Url::to(['/']) ?>">Home</a></span> / <span>About</span></p>
             </div>
         </div>
     </div>

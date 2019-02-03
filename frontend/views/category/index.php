@@ -148,7 +148,7 @@ if (!empty($category)) {
 
                             <div class="col-lg-4 mb-4 text-center">
                                 <div class="product-entry border">
-                                    <a href="#" class="prod-img">
+                                    <a href="<?= \yii\helpers\Url::to(['product/','slug'=>$prod['slug']])?>" class="prod-img">
                                         <?php if ($prod['is_new']) : ?>
                                             <img class="new-sale"
                                                  src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png' ?>" alt="new">
@@ -162,7 +162,7 @@ if (!empty($category)) {
                                              class="img-fluid" alt="Free html5 bootstrap 4 template">
                                     </a>
                                     <div class="desc">
-                                        <h2><a href="#"><?= $prod['title'] ?></a></h2>
+                                        <h2><a href="<?= \yii\helpers\Url::to(['product/','slug'=>$prod['slug']])?>"><?= $prod['title'] ?></a></h2>
                                         <?php
                                         if($prod['sale_price']){
                                             ?>

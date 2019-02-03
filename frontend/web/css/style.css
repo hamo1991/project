@@ -617,6 +617,10 @@ pre code {
     padding-left: 15px;
 }
 
+.col-sm-12 ul li a:hover {
+    color: #2CC8BC;
+}
+
 #kids {
     margin-left: auto;
     margin-right: auto
@@ -3156,6 +3160,7 @@ fieldset:disabled a.btn {
     -webkit-box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
     box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
 }
+
 
 .btn-outline-warning {
     color: #ffc107;
@@ -12275,5 +12280,3 @@ input[type="text"] {
 .js .animate-box {
     opacity: 0;
 }
-
-

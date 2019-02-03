@@ -15,6 +15,7 @@ use common\models\Products;
 use common\models\Cart;
 use yii\db\Query;
 use common\models\Brands;
+use yii\web\NotFoundHttpException;
 
 class CategoryController extends Controller {
 

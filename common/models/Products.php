@@ -11,6 +11,7 @@ use yii\behaviors\SluggableBehavior;
  * @property string $id
  * @property string $title
  * @property string $description
+ * @property string $manufacturer
  * @property double $price
  * @property double $sale_price
  * @property string $sku
@@ -57,7 +58,7 @@ class Products extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'price', 'sku', 'quantity', 'available_stock', 'cat_id', 'brand_id'], 'required'],
-            [['description', 'is_new','is_sale'], 'string'],
+            [['description', 'manufacturer','is_new','is_sale'], 'string'],
             [['price', 'sale_price'], 'number'],
             [['quantity', 'available_stock', 'cat_id', 'brand_id'], 'integer'],
             [['title', 'image', 'is_feature'], 'string', 'max' => 255],
@@ -77,6 +78,7 @@ class Products extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Title',
             'description' => 'Description',
+            'manufacturer' => 'Manufacturer',
             'price' => 'Price',
             'sale_price' => 'Sale Price',
             'sku' => 'Sku',

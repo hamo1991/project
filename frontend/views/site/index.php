@@ -78,7 +78,7 @@
                     ?>
                     <div class="col-sm-6 text-center" id="kids">
                         <div class="featured">
-                            <a href="<?= $cat['slug'] ?>" class="featured-img"
+                            <a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['slug'] ?>" class="featured-img"
                                style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $cat['image'] ?>);"></a>
                             <div class="desc">
                                 <h2><a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['slug'] ?>"><?= $cat['title'] ?> Collection</a></h2>
@@ -111,7 +111,7 @@
 
                         <div class="product-entry border">
 
-                            <a href="#" class="prod-img">
+                            <a href="<?= \yii\helpers\Url::to(['product/','slug'=>$hit['slug']])?>" class="prod-img">
                                 <?php if ($hit['is_new']) : ?>
                                     <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png'?>" alt="new">
                                 <?php endif ?>
@@ -122,7 +122,7 @@
                                      class="img-fluid" alt="Free html5 bootstrap 4 template">
                             </a>
                             <div class="desc">
-                                <h2><a href="<?= $hit['slug'] ?>"><?= $hit['title'] ?></a></h2>
+                                <h2><a href="<?= \yii\helpers\Url::to(['product/','slug'=>$hit['slug']])?>"><?= $hit['title'] ?></a></h2>
                                 <?php
                                 if($hit['sale_price']){
                                     ?>
