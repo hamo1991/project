@@ -3,6 +3,7 @@
 namespace  common\models;
 
 use Yii;
+use yii\behaviors\SluggableBehavior;
 
 /**
  * This is the model class for table "products".
@@ -10,8 +11,9 @@ use Yii;
  * @property string $id
  * @property string $title
  * @property string $description
+ * @property string $manufacturer
  * @property double $price
- * @property double $sale_prise
+ * @property double $sale_price
  * @property string $sku
  * @property int $quantity
  * @property int $available_stock
@@ -37,15 +39,27 @@ class Products extends \yii\db\ActiveRecord
         return 'products';
     }
 
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'title',
+                'slugAttribute' => 'slug',
+                'ensureUnique' => true
+            ],
+        ];
+    }
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['title', 'price', 'sku', 'quantity', 'available_stock', 'cat_id', 'brand_id', 'slug'], 'required'],
-            [['description', 'is_new','is_sale'], 'string'],
-            [['price', 'sale_prise'], 'number'],
+            [['title', 'price', 'sku', 'quantity', 'available_stock', 'cat_id', 'brand_id'], 'required'],
+            [['description', 'manufacturer','is_new','is_sale'], 'string'],
+            [['price', 'sale_price'], 'number'],
             [['quantity', 'available_stock', 'cat_id', 'brand_id'], 'integer'],
             [['title', 'image', 'is_feature'], 'string', 'max' => 255],
             [['sku', 'slug'], 'string', 'max' => 150],
@@ -64,8 +78,9 @@ class Products extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Title',
             'description' => 'Description',
+            'manufacturer' => 'Manufacturer',
             'price' => 'Price',
-            'sale_prise' => 'Sale Prise',
+            'sale_price' => 'Sale Price',
             'sku' => 'Sku',
             'quantity' => 'Quantity',
             'available_stock' => 'Available Stock',

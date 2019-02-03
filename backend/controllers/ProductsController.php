@@ -8,6 +8,7 @@ use common\models\ProductsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ProductsController implements the CRUD actions for Products model.
@@ -38,6 +39,7 @@ class ProductsController extends Controller {
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+
         ]);
     }
 
@@ -62,6 +64,18 @@ class ProductsController extends Controller {
         $model = new Products();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $imgFile = UploadedFile::getInstance($model, "image");
+            if (!empty($imgFile)) {
+                $imgPath = Yii::getAlias('@frontend').'/web/images/uploads/products/';
+                $imgName = Yii::$app->security->generateRandomString() . '.' . $imgFile->extension;
+                $model->image = $imgName;
+                $path = $imgPath . $imgName;
+                if($imgFile->saveAs($path)){
+                    $model->save(['image']);
+                }
+
+            }
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -78,15 +92,44 @@ class ProductsController extends Controller {
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id) {
+
+
         $model = $this->findModel($id);
 
+        $old_image = $model->image;
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+
+            $imgFile = UploadedFile::getInstance($model, "image");
+
+            if (!empty($imgFile)) {
+                $imgPath = Yii::getAlias('@frontend').'/web/images/uploads/products/';
+//                $imgName = (uniqid('logo').$imgFile->baseName.date('dHis') ). '.' . $imgFile->extension;
+
+                $imgName = Yii::$app->security->generateRandomString() . '.' . $imgFile->extension;
+                $model->image = $imgName;
+                $path = $imgPath . $imgName;
+                if($imgFile->saveAs($path)){
+                    $model->save(['image']);
+                    if (file_exists($imgPath . $old_image)) {
+                        unlink($imgPath . $old_image);
+                    }
+
+                }
+
+            }else{
+                $model->image = $old_image;
+                $model->save(['image']);
+            }
+
+
+            return $this->redirect(['/products']);
         }
 
         return $this->render('update', [
             'model' => $model,
         ]);
+
     }
 
     /**
@@ -99,7 +142,7 @@ class ProductsController extends Controller {
     public function actionDelete($id) {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['/products']);
     }
 
     /**

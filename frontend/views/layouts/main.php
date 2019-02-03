@@ -51,14 +51,14 @@ AppAsset::register($this);
                         <div class="col-sm-12 text-left menu-1">
                             <?php
                             $menuItems = [
-                                ['label' => 'Home', 'url' => ['/']],
-                                ['label' => 'About', 'url' => ['about']],
-                                ['label' => 'Contact', 'url' => ['contact']],
+                                ['label' => 'Home', 'url' => ['site/']],
+                                ['label' => 'About', 'url' => ['site/about']],
+                                ['label' => 'Contact', 'url' => ['site/contact']],
                             ];
 
                             if (Yii::$app->user->isGuest) {
-                                $menuItems[] = ['label' => 'Signup', 'url' => ['signup']];
-                                $menuItems[] = ['label' => 'Login', 'url' => ['login']];
+                                $menuItems[] = ['label' => 'Signup', 'url' => ['site/signup']];
+                                $menuItems[] = ['label' => 'Login', 'url' => ['site/login']];
                             } else {
                                 $menuItems[] = "<li class='logout-btn'>"
                                     . Html::beginForm(['/site/logout'], 'post')
@@ -69,7 +69,7 @@ AppAsset::register($this);
                                     . Html::endForm()
                                     . "</li>";
                             }
-                            $menuItems[] = ['label' => ' Cart [0]', 'options' => ['id' => 'cart'], 'url' => ['cart',]];
+                            $menuItems[] = ['label' => ' Cart [0]', 'options' => ['id' => 'cart'], 'url' => ['site/cart',]];
                             echo Nav::widget([
                                 'options' => ['class' => 'active'],
                                 'items' => $menuItems,

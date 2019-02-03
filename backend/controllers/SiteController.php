@@ -1,4 +1,5 @@
 <?php
+
 namespace backend\controllers;
 
 use Yii;
@@ -10,13 +11,11 @@ use common\models\LoginForm;
 /**
  * Site controller
  */
-class SiteController extends Controller
-{
+class SiteController extends Controller {
     /**
      * {@inheritdoc}
      */
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -44,8 +43,7 @@ class SiteController extends Controller
     /**
      * {@inheritdoc}
      */
-    public function actions()
-    {
+    public function actions() {
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
@@ -58,8 +56,7 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
-    {
+    public function actionIndex() {
         return $this->render('index');
     }
 
@@ -70,13 +67,21 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+
+            if(Yii::$app->user->identity->is_admin == '1'){
+                return $this->redirect(['index']);
+            }else{
+                Yii::$app->user->logout();
+                return $this->redirect('index');
+            }
+
         } else {
             $model->password = '';
 
@@ -91,8 +96,7 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionLogout()
-    {
+    public function actionLogout() {
         Yii::$app->user->logout();
 
         return $this->goHome();

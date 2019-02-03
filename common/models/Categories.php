@@ -3,6 +3,7 @@
 namespace  common\models;
 
 use Yii;
+use yii\behaviors\SluggableBehavior;
 
 /**
  * This is the model class for table "categories".
@@ -25,6 +26,19 @@ class Categories extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'categories';
+    }
+
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'title',
+                'slugAttribute' => 'slug',
+                'ensureUnique' => true
+            ],
+        ];
     }
 
     /**

@@ -5,12 +5,12 @@ namespace common\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Products;
+use common\models\Brands;
 
 /**
- * ProductsSearch represents the model behind the search form of `common\models\Products`.
+ * BrandsSearch represents the model behind the search form of `common\models\Brands`.
  */
-class ProductsSearch extends Products
+class BrandsSearch extends Brands
 {
     /**
      * @inheritdoc
@@ -18,9 +18,8 @@ class ProductsSearch extends Products
     public function rules()
     {
         return [
-            [['id', 'quantity', 'available_stock', 'cat_id', 'brand_id'], 'integer'],
-            [['title', 'description', 'manufacturer', 'sku', 'is_new', 'is_sale', 'image', 'is_feature', 'slug', 'best'], 'safe'],
-            [['price', 'sale_price'], 'number'],
+            [['id', 'cat_id'], 'integer'],
+            [['title', 'description', 'image', 'slug'], 'safe'],
         ];
     }
 
@@ -42,7 +41,7 @@ class ProductsSearch extends Products
      */
     public function search($params)
     {
-        $query = Products::find();
+        $query = Brands::find();
 
         // add conditions that should always apply here
 
@@ -61,24 +60,13 @@ class ProductsSearch extends Products
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'price' => $this->price,
-            'sale_price' => $this->sale_price,
-            'quantity' => $this->quantity,
-            'available_stock' => $this->available_stock,
             'cat_id' => $this->cat_id,
-            'brand_id' => $this->brand_id,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'manufacturer', $this->manufacturer])
-            ->andFilterWhere(['like', 'sku', $this->sku])
-            ->andFilterWhere(['like', 'is_new', $this->is_new])
-            ->andFilterWhere(['like', 'is_sale', $this->is_sale])
             ->andFilterWhere(['like', 'image', $this->image])
-            ->andFilterWhere(['like', 'is_feature', $this->is_feature])
-            ->andFilterWhere(['like', 'slug', $this->slug])
-            ->andFilterWhere(['like', 'best', $this->best]);
+            ->andFilterWhere(['like', 'slug', $this->slug]);
 
         return $dataProvider;
     }

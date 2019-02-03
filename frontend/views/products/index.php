@@ -12,23 +12,34 @@ $this->title = 'All Products';
         <div class="row row-pb-md">
             <?php
             if (!empty($products)) {
-                foreach ($products as $cat) {
+                foreach ($products as $product) {
                     ?>
 
                     <div class="col-lg-3 mb-4 text-center">
                         <div class="product-entry border">
-                            <a href="#" class="prod-img">
-                                <?php if ($cat['is_new']) : ?>
+                            <a href="<?= \yii\helpers\Url::to(['product/'.$product['slug']])?>" class="prod-img">
+                                <?php if ($product['is_new']) : ?>
                                     <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png'?>" alt="new">
                                 <?php endif ?>
-                                <?php if ($cat['is_sale']) : ?>
+                                <?php if ($product['is_sale']) : ?>
                                     <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png'?>" alt="sale">
                                 <?php endif ?>
-                                <?= \yii\helpers\Html::img("@web/images/{$cat['image']}", ['alt' => "picture",'class' => 'img-fluid']) ?>
+                                <?= \yii\helpers\Html::img("@web/images/uploads/products/{$product['image']}", ['alt' => "picture",'class' => 'img-fluid']) ?>
                             </a>
                             <div class="desc">
-                                <h2><a href="<?= $cat['slug'] ?>"><?= $cat['title'] ?></a></h2>
-                                <span class="price"><?= $cat['price'] ?></span>
+                                <h2><a href="<?= \yii\helpers\Url::to(['product/','slug'=>$product['slug']])?>"><?= $product['title'] ?></a></h2>
+                                <?php
+                                if($product['sale_price']){
+                                    ?>
+                                    <span class="price"><del><?= $product['price']?></del></span>
+                                    <span class="price"><?= $product['sale_price']?></span>
+                                    <?php
+                                }else {
+                                    ?>
+                                    <span class="price"><?= $product['price']?></span>
+                                    <?php
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>

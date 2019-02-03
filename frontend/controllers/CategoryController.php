@@ -21,8 +21,8 @@ class CategoryController extends Controller {
 
     public function actionIndex($slug) {
 
-//        $id = Yii::$app->request->get('id');
-//        $products = Products::find()->where(['cat_id' => $id])->asArray()->all();
+
+
         $category = Categories::findOne(['slug' => $slug]);
         if(!empty($category)){
             $id = $category->id;
