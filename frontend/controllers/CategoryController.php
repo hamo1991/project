@@ -15,20 +15,25 @@ use common\models\Products;
 use common\models\Cart;
 use yii\db\Query;
 use common\models\Brands;
+use yii\web\NotFoundHttpException;
 
 class CategoryController extends Controller {
 
-    public function actionIndex($id) {
+    public function actionIndex($slug) {
 
-        $id = Yii::$app->request->get('id');
-        $products = Products::find()->where(['cat_id' => $id])->asArray()->all();
-        $categories = Categories::find()->asArray()->all();
-        $brands = Brands::find()->asArray()->all();
-        return $this->render('index',[
-            'id' => $id,
-            'products' => $products,
-            'categories' => $categories,
-            'brands' => $brands
-        ]);
+//        $id = Yii::$app->request->get('id');
+//        $products = Products::find()->where(['cat_id' => $id])->asArray()->all();
+        $category = Categories::findOne(['slug' => $slug]);
+        if(!empty($category)){
+            $id = $category->id;
+            $categories = Categories::find()->asArray()->all();
+            $category = Categories::find()->with(['products','brands'])
+                ->where(['id' => $id])->asArray()->one();
+            return $this->render('index',[
+                'categories' => $categories,
+                'category' => $category
+            ]);
+        }
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

@@ -1,8 +1,7 @@
 <?php
-if (!empty($categories)) {
-    foreach ($categories as $cat) {
-        if (Yii::$app->request->get('id') == $cat['id']) {
-            $this->title = $cat['title'] . " Collection";
+if (!empty($category)) {
+
+            $this->title = $category['title'] . " Collection";
             ?>
 
             <div class="breadcrumbs">
@@ -10,7 +9,7 @@ if (!empty($categories)) {
                     <div class="row">
                         <div class="col">
 
-                            <p class="bread"><span><?= $cat['title'] ?> Collection</span></p>
+                            <p class="bread"><span><?= $category['title'] ?> Collection</span></p>
 
 
                         </div>
@@ -22,16 +21,14 @@ if (!empty($categories)) {
                     <div class="row">
                         <div class="col">
                             <div class="breadcrumbs-img"
-                                 style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/' . $cat['info_image'] ?>);">
-                                <h2><?= $cat['title'] ?></h2>
+                                 style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/' . $category['info_image'] ?>);">
+                                <h2><?= $category['title'] ?></h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <?php
-        }
-    }
 }
 
 ?>
@@ -50,14 +47,14 @@ if (!empty($categories)) {
                                 if (!empty($categories)) {
                                     foreach ($categories as $cat) {
                                         ?>
-                                        <?php if (Yii::$app->request->get('id') == $cat['id']) {
+                                        <?php if ($category['id'] == $cat['id']) {
                                             $name = 'category';
                                         } else {
                                             $name = '';
                                         }
                                         ?>
                                         <li id="<?= $name ?>">
-                                            <a href="<?= \yii\helpers\Url::to(['/']) . $cat['slug'] . $cat['id'] ?>"><?= $cat['title'] ?></a>
+                                            <a href="<?= \yii\helpers\Url::to(['/category/'. $cat['slug']])  ?>"><?= $cat['title'] ?></a>
                                         </li>
                                         <?php
                                     }
@@ -72,8 +69,8 @@ if (!empty($categories)) {
                             <h3>Brands</h3>
                             <ul>
                                 <?php
-                                if (!empty($brands)) {
-                                    foreach ($brands as $brand) {
+                                if (!empty($category['brands'])) {
+                                    foreach ($category['brands'] as $brand) {
                                         ?>
                                         <!--                                        --><?php //if (Yii::$app->request->get('id') == $cat['id']) {
 //                                            $name = 'category';
@@ -145,8 +142,8 @@ if (!empty($categories)) {
                 <div class="row row-pb-md">
 
                     <?php
-                    if (!empty($products)) {
-                        foreach ($products as $prod) {
+                    if (!empty($category['products'])) {
+                        foreach ($category['products'] as $prod) {
                             ?>
 
                             <div class="col-lg-4 mb-4 text-center">

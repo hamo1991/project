@@ -81,7 +81,7 @@
                             <a href="<?= $cat['slug'] ?>" class="featured-img"
                                style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/' . $cat['image'] ?>);"></a>
                             <div class="desc">
-                                <h2><a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['id'] ?>"><?= $cat['title'] ?> Collection</a></h2>
+                                <h2><a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['slug'] ?>"><?= $cat['title'] ?> Collection</a></h2>
                             </div>
                         </div>
                     </div>

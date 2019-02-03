@@ -44,7 +44,7 @@ return [
             'rules' => [
 
 
-                'category/<id:\d+>' => 'category/index',
+                'category/<slug:\w+>' => 'category/index',
             ],
         ],
 
