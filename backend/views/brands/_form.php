@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Categories */
+/* @var $model common\models\Brands */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="categories-form">
+<div class="brands-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
@@ -18,9 +18,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
 
-<!--    --><?//= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'cat_id')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'info_image')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

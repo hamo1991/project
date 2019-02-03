@@ -39,6 +39,7 @@ class ProductsController extends Controller {
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+
         ]);
     }
 
@@ -109,7 +110,7 @@ class ProductsController extends Controller {
                 $model->image = $imgName;
                 $path = $imgPath . $imgName;
                 if($imgFile->saveAs($path)){
-                    $model->save(true,['image']);
+                    $model->save(['image']);
                     if (file_exists($imgPath . $old_image)) {
                         unlink($imgPath . $old_image);
                     }
@@ -118,7 +119,7 @@ class ProductsController extends Controller {
 
             }else{
                 $model->image = $old_image;
-                $model->save(true,['image']);
+                $model->save(['image']);
             }
 
 

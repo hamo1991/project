@@ -19,10 +19,10 @@ $this->title = 'All Products';
                         <div class="product-entry border">
                             <a href="#" class="prod-img">
                                 <?php if ($product['is_new']) : ?>
-                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/new.png'?>" alt="new">
+                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png'?>" alt="new">
                                 <?php endif ?>
                                 <?php if ($product['is_sale']) : ?>
-                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/sale.png'?>" alt="sale">
+                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png'?>" alt="sale">
                                 <?php endif ?>
                                 <?= \yii\helpers\Html::img("@web/images/uploads/products/{$product['image']}", ['alt' => "picture",'class' => 'img-fluid']) ?>
                             </a>

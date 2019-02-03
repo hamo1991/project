@@ -113,10 +113,10 @@
 
                             <a href="#" class="prod-img">
                                 <?php if ($hit['is_new']) : ?>
-                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/new.png'?>" alt="new">
+                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png'?>" alt="new">
                                 <?php endif ?>
                                 <?php if ($hit['is_sale']) : ?>
-                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/sale.png'?>" alt="sale">
+                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png'?>" alt="sale">
                                 <?php endif ?>
                                 <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $hit['image'] ?>"
                                      class="img-fluid" alt="Free html5 bootstrap 4 template">

@@ -29,7 +29,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'image')->fileInput() ?>
 
-    <?= $form->field($model, 'sale_prise')->textInput() ?>
+    <?= $form->field($model, 'sale_price')->textInput() ?>
 
     <?= $form->field($model, 'sku')->textInput(['maxlength' => true]) ?>
 

@@ -151,11 +151,11 @@ if (!empty($category)) {
                                     <a href="#" class="prod-img">
                                         <?php if ($prod['is_new']) : ?>
                                             <img class="new-sale"
-                                                 src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/new.png' ?>" alt="new">
+                                                 src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png' ?>" alt="new">
                                         <?php endif ?>
                                         <?php if ($prod['is_sale']) : ?>
                                             <img class="new-sale"
-                                                 src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/sale.png' ?>"
+                                                 src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png' ?>"
                                                  alt="sale">
                                         <?php endif ?>
                                         <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $prod['image'] ?>"
