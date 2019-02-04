@@ -38,8 +38,6 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'image') ?>
 
-    <?php // echo $form->field($model, 'is_feature') ?>
-
     <?php // echo $form->field($model, 'cat_id') ?>
 
     <?php // echo $form->field($model, 'brand_id') ?>

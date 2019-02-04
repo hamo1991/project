@@ -38,15 +38,14 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'available_stock')->textInput() ?>
 
-    <?= $form->field($model, 'is_new')->dropDownList([ '0', '1', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'is_new')->dropDownList([ '0' => 'No', '1' => 'Yes', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'is_sale')->dropDownList([ '0', '1', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'is_sale')->dropDownList([ '0' => 'No', '1' => 'Yes', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'is_feature')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'cat_id')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'cat_id')->dropDownList($categories,['prompt' => 'Please select category']); ?>
 
-    <?= $form->field($model, 'brand_id')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'brand_id')->dropDownList($brands,['prompt' => 'Please select brand']); ?>
 
     <?//= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 

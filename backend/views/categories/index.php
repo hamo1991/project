@@ -29,8 +29,23 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             'description:ntext',
-            'image',
-            'slug',
+            [
+                'attribute' => 'image',
+                'format' => 'raw',
+                'filter' => '',
+                'value' => function($model){
+                    return Html::img(\yii\helpers\Url::to('../frontend/web/images/uploads/products/'. $model->image),['width' => '100px','height' => '70px',]);
+                }
+            ] ,
+            [
+                'attribute' => 'info_image',
+                'format' => 'raw',
+                'filter' => '',
+                'value' => function($model){
+                    return Html::img(\yii\helpers\Url::to('../frontend/web/images/uploads/products/'. $model->info_image),['width' => '100px','height' => '70px',]);
+                }
+            ] ,
+//            'slug',
             //'info_image',
 
             ['class' => 'yii\grid\ActionColumn'],

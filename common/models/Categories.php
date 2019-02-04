@@ -47,7 +47,7 @@ class Categories extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'image', 'info_image', 'slug'], 'required'],
+            [['title', 'slug'], 'required'],
             [['description'], 'string'],
             [['title', 'image','info_image'], 'string', 'max' => 255],
             [['slug'], 'string', 'max' => 150],

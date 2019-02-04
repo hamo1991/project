@@ -20,7 +20,6 @@ use yii\behaviors\SluggableBehavior;
  * @property string $is_new
  * @property string $is_sale
  * @property string $image
- * @property string $is_feature
  * @property string $cat_id
  * @property string $brand_id
  * @property string $slug
@@ -61,7 +60,7 @@ class Products extends \yii\db\ActiveRecord
             [['description', 'manufacturer','is_new','is_sale'], 'string'],
             [['price', 'sale_price'], 'number'],
             [['quantity', 'available_stock', 'cat_id', 'brand_id'], 'integer'],
-            [['title', 'image', 'is_feature'], 'string', 'max' => 255],
+            [['title', 'image'], 'string', 'max' => 255],
             [['sku', 'slug'], 'string', 'max' => 150],
             [['sku'], 'unique'],
             [['cat_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categories::className(), 'targetAttribute' => ['cat_id' => 'id']],
@@ -87,9 +86,8 @@ class Products extends \yii\db\ActiveRecord
             'is_new' => 'Is New',
             'is_sale' => 'Is Sale',
             'image' => 'Image',
-            'is_feature' => 'Is Feature',
-            'cat_id' => 'Cat ID',
-            'brand_id' => 'Brand ID',
+            'cat_id' => 'Categories',
+            'brand_id' => 'Brands',
             'slug' => 'Slug',
         ];
     }

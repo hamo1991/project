@@ -8,17 +8,16 @@ use common\models\CategoriesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * CategoriesController implements the CRUD actions for Categories model.
  */
-class CategoriesController extends Controller
-{
+class CategoriesController extends Controller {
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -33,8 +32,7 @@ class CategoriesController extends Controller
      * Lists all Categories models.
      * @return mixed
      */
-    public function actionIndex()
-    {
+    public function actionIndex() {
         $searchModel = new CategoriesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -50,8 +48,7 @@ class CategoriesController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
-    {
+    public function actionView($id) {
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -62,11 +59,36 @@ class CategoriesController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
+    public function actionCreate() {
         $model = new Categories();
-
+        $imgPath = Yii::getAlias('@frontend') . '/web/images/uploads/products/';
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            $imgFileOne = UploadedFile::getInstance($model, "image");
+            $imgFileTwo = UploadedFile::getInstance($model, "info_image");
+
+            if (!empty($imgFileOne)) {
+
+                $imgName = Yii::$app->security->generateRandomString() . '.' . $imgFileOne->extension;
+                $model->image = $imgName;
+                $path = $imgPath . $imgName;
+                if ($imgFileOne->saveAs($path)) {
+                    $model->save(['image']);
+                }
+
+            }
+
+            if (!empty($imgFileTwo)) {
+
+                $imgName = Yii::$app->security->generateRandomString() . '.' . $imgFileTwo->extension;
+                $model->info_image = $imgName;
+                $path = $imgPath . $imgName;
+                if ($imgFileTwo->saveAs($path)) {
+                    $model->save(['info_image']);
+                }
+
+            }
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -82,17 +104,68 @@ class CategoriesController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
-    {
+    public function actionUpdate($id) {
+
         $model = $this->findModel($id);
 
+        $oldImageOne = $model->image;
+        $oldImageTwo = $model->info_image;
+
+        $imgPath = Yii::getAlias('@frontend') . '/web/images/uploads/products/';
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+
+            $imgFileOne = UploadedFile::getInstance($model, "image");
+            $imgFileTwo = UploadedFile::getInstance($model, "info_image");
+
+            if (!empty($imgFileOne)) {
+
+                $imgName = Yii::$app->security->generateRandomString() . '.' . $imgFileOne->extension;
+                $model->image = $imgName;
+                $path = $imgPath . $imgName;
+                if ($imgFileOne->saveAs($path)) {
+                    if ($oldImageOne == '') {
+                        $model->save(['image']);
+                    } elseif (file_exists($imgPath . $oldImageOne)) {
+                        unlink($imgPath . $oldImageOne);
+                        $model->save(['image']);
+
+                    }
+                }
+
+            } else {
+                $model->image = $oldImageOne;
+                $model->save(['image']);
+            }
+
+            if (!empty($imgFileTwo)) {
+
+                $imgName = Yii::$app->security->generateRandomString() . '.' . $imgFileTwo->extension;
+                $model->info_image = $imgName;
+                $path = $imgPath . $imgName;
+                if ($imgFileTwo->saveAs($path)) {
+                    if ($oldImageTwo == '') {
+                        $model->save(['info_image']);
+                    } elseif (file_exists($imgPath . $oldImageTwo)) {
+                        unlink($imgPath . $oldImageTwo);
+                        $model->save(['info_image']);
+
+                    }
+                }
+
+            } else {
+                $model->info_image = $oldImageTwo;
+                $model->save(['info_image']);
+            }
+
+
+            return $this->redirect(['/categories']);
         }
 
         return $this->render('update', [
             'model' => $model,
         ]);
+
     }
 
     /**
@@ -102,11 +175,27 @@ class CategoriesController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
+    public function actionDelete($id) {
 
-        return $this->redirect(['index']);
+        $model = $this->findModel($id);
+        $imgPath = Yii::getAlias('@frontend') . '/web/images/uploads/products/';
+
+        $imageOne = $model->image;
+        $imageTwo = $model->info_image;
+        $fileOne = $imgPath . $imageOne;
+        $fileTwo = $imgPath . $imageTwo;
+
+        if ($imageOne == '' || $imageTwo == '') {
+            $this->findModel($id)->delete();
+        }elseif (file_exists($fileOne) && file_exists($fileTwo)) {
+            unlink($fileOne);
+            unlink($fileTwo);
+            $this->findModel($id)->delete();
+        }
+
+
+
+        return $this->redirect(['/categories']);
     }
 
     /**
@@ -116,8 +205,7 @@ class CategoriesController extends Controller
      * @return Categories the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
-    {
+    protected function findModel($id) {
         if (($model = Categories::findOne($id)) !== null) {
             return $model;
         }

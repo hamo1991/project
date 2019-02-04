@@ -40,7 +40,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'is_new',
             'is_sale',
             'image',
-            'is_feature',
             'cat_id',
             'brand_id',
             'slug',

@@ -2,6 +2,8 @@
 
 namespace backend\controllers;
 
+use common\models\Brands;
+use common\models\Categories;
 use Yii;
 use common\models\Products;
 use common\models\ProductsSearch;
@@ -9,6 +11,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use yii\helpers\ArrayHelper;
 
 /**
  * ProductsController implements the CRUD actions for Products model.
@@ -33,12 +36,14 @@ class ProductsController extends Controller {
      * @return mixed
      */
     public function actionIndex() {
+
         $searchModel = new ProductsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+
 
         ]);
     }
@@ -63,14 +68,20 @@ class ProductsController extends Controller {
     public function actionCreate() {
         $model = new Products();
 
+        $categories = Categories::find()->asArray()->all();
+        $categories = ArrayHelper::map($categories,'id','title');
+
+        $brands = Brands::find()->asArray()->all();
+        $brands = ArrayHelper::map($brands,'id','title');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $imgFile = UploadedFile::getInstance($model, "image");
             if (!empty($imgFile)) {
-                $imgPath = Yii::getAlias('@frontend').'/web/images/uploads/products/';
+                $imgPath = Yii::getAlias('@frontend') . '/web/images/uploads/products/';
                 $imgName = Yii::$app->security->generateRandomString() . '.' . $imgFile->extension;
                 $model->image = $imgName;
                 $path = $imgPath . $imgName;
-                if($imgFile->saveAs($path)){
+                if ($imgFile->saveAs($path)) {
                     $model->save(['image']);
                 }
 
@@ -81,6 +92,8 @@ class ProductsController extends Controller {
 
         return $this->render('create', [
             'model' => $model,
+            'categories' => $categories,
+            'brands' => $brands
         ]);
     }
 
@@ -103,21 +116,24 @@ class ProductsController extends Controller {
             $imgFile = UploadedFile::getInstance($model, "image");
 
             if (!empty($imgFile)) {
-                $imgPath = Yii::getAlias('@frontend').'/web/images/uploads/products/';
+                $imgPath = Yii::getAlias('@frontend') . '/web/images/uploads/products/';
 //                $imgName = (uniqid('logo').$imgFile->baseName.date('dHis') ). '.' . $imgFile->extension;
 
                 $imgName = Yii::$app->security->generateRandomString() . '.' . $imgFile->extension;
                 $model->image = $imgName;
                 $path = $imgPath . $imgName;
-                if($imgFile->saveAs($path)){
-                    $model->save(['image']);
-                    if (file_exists($imgPath . $old_image)) {
+                if ($imgFile->saveAs($path)) {
+                    if ($old_image == '') {
+                        $model->save(['image']);
+                    } elseif (file_exists($imgPath . $old_image)) {
                         unlink($imgPath . $old_image);
+                        $model->save(['image']);
+
                     }
 
                 }
 
-            }else{
+            } else {
                 $model->image = $old_image;
                 $model->save(['image']);
             }
@@ -139,8 +155,21 @@ class ProductsController extends Controller {
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
+
     public function actionDelete($id) {
-        $this->findModel($id)->delete();
+
+        $model = $this->findModel($id);
+        $image = $model->image;
+        $imgPath = Yii::getAlias('@frontend') . '/web/images/uploads/products/';
+        $file = $imgPath . $image;
+        if ($image == '') {
+            $this->findModel($id)->delete();
+        }elseif (file_exists($file)) {
+            unlink($file);
+            $this->findModel($id)->delete();
+        }
+
+
 
         return $this->redirect(['/products']);
     }

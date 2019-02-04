@@ -39,11 +39,11 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'image',
                 'format' => 'raw',
+                'filter' => '',
                 'value' => function($model){
                     return Html::img(\yii\helpers\Url::to('../frontend/web/images/uploads/products/'. $model->image),['width' => '100px','height' => '100px',]);
                 }
             ] ,
-            //'is_feature',
             //'cat_id',
             //'brand_id',
             //'slug',

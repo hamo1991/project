@@ -19,7 +19,7 @@ class ProductsSearch extends Products
     {
         return [
             [['id', 'quantity', 'available_stock', 'cat_id', 'brand_id'], 'integer'],
-            [['title', 'description', 'manufacturer', 'sku', 'is_new', 'is_sale', 'image', 'is_feature', 'slug', 'best'], 'safe'],
+            [['title', 'description', 'manufacturer', 'sku', 'is_new', 'is_sale', 'image', 'slug', 'best'], 'safe'],
             [['price', 'sale_price'], 'number'],
         ];
     }
@@ -76,7 +76,6 @@ class ProductsSearch extends Products
             ->andFilterWhere(['like', 'is_new', $this->is_new])
             ->andFilterWhere(['like', 'is_sale', $this->is_sale])
             ->andFilterWhere(['like', 'image', $this->image])
-            ->andFilterWhere(['like', 'is_feature', $this->is_feature])
             ->andFilterWhere(['like', 'slug', $this->slug])
             ->andFilterWhere(['like', 'best', $this->best]);
 
