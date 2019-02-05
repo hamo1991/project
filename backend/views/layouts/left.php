@@ -35,6 +35,7 @@
                     ['label' => 'Products', 'icon' => 'file-code-o', 'url' => ['/products']],
                     ['label' => 'Categories', 'icon' => 'file-code-o', 'url' => ['/categories']],
                     ['label' => 'Brands', 'icon' => 'file-code-o', 'url' => ['/brands']],
+                    ['label' => 'Blog', 'icon' => 'dashboard', 'url' => ['/blog/blog']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Some tools',
