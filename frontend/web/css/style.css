@@ -5169,11 +5169,12 @@ input[type="button"].btn-block {
 .pagination {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
+    display: block;
     padding-left: 0;
     list-style: none;
     border-radius: 0.25rem;
 }
+
 
 #page {
     background-image: url("../images/dust_scratches.png");
@@ -10757,8 +10758,7 @@ h1, h2, h3, h4, h5,
     display: inline-block;
     width: 40px;
     height: 40px;
-    line-height: 40px;
-    border-radius: 50%;
+    line-height: 30px;
     border: 1px solid #ccc;
 }
 
@@ -12064,7 +12064,6 @@ input[type="text"] {
     -moz-border-radius: 0;
     -ms-border-radius: 0;
     border-radius: 0;
-    margin: 2px;
 }
 
 .pagination li a:first-child {

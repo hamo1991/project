@@ -16,6 +16,8 @@ use common\models\Cart;
 use yii\db\Query;
 use common\models\Brands;
 use yii\web\NotFoundHttpException;
+use yii\data\Pagination;
+use yii\data\ActiveDataProvider;
 
 class CategoryController extends Controller {
 
@@ -24,14 +26,23 @@ class CategoryController extends Controller {
 
 
         $category = Categories::findOne(['slug' => $slug]);
+
         if(!empty($category)){
             $id = $category->id;
+
             $categories = Categories::find()->asArray()->all();
+            $brands = Brands::find()->asArray()->all();
             $category = Categories::find()->with(['products','brands'])
                 ->where(['id' => $id])->asArray()->one();
+
+//            $brand = Brands::find()->with(['products'])->asArray()->one();
+
+
             return $this->render('index',[
                 'categories' => $categories,
-                'category' => $category
+                'category' => $category,
+                'brands' => $brands,
+
             ]);
         }
         throw new NotFoundHttpException('The requested page does not exist.');

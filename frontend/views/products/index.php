@@ -9,7 +9,9 @@ $this->title = 'All Products';
                 <h2>All Products</h2>
             </div>
         </div>
+
         <div class="row row-pb-md">
+
             <?php
             if (!empty($products)) {
                 foreach ($products as $product) {
@@ -17,26 +19,31 @@ $this->title = 'All Products';
 
                     <div class="col-lg-3 mb-4 text-center">
                         <div class="product-entry border">
-                            <a href="<?= \yii\helpers\Url::to(['product/'.$product['slug']])?>" class="prod-img">
+                            <a href="<?= \yii\helpers\Url::to(['product/' . $product['slug']]) ?>" class="prod-img">
                                 <?php if ($product['is_new']) : ?>
-                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png'?>" alt="new">
+                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png' ?>"
+                                         alt="new">
                                 <?php endif ?>
                                 <?php if ($product['is_sale']) : ?>
-                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png'?>" alt="sale">
+                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png' ?>"
+                                         alt="sale">
                                 <?php endif ?>
-                                <?= \yii\helpers\Html::img("@web/images/uploads/products/{$product['image']}", ['alt' => "picture",'class' => 'img-fluid']) ?>
+                                <?= \yii\helpers\Html::img("@web/images/uploads/products/{$product['image']}", ['alt' => "picture", 'class' => 'img-fluid']) ?>
                             </a>
                             <div class="desc">
-                                <h2><a href="<?= \yii\helpers\Url::to(['product/','slug'=>$product['slug']])?>"><?= $product['title'] ?></a></h2>
+                                <h2>
+                                    <a href="<?= \yii\helpers\Url::to(['product/', 'slug' => $product['slug']]) ?>"><?= $product['title'] ?></a>
+                                </h2>
                                 <?php
-                                if($product['sale_price']){
+                                if ($product['sale_price']) {
                                     ?>
-                                    <span class="price"><del><?= $product['price']?></del></span>
-                                    <span class="price"><?= $product['sale_price']?></span>
+                                    <p><span class="price"><del><?= $product['price'] ?></del></span>
+                                        <span class="price"><?= $product['sale_price'] ?></span></p>
+
                                     <?php
-                                }else {
+                                } else {
                                     ?>
-                                    <span class="price"><?= $product['price']?></span>
+                                    <span class="price"><?= $product['price'] ?></span>
                                     <?php
                                 }
                                 ?>
@@ -48,9 +55,29 @@ $this->title = 'All Products';
                 }
 
             }
+
             ?>
+
         </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="block-27">
+                    <?php
+                    echo \yii\widgets\LinkPager::widget(
+
+                        [
+                            'pagination' => $pagination,
+
+
+
+                        ]); ?>
+                </div>
+            </div>
+        </div>
+
+
     </div>
+
 
     <div class="colorlib-partner" id="partner">
         <div class="container">

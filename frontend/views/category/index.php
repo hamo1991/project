@@ -5,7 +5,7 @@ if (!empty($category)) {
 
     $this->title = $category['title'] . " Collection";
     ?>
-
+<?php //var_dump($category) ?>
     <div class="breadcrumbs">
         <div class="container">
             <div class="row">
@@ -51,6 +51,7 @@ if (!empty($category)) {
                                 <?php
                                 if (!empty($categories)) {
                                     foreach ($categories as $cat) {
+
                                         ?>
                                         <?php if ($category['id'] == $cat['id']) {
                                             $name = 'category';
@@ -74,17 +75,12 @@ if (!empty($category)) {
                             <h3>Brands</h3>
                             <ul>
                                 <?php
-                                if (!empty($category['brands'])) {
-                                    foreach ($category['brands'] as $brand) {
+                                if (!empty($brands)) {
+                                    foreach ($brands as $brand) {
                                         ?>
-                                        <!--                                        --><?php //if (Yii::$app->request->get('id') == $cat['id']) {
-//                                            $name = 'category';
-//                                        } else {
-//                                            $name = '';
-//                                        }
-//                                        ?>
+
                                         <li>
-                                            <a href="<?= \yii\helpers\Url::to(['/']) . $brand['slug'] ?>"><?= $brand['title'] ?></a>
+                                            <a href="<?= \yii\helpers\Url::to(['/category/'   .$brand['slug'] ])?>"><?= $brand['title'] ?></a>
                                         </li>
                                         <?php
                                     }
@@ -190,21 +186,21 @@ if (!empty($category)) {
                     }
                     ?>
                 </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <div class="block-27">
-                            <ul>
-                                <li><a href="#"><i class="ion-ios-arrow-back"></i></a></li>
-                                <li class="active"><span>1</span></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#"><i class="ion-ios-arrow-forward"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+<!--                <div class="row">-->
+<!--                    <div class="col-md-12 text-center">-->
+<!--                        <div class="block-27">-->
+<!--                            --><?php
+//                            echo \yii\widgets\LinkPager::widget(
+//
+//                                [
+//                                    'pagination' => $pagination,
+//
+//
+//
+//                                ]); ?>
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
     </div>
