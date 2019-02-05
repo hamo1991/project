@@ -75,12 +75,14 @@ class SiteController extends Controller {
      */
     public function actionIndex() {
 
+        $brands = Brands::find()->asArray()->all();
         $categories = Categories::find()->asArray()->all();
         $hitProducts = Products::find()->where(['best' => '1'])->limit('8')->asArray()->all();
 
         return $this->render('index', [
             'categories' => $categories,
-            'hitProducts' => $hitProducts
+            'hitProducts' => $hitProducts,
+            'brands' => $brands
         ]);
     }
 

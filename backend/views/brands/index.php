@@ -28,8 +28,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             'description:ntext',
-            'image',
-            'cat_id',
+//            'image',
+            [
+                'attribute' => 'image',
+                'format' => 'raw',
+                'filter' => '',
+                'value' => function($model){
+                    return Html::img(\yii\helpers\Url::to('../frontend/web/images/uploads/brands/'. $model->image),['width' => '100px','height' => '70px',]);
+                }
+            ] ,
+
+//            'cat_id',
             //'slug',
 
             ['class' => 'yii\grid\ActionColumn'],

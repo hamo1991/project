@@ -79,7 +79,7 @@
                     <div class="col-sm-6 text-center" id="kids">
                         <div class="featured">
                             <a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['slug'] ?>" class="featured-img"
-                               style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $cat['image'] ?>);"></a>
+                               style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/categories/' . $cat['image'] ?>);"></a>
                             <div class="desc">
                                 <h2><a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['slug'] ?>"><?= $cat['title'] ?> Collection</a></h2>
                             </div>
@@ -162,26 +162,19 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col partner-col text-center">
-                    <img src="<?= \yii\helpers\Url::to(['/']) ?>images/brand-1.jpg" class="img-fluid"
-                         alt="Free html4 bootstrap 4 template">
-                </div>
-                <div class="col partner-col text-center">
-                    <img src="<?= \yii\helpers\Url::to(['/']) ?>images/brand-2.jpg" class="img-fluid"
-                         alt="Free html4 bootstrap 4 template">
-                </div>
-                <div class="col partner-col text-center">
-                    <img src="<?= \yii\helpers\Url::to(['/']) ?>images/brand-3.jpg" class="img-fluid"
-                         alt="Free html4 bootstrap 4 template">
-                </div>
-                <div class="col partner-col text-center">
-                    <img src="<?= \yii\helpers\Url::to(['/']) ?>images/brand-4.jpg" class="img-fluid"
-                         alt="Free html4 bootstrap 4 template">
-                </div>
-                <div class="col partner-col text-center">
-                    <img src="<?= \yii\helpers\Url::to(['/']) ?>images/brand-5.jpg" class="img-fluid"
-                         alt="Free html4 bootstrap 4 template">
-                </div>
+                <?php
+                if (!empty($brands)) {
+                    foreach ($brands as $brand) {
+                        ?>
+                        <div class="col partner-col text-center">
+                            <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/brands/' . $brand['image'] ?>" class="img-fluid"
+                                 alt="brand images">
+                        </div>
+                <?php
+                    }
+                }
+                ?>
+
             </div>
         </div>
     </div>

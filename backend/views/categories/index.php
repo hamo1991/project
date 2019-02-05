@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'raw',
                 'filter' => '',
                 'value' => function($model){
-                    return Html::img(\yii\helpers\Url::to('../frontend/web/images/uploads/products/'. $model->image),['width' => '100px','height' => '70px',]);
+                    return Html::img(\yii\helpers\Url::to('../frontend/web/images/uploads/categories/'. $model->image),['width' => '100px','height' => '70px',]);
                 }
             ] ,
             [
@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'raw',
                 'filter' => '',
                 'value' => function($model){
-                    return Html::img(\yii\helpers\Url::to('../frontend/web/images/uploads/products/'. $model->info_image),['width' => '100px','height' => '70px',]);
+                    return Html::img(\yii\helpers\Url::to('../frontend/web/images/uploads/categories/'. $model->info_image),['width' => '100px','height' => '70px',]);
                 }
             ] ,
 //            'slug',
@@ -50,6 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]); ?>
+    ]);
+    ?>
     <?php Pjax::end(); ?>
 </div>

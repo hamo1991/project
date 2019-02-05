@@ -25,7 +25,7 @@ if (!empty($category)) {
             <div class="row">
                 <div class="col">
                     <div class="breadcrumbs-img"
-                         style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $category['info_image'] ?>);">
+                         style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/categories/' . $category['info_image'] ?>);">
                         <h2><?= $category['title'] ?></h2>
                     </div>
                 </div>
@@ -78,9 +78,8 @@ if (!empty($category)) {
                                 if (!empty($brands)) {
                                     foreach ($brands as $brand) {
                                         ?>
-
                                         <li>
-                                            <a href="<?= \yii\helpers\Url::to(['/category/'   .$brand['slug'] ])?>"><?= $brand['title'] ?></a>
+                                            <a href="<?= \yii\helpers\Url::to(['/category/' . $brand['slug'] ])?>"><?= $brand['title'] ?></a>
                                         </li>
                                         <?php
                                     }

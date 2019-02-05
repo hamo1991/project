@@ -31,11 +31,11 @@ class CategoryController extends Controller {
             $id = $category->id;
 
             $categories = Categories::find()->asArray()->all();
-            $brands = Brands::find()->asArray()->all();
+//            $brands = Brands::find()->asArray()->all();
             $category = Categories::find()->with(['products','brands'])
                 ->where(['id' => $id])->asArray()->one();
 
-//            $brand = Brands::find()->with(['products'])->asArray()->one();
+            $brands = Brands::find()->with(['products'])->asArray()->one();
 
 
             return $this->render('index',[

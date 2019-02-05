@@ -46,7 +46,7 @@ class Brands extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'cat_id', 'slug'], 'required'],
+            [['title', 'cat_id'], 'required'],
             [['description'], 'string'],
             [['cat_id'], 'integer'],
             [['title', 'image'], 'string', 'max' => 255],
@@ -65,7 +65,7 @@ class Brands extends \yii\db\ActiveRecord
             'title' => 'Title',
             'description' => 'Description',
             'image' => 'Image',
-            'cat_id' => 'Cat ID',
+            'cat_id' => 'Category',
             'slug' => 'Slug',
         ];
     }

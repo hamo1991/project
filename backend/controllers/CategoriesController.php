@@ -61,7 +61,7 @@ class CategoriesController extends Controller {
      */
     public function actionCreate() {
         $model = new Categories();
-        $imgPath = Yii::getAlias('@frontend') . '/web/images/uploads/products/';
+        $imgPath = Yii::getAlias('@frontend') . '/web/images/uploads/categories/';
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
             $imgFileOne = UploadedFile::getInstance($model, "image");
@@ -111,7 +111,7 @@ class CategoriesController extends Controller {
         $oldImageOne = $model->image;
         $oldImageTwo = $model->info_image;
 
-        $imgPath = Yii::getAlias('@frontend') . '/web/images/uploads/products/';
+        $imgPath = Yii::getAlias('@frontend') . '/web/images/uploads/categories/';
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
@@ -178,7 +178,7 @@ class CategoriesController extends Controller {
     public function actionDelete($id) {
 
         $model = $this->findModel($id);
-        $imgPath = Yii::getAlias('@frontend') . '/web/images/uploads/products/';
+        $imgPath = Yii::getAlias('@frontend') . '/web/images/uploads/categories/';
 
         $imageOne = $model->image;
         $imageTwo = $model->info_image;

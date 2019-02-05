@@ -159,7 +159,7 @@ AppAsset::register($this);
                 <div class="col footer-col">
                     <h4>News</h4>
                     <ul class="colorlib-footer-links">
-                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="<?= \yii\helpers\Url::to(['/']) . 'blog/blog'?>">Blog</a></li>
                         <li><a href="#">Press</a></li>
                         <li><a href="#">Exhibitions</a></li>
                     </ul>

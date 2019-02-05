@@ -8,6 +8,8 @@ use common\models\BrandsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use yii\helpers\ArrayHelper;
 
 /**
  * BrandsController implements the CRUD actions for Brands model.
@@ -67,9 +69,20 @@ class BrandsController extends Controller
         $model = new Brands();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $imgFile = UploadedFile::getInstance($model, "image");
+            if (!empty($imgFile)) {
+                $imgPath = Yii::getAlias('@frontend') . '/web/images/uploads/brands/';
+                $imgName = Yii::$app->security->generateRandomString() . '.' . $imgFile->extension;
+                $model->image = $imgName;
+                $path = $imgPath . $imgName;
+                if ($imgFile->saveAs($path)) {
+                    $model->save(['image']);
+                }
+
+            }
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
-
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -86,12 +99,42 @@ class BrandsController extends Controller
     {
         $model = $this->findModel($id);
 
+        $old_image = $model->image;
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+
+            $imgFile = UploadedFile::getInstance($model, "image");
+
+            if (!empty($imgFile)) {
+                $imgPath = Yii::getAlias('@frontend') . '/web/images/uploads/brands/';
+//                $imgName = (uniqid('logo').$imgFile->baseName.date('dHis') ). '.' . $imgFile->extension;
+
+                $imgName = Yii::$app->security->generateRandomString() . '.' . $imgFile->extension;
+                $model->image = $imgName;
+                $path = $imgPath . $imgName;
+                if ($imgFile->saveAs($path)) {
+                    if ($old_image == '') {
+                        $model->save(['image']);
+                    } elseif (file_exists($imgPath . $old_image)) {
+                        unlink($imgPath . $old_image);
+                        $model->save(['image']);
+
+                    }
+
+                }
+
+            } else {
+                $model->image = $old_image;
+                $model->save(['image']);
+            }
+
+
+            return $this->redirect(['/brands']);
         }
 
         return $this->render('update', [
             'model' => $model,
+
         ]);
     }
 
@@ -104,9 +147,20 @@ class BrandsController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        $image = $model->image;
+        $imgPath = Yii::getAlias('@frontend') . '/web/images/uploads/brands/';
+        $file = $imgPath . $image;
+        if ($image == '') {
+            $this->findModel($id)->delete();
+        }elseif (file_exists($file)) {
+            unlink($file);
+            $this->findModel($id)->delete();
+        }
 
-        return $this->redirect(['index']);
+
+
+        return $this->redirect(['/brands']);
     }
 
     /**

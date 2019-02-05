@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'raw',
                 'filter' => '',
                 'value' => function($model){
-                    return Html::img(\yii\helpers\Url::to('../frontend/web/images/uploads/products/'. $model->image),['width' => '100px','height' => '100px',]);
+                    return Html::img(\yii\helpers\Url::to('/frontend/web/images/uploads/products/'. $model->image),['width' => '100px','height' => '100px',]);
                 }
             ] ,
             //'cat_id',
