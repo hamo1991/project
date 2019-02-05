@@ -13,49 +13,47 @@ $this->title = 'All Products';
         <div class="row row-pb-md">
 
             <?php
+
             if (!empty($products)) {
-                foreach ($products as $product) {
-                    ?>
+            foreach ($products as $product) {
+                ?>
 
-                    <div class="col-lg-3 mb-4 text-center">
-                        <div class="product-entry border">
-                            <a href="<?= \yii\helpers\Url::to(['product/' . $product['slug']]) ?>" class="prod-img">
-                                <?php if ($product['is_new']) : ?>
-                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png' ?>"
-                                         alt="new">
-                                <?php endif ?>
-                                <?php if ($product['is_sale']) : ?>
-                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png' ?>"
-                                         alt="sale">
-                                <?php endif ?>
-                                <?= \yii\helpers\Html::img("@web/images/uploads/products/{$product['image']}", ['alt' => "picture", 'class' => 'img-fluid']) ?>
-                            </a>
-                            <div class="desc">
-                                <h2>
-                                    <a href="<?= \yii\helpers\Url::to(['product/', 'slug' => $product['slug']]) ?>"><?= $product['title'] ?></a>
-                                </h2>
-                                <?php
-                                if ($product['sale_price']) {
-                                    ?>
-                                    <p><span class="price"><del><?= $product['price'] ?></del></span>
-                                        <span class="price"><?= $product['sale_price'] ?></span></p>
-
-                                    <?php
-                                } else {
-                                    ?>
-                                    <span class="price"><?= $product['price'] ?></span>
-                                    <?php
-                                }
+                <div class="col-lg-3 mb-4 text-center">
+                    <div class="product-entry border">
+                        <a href="<?= \yii\helpers\Url::to(['product/' . $product['slug']]) ?>" class="prod-img">
+                            <?php if ($product['is_new']) : ?>
+                                <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png' ?>"
+                                     alt="new">
+                            <?php endif ?>
+                            <?php if ($product['is_sale']) : ?>
+                                <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png' ?>"
+                                     alt="sale">
+                            <?php endif ?>
+                            <?= \yii\helpers\Html::img("@web/images/uploads/products/{$product['image']}", ['alt' => "picture", 'class' => 'img-fluid']) ?>
+                        </a>
+                        <div class="desc">
+                            <h2>
+                                <a href="<?= \yii\helpers\Url::to(['product/', 'slug' => $product['slug']]) ?>"><?= $product['title'] ?></a>
+                            </h2>
+                            <?php
+                            if ($product['sale_price']) {
                                 ?>
-                            </div>
+                                <p><span class="price"><del><?= $product['price'] ?></del></span>
+                                    <span class="price"><?= $product['sale_price'] ?></span></p>
+
+                                <?php
+                            } else {
+                                ?>
+                                <span class="price"><?= $product['price'] ?></span>
+                                <?php
+                            }
+                            ?>
                         </div>
                     </div>
-                    <?php
-
-                }
+                </div>
+                <?php
 
             }
-
             ?>
 
         </div>
@@ -68,15 +66,23 @@ $this->title = 'All Products';
                         [
                             'pagination' => $pagination,
 
+                        ]);
 
 
-                        ]); ?>
+                    ?>
                 </div>
             </div>
         </div>
 
+        <?php
+
+        }
+
+        ?>
+
 
     </div>
+
 
 
     <div class="colorlib-partner" id="partner">
@@ -110,4 +116,4 @@ $this->title = 'All Products';
             </div>
         </div>
     </div>
-</div>/
+</div>

@@ -106,6 +106,11 @@ class ProductsController extends Controller {
      */
     public function actionUpdate($id) {
 
+        $categories = Categories::find()->asArray()->all();
+        $categories = ArrayHelper::map($categories,'id','title');
+
+        $brands = Brands::find()->asArray()->all();
+        $brands = ArrayHelper::map($brands,'id','title');
 
         $model = $this->findModel($id);
 
@@ -144,6 +149,8 @@ class ProductsController extends Controller {
 
         return $this->render('update', [
             'model' => $model,
+            'categories' => $categories,
+            'brands' => $brands
         ]);
 
     }
