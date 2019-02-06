@@ -18,6 +18,7 @@ use common\models\Products;
 use common\models\Cart;
 use yii\db\Query;
 use common\models\Brands;
+use common\models\Slider;
 
 /**
  * Site controller
@@ -78,11 +79,13 @@ class SiteController extends Controller {
         $brands = Brands::find()->asArray()->all();
         $categories = Categories::find()->asArray()->all();
         $hitProducts = Products::find()->where(['best' => '1'])->limit('8')->asArray()->all();
+        $slider = Slider::find()->asArray()->all();
 
         return $this->render('index', [
             'categories' => $categories,
             'hitProducts' => $hitProducts,
-            'brands' => $brands
+            'brands' => $brands,
+            'slider' => $slider
         ]);
     }
 

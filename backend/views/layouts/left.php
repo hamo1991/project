@@ -5,10 +5,10 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
+                <img src="<?= $directoryAsset ?>/img/hamo.jpg" class="img-circle" alt="User Image"/>
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
+                <p>Hamo Harutyunyan</p>
 
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -30,11 +30,12 @@
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
-                    ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
+                    ['label' => 'Menu Shoes', 'options' => ['class' => 'header']],
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Products', 'icon' => 'file-code-o', 'url' => ['/products']],
                     ['label' => 'Categories', 'icon' => 'file-code-o', 'url' => ['/categories']],
                     ['label' => 'Brands', 'icon' => 'file-code-o', 'url' => ['/brands']],
+                    ['label' => 'Slider', 'icon' => 'file-code-o', 'url' => ['/slider']],
                     ['label' => 'Blog', 'icon' => 'dashboard', 'url' => ['/blog/blog']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [

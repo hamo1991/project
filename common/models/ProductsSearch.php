@@ -10,13 +10,11 @@ use common\models\Products;
 /**
  * ProductsSearch represents the model behind the search form of `common\models\Products`.
  */
-class ProductsSearch extends Products
-{
+class ProductsSearch extends Products {
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['id', 'quantity', 'available_stock', 'cat_id', 'brand_id'], 'integer'],
             [['title', 'description', 'manufacturer', 'sku', 'is_new', 'is_sale', 'image', 'slug', 'best'], 'safe'],
@@ -27,8 +25,7 @@ class ProductsSearch extends Products
     /**
      * @inheritdoc
      */
-    public function scenarios()
-    {
+    public function scenarios() {
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
@@ -40,14 +37,16 @@ class ProductsSearch extends Products
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
-    {
+    public function search($params) {
         $query = Products::find();
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => 5,
+            ]
         ]);
 
         $this->load($params);

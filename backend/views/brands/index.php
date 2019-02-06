@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'raw',
                 'filter' => '',
                 'value' => function($model){
-                    return Html::img(\yii\helpers\Url::to('../frontend/web/images/uploads/brands/'. $model->image),['width' => '100px','height' => '70px',]);
+                    return Html::img(\yii\helpers\Url::to('/frontend/web/images/uploads/brands/'. $model->image),['width' => '100px','height' => '70px',]);
                 }
             ] ,
 

@@ -16,17 +16,10 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+
     <?= $form->field($model, 'manufacturer')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'price')->textInput() ?>
-
-<!--    --><?php
-//    //if(!$model->isNewRecord){
-//    if(!empty($model->image)){
-//        echo Html::img(['/images/'.$model->image],['width' => '100px']);
-//    }
-//    // }
-//    ?>
 
     <?= $form->field($model, 'image')->fileInput() ?>
 

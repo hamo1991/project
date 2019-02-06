@@ -4,20 +4,20 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\CategoriesSearch */
+/* @var $searchModel common\models\SliderSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Categories';
+$this->title = 'Sliders';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="categories-index">
+<div class="slider-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Categories', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Slider', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -28,29 +28,20 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'title',
-            'description:ntext',
+            'description',
+            'content',
+//            'image',
             [
                 'attribute' => 'image',
                 'format' => 'raw',
                 'filter' => '',
                 'value' => function($model){
-                    return Html::img(\yii\helpers\Url::to('/frontend/web/images/uploads/categories/'. $model->image),['width' => '100px','height' => '70px',]);
+                    return Html::img(\yii\helpers\Url::to('/frontend/web/images/uploads/slider/'. $model->image),['width' => '120px','height' => '80px',]);
                 }
             ] ,
-            [
-                'attribute' => 'info_image',
-                'format' => 'raw',
-                'filter' => '',
-                'value' => function($model){
-                    return Html::img(\yii\helpers\Url::to('/frontend/web/images/uploads/categories/'. $model->info_image),['width' => '100px','height' => '70px',]);
-                }
-            ] ,
-//            'slug',
-            //'info_image',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]);
-    ?>
+    ]); ?>
     <?php Pjax::end(); ?>
 </div>
