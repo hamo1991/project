@@ -50,6 +50,7 @@ return [
 
                 'product/<slug>' => 'product/index',
                 'category/<slug:\w+>' => 'category/index',
+                'category/<slug:\w+>/<name:\w+>' => 'category/index',
                 'blog' => 'blog/blog/index',
                 'article/<slug>' => 'blog/blog/article',
 

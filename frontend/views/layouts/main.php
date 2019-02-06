@@ -168,9 +168,9 @@ AppAsset::register($this);
                 <div class="col footer-col">
                     <h4>Contact Information</h4>
                     <ul class="colorlib-footer-links">
-                        <li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
-                        <li><a href="tel://1234567920">+ 1235 2355 98</a></li>
-                        <li><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
+                        <li><?= \frontend\widgets\info\InfoWidget::widget(['action' => 'address']); ?></li>
+                        <li><a href="tel://1234567920"><?= \frontend\widgets\info\InfoWidget::widget(['action' => 'phone']); ?></a></li>
+                        <li style="text-transform: lowercase"><a href="mailto:info@yoursite.com"><?= \frontend\widgets\info\InfoWidget::widget(['action' => 'email']); ?></a></li>
                         <li><a href="#">yoursite.com</a></li>
                     </ul>
                 </div>

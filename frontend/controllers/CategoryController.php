@@ -19,29 +19,42 @@ use yii\web\NotFoundHttpException;
 use yii\data\Pagination;
 use yii\data\ActiveDataProvider;
 
-class CategoryController extends Controller {
+class CategoryController extends Controller
+{
 
-    public function actionIndex($slug) {
-
+    public function actionIndex($slug, $name = '')
+    {
 
 
         $category = Categories::findOne(['slug' => $slug]);
+        $brands = Brands::findOne(['slug' => $name]);
 
-        if(!empty($category)){
-            $id = $category->id;
+        if (!empty($category)) {
+            $id_cat = $category->id;
+
 
             $categories = Categories::find()->asArray()->all();
-            $brands = Brands::find()->asArray()->all();
-            $category = Categories::find()->with(['products','brands'])
-                ->where(['id' => $id])->asArray()->one();
+            $category = Categories::find()->with(['brands'])
+                ->where(['id' => $id_cat])->asArray()->one();
 
-//            $brands = Brands::find()->with(['products'])->asArray()->one();
+            $query = Products::find()->where(['cat_id' => $id_cat]);
+            if(!empty($brands)){
+                $query->andWhere(['brand_id'=>$brands->id]);
+            }
+            $products = $query->asArray()->all();
 
 
-            return $this->render('index',[
+            $brands = Brands::find()->alias('b')
+                ->innerJoin('products as p', 'p.brand_id = b.id')
+                ->where(['b.cat_id' => $id_cat])->asArray()->all();
+
+
+            return $this->render('index', [
                 'categories' => $categories,
                 'category' => $category,
+                'products' => $products,
                 'brands' => $brands,
+
 
             ]);
         }

@@ -9,7 +9,7 @@ $this->title = 'All Products';
                 <h2>All Products</h2>
             </div>
         </div>
-
+<
         <div class="row row-pb-md">
 
             <?php

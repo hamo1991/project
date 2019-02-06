@@ -1,11 +1,9 @@
 <?php
 if (!empty($category)) {
 
-
-
     $this->title = $category['title'] . " Collection";
     ?>
-<?php //var_dump($category) ?>
+<?php //var_dump($product);die(); ?>
     <div class="breadcrumbs">
         <div class="container">
             <div class="row">
@@ -76,14 +74,15 @@ if (!empty($category)) {
                             <ul>
                                 <?php
                                 if (!empty($brands)) {
-                                    foreach ($brands as $brand) {
+                                 foreach ($brands as $brand) {
                                         ?>
                                         <li>
-                                            <a href="<?= \yii\helpers\Url::to(['/category/' . $brand['slug'] ])?>"><?= $brand['title'] ?></a>
+                                            <a href="<?= \yii\helpers\Url::to(['/category/' . $category['slug'] . '/' . $brand['slug']])?>"><?= $brand['title'] ?></a>
                                         </li>
                                         <?php
                                     }
                                 }
+
                                 ?>
                             </ul>
                         </div>
@@ -142,8 +141,8 @@ if (!empty($category)) {
                 <div class="row row-pb-md">
 
                     <?php
-                    if (!empty($category['products'])) {
-                        foreach ($category['products'] as $prod) {
+                    if (!empty($products)) {
+                        foreach ($products as $prod) {
                             ?>
 
                             <div class="col-lg-4 mb-4 text-center">
