@@ -106,10 +106,6 @@ AppAsset::register($this);
         </nav>
     </header>
 
-      <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-      ]) ?>
-   <?= Alert::widget() ?>
     <?= $content ?>
 
 
@@ -133,7 +129,7 @@ AppAsset::register($this);
                     <h4>Customer Care</h4>
                     <p>
                     <ul class="colorlib-footer-links">
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="<?= \yii\helpers\Url::to(['/']) . 'site/contact' ?>">Contact</a></li>
                         <li><a href="#">Returns/Exchange</a></li>
                         <li><a href="#">Gift Voucher</a></li>
                         <li><a href="#">Wishlist</a></li>

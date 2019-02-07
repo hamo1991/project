@@ -38,7 +38,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ] ,
 
-//            'cat_id',
             //'slug',
 
             ['class' => 'yii\grid\ActionColumn'],

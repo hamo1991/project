@@ -38,6 +38,7 @@
                     ['label' => 'Slider', 'icon' => 'fas fa-play', 'url' => ['/slider']],
                     ['label' => 'Info', 'icon' => 'fas fa-info-circle', 'url' => ['/info']],
                     ['label' => 'Blog', 'icon' => 'fab fa-bitcoin', 'url' => ['/blog/blog']],
+                    ['label' => 'Brands & Categories', 'icon' => 'fab fa-bitcoin', 'url' => ['/rules']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Some tools',

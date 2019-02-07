@@ -4,27 +4,25 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\BrandsSearch */
+/* @var $model common\models\RulesSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="brands-search">
+<div class="rules-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
+        'options' => [
+            'data-pjax' => 1
+        ],
     ]); ?>
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'title') ?>
+    <?= $form->field($model, 'cat_id') ?>
 
-    <?= $form->field($model, 'description') ?>
-
-    <?= $form->field($model, 'image') ?>
-
-
-    <?php // echo $form->field($model, 'slug') ?>
+    <?= $form->field($model, 'brand_id') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

@@ -72,14 +72,6 @@ class Categories extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getBrands()
-    {
-        return $this->hasMany(Brands::className(), ['cat_id' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
     public function getProducts()
     {
         return $this->hasMany(Products::className(), ['cat_id' => 'id']);

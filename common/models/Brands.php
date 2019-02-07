@@ -12,9 +12,7 @@ use yii\behaviors\SluggableBehavior;
  * @property string $title
  * @property string $description
  * @property string $image
- * @property string $cat_id
  * @property string $slug
- *
  * @property Categories $cat
  * @property Products[] $products
  */
@@ -46,12 +44,10 @@ class Brands extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'cat_id'], 'required'],
+            [['title'], 'required'],
             [['description'], 'string'],
-            [['cat_id'], 'integer'],
             [['title', 'image'], 'string', 'max' => 255],
             [['slug'], 'string', 'max' => 150],
-            [['cat_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categories::className(), 'targetAttribute' => ['cat_id' => 'id']],
         ];
     }
 
@@ -65,7 +61,6 @@ class Brands extends \yii\db\ActiveRecord
             'title' => 'Title',
             'description' => 'Description',
             'image' => 'Image',
-            'cat_id' => 'Category',
             'slug' => 'Slug',
         ];
     }
@@ -73,10 +68,6 @@ class Brands extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getCat()
-    {
-        return $this->hasOne(Categories::className(), ['id' => 'cat_id']);
-    }
 
     /**
      * @return \yii\db\ActiveQuery

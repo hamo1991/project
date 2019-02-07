@@ -23,7 +23,6 @@ class CategoryController extends Controller {
 
     public function actionIndex($slug, $name = '') {
 
-
         $category = Categories::findOne(['slug' => $slug]);
         $brands = Brands::findOne(['slug' => $name]);
 
@@ -33,7 +32,7 @@ class CategoryController extends Controller {
 
 
             $categories = Categories::find()->asArray()->all();
-            $category = Categories::find()->with(['brands'])
+            $category = Categories::find()
                 ->where(['id' => $id_cat])->asArray()->one();
 
             $query = Products::find()->where(['cat_id' => $id_cat]);
@@ -42,19 +41,15 @@ class CategoryController extends Controller {
             }
             $products = $query->asArray()->all();
 
-
             $brands = Brands::find()->alias('b')
-                ->innerJoin('products as p', 'p.brand_id = b.id')
-                ->where(['b.cat_id' => $id_cat])->asArray()->all();
-
+                ->innerJoin('rules as ru', 'ru.brand_id = b.id')
+                ->where(['ru.cat_id' => $id_cat])->asArray()->all();
 
             return $this->render('index', [
                 'categories' => $categories,
                 'category' => $category,
                 'products' => $products,
                 'brands' => $brands,
-
-
             ]);
         }
 
