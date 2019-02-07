@@ -25,10 +25,8 @@ class AppAsset extends AssetBundle
         'css/style.css',
     ];
     public $js = [
-        'js/jquery-3.2.1.min.js',
         'js/jquery-migrate-3.0.1.min.js',
         'js/aos.js',
-        'js/jquery.min.js',
         'js/popper.min.js',
         'js/bootstrap.min.js',
         'js/jquery.countTo.js',
@@ -43,7 +41,7 @@ class AppAsset extends AssetBundle
         'js/main.js',
         'js/jquery.animateNumber.min.js',
         'js/respond.min.js',
-//        'js/google_map.js'
+
     ];
     public $depends = [
         'yii\web\YiiAsset',
@@ -52,11 +50,11 @@ class AppAsset extends AssetBundle
 
 //    public function init()
 //    {
-//        if (\Yii::$app->controller->action->id === 'about') {
-//            $this->js[] = 'js/script.js';
+//        if (\Yii::$app->controller->action->id === 'login') {
+//            $this->css[] = 'css/login.css';
+//
+//            $this->js[] = 'js/prefixfree.min.js';
 //        }
-//        if (\Yii::$app->controller->action->id === 'about') {
-//            $this->css[] = 'css/style.css';
-//        }
+//
 //    }
 }

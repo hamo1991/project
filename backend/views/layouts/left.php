@@ -32,12 +32,12 @@
                 'items' => [
                     ['label' => 'Menu Shoes', 'options' => ['class' => 'header']],
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Products', 'icon' => 'file-code-o', 'url' => ['/products']],
-                    ['label' => 'Categories', 'icon' => 'file-code-o', 'url' => ['/categories']],
-                    ['label' => 'Brands', 'icon' => 'file-code-o', 'url' => ['/brands']],
-                    ['label' => 'Slider', 'icon' => 'file-code-o', 'url' => ['/slider']],
-                    ['label' => 'Info', 'icon' => 'file-code-o', 'url' => ['/info']],
-                    ['label' => 'Blog', 'icon' => 'dashboard', 'url' => ['/blog/blog']],
+                    ['label' => 'Products', 'icon' => 'fab fa-product-hunt', 'url' => ['/products']],
+                    ['label' => 'Categories', 'icon' => 'fab fa-contao', 'url' => ['/categories']],
+                    ['label' => 'Brands', 'icon' => 'fab fa-bandcamp', 'url' => ['/brands']],
+                    ['label' => 'Slider', 'icon' => 'fas fa-play', 'url' => ['/slider']],
+                    ['label' => 'Info', 'icon' => 'fas fa-info-circle', 'url' => ['/info']],
+                    ['label' => 'Blog', 'icon' => 'fab fa-bitcoin', 'url' => ['/blog/blog']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Some tools',

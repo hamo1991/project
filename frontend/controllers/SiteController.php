@@ -15,6 +15,7 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use common\models\Categories;
 use common\models\Products;
+
 use common\models\Cart;
 use yii\db\Query;
 use common\models\Brands;
@@ -128,7 +129,9 @@ class SiteController extends Controller {
      * @return mixed
      */
     public function actionContact() {
+
         $model = new ContactForm();
+
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
                 Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');

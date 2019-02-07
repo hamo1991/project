@@ -19,15 +19,14 @@ use yii\web\NotFoundHttpException;
 use yii\data\Pagination;
 use yii\data\ActiveDataProvider;
 
-class CategoryController extends Controller
-{
+class CategoryController extends Controller {
 
-    public function actionIndex($slug, $name = '')
-    {
+    public function actionIndex($slug, $name = '') {
 
 
         $category = Categories::findOne(['slug' => $slug]);
         $brands = Brands::findOne(['slug' => $name]);
+
 
         if (!empty($category)) {
             $id_cat = $category->id;
@@ -38,8 +37,8 @@ class CategoryController extends Controller
                 ->where(['id' => $id_cat])->asArray()->one();
 
             $query = Products::find()->where(['cat_id' => $id_cat]);
-            if(!empty($brands)){
-                $query->andWhere(['brand_id'=>$brands->id]);
+            if (!empty($brands)) {
+                $query->andWhere(['brand_id' => $brands->id]);
             }
             $products = $query->asArray()->all();
 
@@ -58,6 +57,7 @@ class CategoryController extends Controller
 
             ]);
         }
+
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

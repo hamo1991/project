@@ -179,11 +179,7 @@ AppAsset::register($this);
         <div class="copy">
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    <p>
-							<span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;2019 All rights reserved <i class="icon-heart" aria-hidden="true"></i>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
-                    </p>
+                    <p><span>Copyright &copy;2019 All rights reserved <i class="icon-heart" aria-hidden="true"></i></span></p>
                 </div>
             </div>
         </div>
@@ -195,17 +191,7 @@ Copyright &copy;2019 All rights reserved <i class="icon-heart" aria-hidden="true
 </div>
 
 <?php $this->endBody() ?>
-<!--<script>-->
-<!--    function myMap() {-->
-<!--        let mapOptions = {-->
-<!--            center: new google.maps.LatLng(40.79229336, 43.84778612),-->
-<!--            zoom: 16,-->
-<!--            mapTypeId: google.maps.MapTypeId.HYBRID,-->
-<!--        };-->
-<!--        let map = new google.maps.Map(document.getElementById("map"), mapOptions);-->
-<!--    }-->
-<!--</script>-->
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwtvaOIGoZZezU3Sm-KDZAtnGxtY5VOUI&callback=myMap"></script>-->
+
 </body>
 </html>
 <?php $this->endPage() ?>

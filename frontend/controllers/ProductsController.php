@@ -29,11 +29,13 @@ class ProductsController extends Controller{
         $dataProvider = new ActiveDataProvider([
             'query' => $products,
         ]);
+        $brands = Brands::find()->asArray()->all();
         $products = $products->offset($pagination->offset)->limit($pagination->limit)->asArray()->all();
         return $this->render('index', [
             'products' => $products,
             'dataProvider' => $dataProvider,
-            'pagination' => $pagination
+            'pagination' => $pagination,
+            'brands' => $brands
 
             ]);
     }
