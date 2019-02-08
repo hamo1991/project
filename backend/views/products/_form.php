@@ -21,7 +21,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'price')->textInput() ?>
 
-    <?= $form->field($model, 'image')->fileInput() ?>
+    <?= $form->field($model, 'image')->fileInput(['multiple' => true]) ?>
 
     <?= $form->field($model, 'sale_price')->textInput() ?>
 
@@ -40,7 +40,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'brand_id')->dropDownList($brands,['prompt' => 'Please select brand']); ?>
 
-    <?//= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
+   <!-- <?//= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?> -->
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

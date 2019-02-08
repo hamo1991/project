@@ -31,7 +31,6 @@
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => 'Menu Shoes','options' => ['class' => 'header']],
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Products', 'icon' => 'fab fa-product-hunt', 'url' => ['/products']],
                     ['label' => 'Categories', 'icon' => 'fab fa-contao', 'url' => ['/categories']],
                     ['label' => 'Brands', 'icon' => 'fab fa-bandcamp', 'url' => ['/brands']],
@@ -47,7 +46,6 @@
                         'items' => [
                             ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
 
-                            ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
                             [
                                 'label' => 'Level One',
                                 'icon' => 'circle-o',

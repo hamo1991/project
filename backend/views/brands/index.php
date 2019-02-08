@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\BrandsSearch */
+/* @var $searchModel common\models\search\BrandsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Brands';

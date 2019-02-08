@@ -86,7 +86,6 @@ $this->title = 'All Products';
                             'pagination' => $pagination,
 
                         ]);
-
                     ?>
                 </div>
             </div>

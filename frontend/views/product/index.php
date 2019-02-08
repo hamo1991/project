@@ -22,8 +22,7 @@ $this->title = 'Product Details';
                     <div class="item">
                         <div class="product-entry border">
                             <a href="#" class="prod-img">
-                                <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                            </a>
+                          </a>
                         </div>
                     </div>
                     <div class="item">

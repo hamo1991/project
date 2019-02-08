@@ -38,11 +38,15 @@ class RulesController extends Controller
     public function actionIndex()
     {
         $searchModel = new RulesSearch();
+        $titleBrands = Brands::find()->asArray()->all();
+        $titleCategories = Categories::find()->asArray()->all();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'titleBrands' => $titleBrands,
+            'titleCategories' => $titleCategories
         ]);
     }
 

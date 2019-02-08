@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\RulesSearch */
+/* @var $searchModel common\models\search\BrandsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Rules';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="rules-index">
-
+<?php //var_dump($titleBrands,$titleCategories);die(); ?>
     <h1><?= Html::encode($this->title) ?></h1>
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -27,7 +27,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
             'id',
             'cat_id',
+//            [
+//                'attribute' => 'cat_id',
+//                'value' => function($model){
+//                    ;
+//                }
+//            ] ,
             'brand_id',
+//
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
