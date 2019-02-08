@@ -4,7 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Rules;
-use common\models\RulesSearch;
+use common\models\search\RulesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -95,6 +95,11 @@ class RulesController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $categories = Categories::find()->asArray()->all();
+        $categories = ArrayHelper::map($categories,'id','title');
+
+        $brands = Brands::find()->asArray()->all();
+        $brands = ArrayHelper::map($brands,'id','title');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -102,6 +107,8 @@ class RulesController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'categories' => $categories,
+            'brands' => $brands
         ]);
     }
 

@@ -1,31 +1,33 @@
 <?php
 
-namespace common\models;
+namespace common\models\search;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Products;
+use common\models\Categories;
 
 /**
- * ProductsSearch represents the model behind the search form of `common\models\Products`.
+ * CategoriesSearch represents the model behind the search form of `common\models\Categories`.
  */
-class ProductsSearch extends Products {
+class CategoriesSearch extends Categories
+{
     /**
      * @inheritdoc
      */
-    public function rules() {
+    public function rules()
+    {
         return [
-            [['id', 'quantity', 'available_stock', 'cat_id', 'brand_id'], 'integer'],
-            [['title', 'description', 'manufacturer', 'sku', 'is_new', 'is_sale', 'image', 'slug', 'best'], 'safe'],
-            [['price', 'sale_price'], 'number'],
+            [['id'], 'integer'],
+            [['title', 'description', 'image', 'slug', 'info_image'], 'safe'],
         ];
     }
 
     /**
      * @inheritdoc
      */
-    public function scenarios() {
+    public function scenarios()
+    {
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
@@ -37,16 +39,14 @@ class ProductsSearch extends Products {
      *
      * @return ActiveDataProvider
      */
-    public function search($params) {
-        $query = Products::find();
+    public function search($params)
+    {
+        $query = Categories::find();
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'pagination' => [
-                'pageSize' => 5,
-            ]
         ]);
 
         $this->load($params);
@@ -60,23 +60,13 @@ class ProductsSearch extends Products {
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'price' => $this->price,
-            'sale_price' => $this->sale_price,
-            'quantity' => $this->quantity,
-            'available_stock' => $this->available_stock,
-            'cat_id' => $this->cat_id,
-            'brand_id' => $this->brand_id,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'manufacturer', $this->manufacturer])
-            ->andFilterWhere(['like', 'sku', $this->sku])
-            ->andFilterWhere(['like', 'is_new', $this->is_new])
-            ->andFilterWhere(['like', 'is_sale', $this->is_sale])
             ->andFilterWhere(['like', 'image', $this->image])
             ->andFilterWhere(['like', 'slug', $this->slug])
-            ->andFilterWhere(['like', 'best', $this->best]);
+            ->andFilterWhere(['like', 'info_image', $this->info_image]);
 
         return $dataProvider;
     }

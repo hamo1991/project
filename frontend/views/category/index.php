@@ -3,7 +3,6 @@ if (!empty($category)) {
 
     $this->title = $category['title'] . " Collection";
     ?>
-<?php //var_dump($product);die(); ?>
     <div class="breadcrumbs">
         <div class="container">
             <div class="row">

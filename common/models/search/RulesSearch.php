@@ -1,16 +1,16 @@
 <?php
 
-namespace common\models;
+namespace common\models\search;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Info;
+use common\models\Rules;
 
 /**
- * InfoSearch represents the model behind the search form of `common\models\Info`.
+ * RulesSearch represents the model behind the search form of `common\models\Rules`.
  */
-class InfoSearch extends Info
+class RulesSearch extends Rules
 {
     /**
      * @inheritdoc
@@ -18,8 +18,7 @@ class InfoSearch extends Info
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['type', 'content'], 'safe'],
+            [['id', 'cat_id', 'brand_id'], 'integer'],
         ];
     }
 
@@ -41,7 +40,7 @@ class InfoSearch extends Info
      */
     public function search($params)
     {
-        $query = Info::find();
+        $query = Rules::find();
 
         // add conditions that should always apply here
 
@@ -60,10 +59,9 @@ class InfoSearch extends Info
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'cat_id' => $this->cat_id,
+            'brand_id' => $this->brand_id,
         ]);
-
-        $query->andFilterWhere(['like', 'type', $this->type])
-            ->andFilterWhere(['like', 'content', $this->content]);
 
         return $dataProvider;
     }

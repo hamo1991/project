@@ -30,7 +30,7 @@
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
-                    ['label' => 'Menu Shoes', 'options' => ['class' => 'header']],
+                    ['label' => 'Menu Shoes','options' => ['class' => 'header']],
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Products', 'icon' => 'fab fa-product-hunt', 'url' => ['/products']],
                     ['label' => 'Categories', 'icon' => 'fab fa-contao', 'url' => ['/categories']],
@@ -38,7 +38,7 @@
                     ['label' => 'Slider', 'icon' => 'fas fa-play', 'url' => ['/slider']],
                     ['label' => 'Info', 'icon' => 'fas fa-info-circle', 'url' => ['/info']],
                     ['label' => 'Blog', 'icon' => 'fab fa-bitcoin', 'url' => ['/blog/blog']],
-                    ['label' => 'Brands & Categories', 'icon' => 'fab fa-bitcoin', 'url' => ['/rules']],
+                    ['label' => 'Brands & Categories', 'icon' => 'fas fa-list-ol', 'url' => ['/rules']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Some tools',

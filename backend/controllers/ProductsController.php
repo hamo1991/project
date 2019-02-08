@@ -6,7 +6,7 @@ use common\models\Brands;
 use common\models\Categories;
 use Yii;
 use common\models\Products;
-use common\models\ProductsSearch;
+use common\models\search\ProductsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
