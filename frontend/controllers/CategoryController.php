@@ -49,7 +49,7 @@ class CategoryController extends Controller {
                 'categories' => $categories,
                 'category' => $category,
                 'products' => $products,
-                'brands' => $brands,
+                'brands' => $brands
             ]);
         }
 

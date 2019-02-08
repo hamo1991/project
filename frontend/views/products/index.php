@@ -7,13 +7,31 @@ $this->title = 'All Products';
     <div class="container">
         <div class="row">
             <div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
-                <h2>All Products</h2>
+                <?php
+
+                if (!empty($productBrands)){
+                    ?>
+                    <h2>Products By Brands</h2>
+                  <?php
+                }else {
+                    ?>
+                    <h2>All Products</h2>
+                <?php
+                }
+
+                ?>
+
             </div>
         </div>
-<?php \yii\widgets\Pjax::begin(['enablePushState' => false]); ?>
+        <?php \yii\widgets\Pjax::begin(['enablePushState' => false]); ?>
         <div class="row row-pb-md">
 
             <?php
+            if (!empty($productBrands)) {
+                $products = $productBrands;
+            } else {
+                $products;
+            }
 
             if (!empty($products)) {
                 foreach ($products as $product) {
@@ -73,7 +91,7 @@ $this->title = 'All Products';
                 </div>
             </div>
         </div>
-<?php \yii\widgets\Pjax::end(); ?>
+        <?php \yii\widgets\Pjax::end(); ?>
     </div>
 
 
@@ -90,9 +108,10 @@ $this->title = 'All Products';
                     foreach ($brands as $brand) {
                         ?>
                         <div class="col partner-col text-center">
-                            <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/brands/' . $brand['image'] ?>"
-                                 class="img-fluid"
-                                 alt="brand images">
+                            <a href="<?= \yii\helpers\Url::to(['/']) . 'products/' . $brand['slug'] ?>"><img
+                                        src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/brands/' . $brand['image'] ?>"
+                                        class="img-fluid"
+                                        alt="brand images"></a>
                         </div>
                         <?php
                     }

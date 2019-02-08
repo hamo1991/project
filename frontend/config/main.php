@@ -53,7 +53,7 @@ return [
                 'category/<slug:\w+>/<name:\w+>' => 'category/index',
                 'blog' => 'blog/blog/index',
                 'article/<slug>' => 'blog/blog/article',
-
+                'products/<slug:\w+>' => 'products/'
 
 
             ],

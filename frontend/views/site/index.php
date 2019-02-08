@@ -1,4 +1,3 @@
-
 <aside id="colorlib-hero">
     <div class="flexslider">
         <ul class="slides ">
@@ -15,7 +14,8 @@
                                         <div class="desc">
                                             <h1 class="head-1"><?= $slide['title'] ?></h1>
                                             <h2 class="head-3"><?= $slide['description'] ?></h2>
-                                            <p class="category"><span class="font-weight-bold"><?= $slide['content'] ?></span></p>
+                                            <p class="category"><span
+                                                        class="font-weight-bold"><?= $slide['content'] ?></span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -23,7 +23,7 @@
                         </div>
                     </li>
 
-            <?php
+                    <?php
                 }
             }
             ?>
@@ -50,10 +50,13 @@
                     ?>
                     <div class="col-sm-6 text-center" id="kids">
                         <div class="featured">
-                            <a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['slug'] ?>" class="featured-img"
+                            <a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['slug'] ?>"
+                               class="featured-img"
                                style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/categories/' . $cat['image'] ?>);"></a>
                             <div class="desc">
-                                <h2><a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['slug'] ?>"><?= $cat['title'] ?> Collection</a></h2>
+                                <h2>
+                                    <a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['slug'] ?>"><?= $cat['title'] ?>
+                                        Collection</a></h2>
                             </div>
                         </div>
                     </div>
@@ -83,27 +86,31 @@
 
                         <div class="product-entry border">
 
-                            <a href="<?= \yii\helpers\Url::to(['product/' . $hit['slug']])?>" class="prod-img">
+                            <a href="<?= \yii\helpers\Url::to(['product/' . $hit['slug']]) ?>" class="prod-img">
                                 <?php if ($hit['is_new']) : ?>
-                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png'?>" alt="new">
+                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png' ?>"
+                                         alt="new">
                                 <?php endif ?>
                                 <?php if ($hit['is_sale']) : ?>
-                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png'?>" alt="sale">
+                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png' ?>"
+                                         alt="sale">
                                 <?php endif ?>
                                 <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $hit['image'] ?>"
                                      class="img-fluid" alt="Free html5 bootstrap 4 template">
                             </a>
                             <div class="desc">
-                                <h2><a href="<?= \yii\helpers\Url::to(['product/','slug'=>$hit['slug']])?>"><?= $hit['title'] ?></a></h2>
+                                <h2>
+                                    <a href="<?= \yii\helpers\Url::to(['product/', 'slug' => $hit['slug']]) ?>"><?= $hit['title'] ?></a>
+                                </h2>
                                 <?php
-                                if($hit['sale_price']){
+                                if ($hit['sale_price']) {
                                     ?>
-                                    <span class="price"><del><?= $hit['price']?></del></span>
-                                    <span class="price"><?= $hit['sale_price']?></span>
+                                    <span class="price"><del><?= $hit['price'] ?></del></span>
+                                    <span class="price"><?= $hit['sale_price'] ?></span>
                                     <?php
-                                }else {
+                                } else {
                                     ?>
-                                    <span class="price"><?= $hit['price']?></span>
+                                    <span class="price"><?= $hit['price'] ?></span>
                                     <?php
                                 }
                                 ?>
@@ -117,11 +124,11 @@
             }
             ?>
 
-
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <p><a href="<?= \yii\helpers\Url::to(['/']) ?>products/" class="btn btn-primary btn-lg">All Products</a></p>
+                <p><a href="<?= \yii\helpers\Url::to(['/']) ?>products/" class="btn btn-primary btn-lg">All Products</a>
+                </p>
             </div>
         </div>
     </div>
@@ -139,10 +146,12 @@
                     foreach ($brands as $brand) {
                         ?>
                         <div class="col partner-col text-center">
-                            <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/brands/' . $brand['image'] ?>" class="img-fluid"
-                                 alt="brand images">
+                            <a href="<?= \yii\helpers\Url::to(['/']) . 'products/' . $brand['slug'] ?>"><img
+                                        src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/brands/' . $brand['image'] ?>"
+                                        class="img-fluid"
+                                        alt="brand images"></a>
                         </div>
-                <?php
+                        <?php
                     }
                 }
                 ?>
