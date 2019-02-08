@@ -26,13 +26,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'id',
-            'cat_id',
-//            [
-//                'attribute' => 'cat_id',
-//                'value' => function($model){
-//                    ;
-//                }
-//            ] ,
+            [
+                'attribute' => 'cat_id',
+                'value' => function($model){
+                   return \common\models\Categories::find()->where(['id' => $model->cat_id])->one()->title;
+                }
+            ] ,
             'brand_id',
 //
 

@@ -29,8 +29,6 @@ $this->title = 'All Products';
             <?php
             if (!empty($productBrands)) {
                 $products = $productBrands;
-            } else {
-                $products;
             }
 
             if (!empty($products)) {
