@@ -11,7 +11,7 @@ $this->title = 'Rules';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="rules-index">
-<?php //var_dump($titleBrands,$titleCategories);die(); ?>
+
     <h1><?= Html::encode($this->title) ?></h1>
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -32,8 +32,12 @@ $this->params['breadcrumbs'][] = $this->title;
                    return \common\models\Categories::find()->where(['id' => $model->cat_id])->one()->title;
                 }
             ] ,
-            'brand_id',
-//
+            [
+                'attribute' => 'cat_id',
+                'value' => function($model){
+                    return \common\models\Brands::find()->where(['id' => $model->brand_id])->one()->title;
+                }
+            ] ,
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

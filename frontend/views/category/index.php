@@ -41,6 +41,7 @@ if (!empty($category)) {
         <div class="row">
             <div class="col-lg-3 col-xl-3">
                 <div class="row">
+
                     <div class="col-sm-12">
                         <div class="side border mb-1">
                             <h3>Categories</h3>
@@ -88,32 +89,20 @@ if (!empty($category)) {
                     </div>
                     <div class="col-sm-12">
                         <div class="side border mb-1">
-                            <h3>Size/Width</h3>
+                            <h3>Size</h3>
                             <div class="block-26 mb-2">
-                                <h4>Size</h4>
                                 <ul>
-                                    <li><a href="#">7</a></li>
-                                    <li><a href="#">7.5</a></li>
-                                    <li><a href="#">8</a></li>
-                                    <li><a href="#">8.5</a></li>
-                                    <li><a href="#">9</a></li>
-                                    <li><a href="#">9.5</a></li>
-                                    <li><a href="#">10</a></li>
-                                    <li><a href="#">10.5</a></li>
-                                    <li><a href="#">11</a></li>
-                                    <li><a href="#">11.5</a></li>
-                                    <li><a href="#">12</a></li>
-                                    <li><a href="#">12.5</a></li>
-                                    <li><a href="#">13</a></li>
-                                    <li><a href="#">13.5</a></li>
-                                    <li><a href="#">14</a></li>
-                                </ul>
-                            </div>
-                            <div class="block-26">
-                                <h4>Width</h4>
-                                <ul>
-                                    <li><a href="#">M</a></li>
-                                    <li><a href="#">W</a></li>
+                                    <li><a href="#">35</a></li>
+                                    <li><a href="#">36</a></li>
+                                    <li><a href="#">37</a></li>
+                                    <li><a href="#">38</a></li>
+                                    <li><a href="#">39</a></li>
+                                    <li><a href="#">40</a></li>
+                                    <li><a href="#">41</a></li>
+                                    <li><a href="#">42</a></li>
+                                    <li><a href="#">43</a></li>
+                                    <li><a href="#">44</a></li>
+                                    <li><a href="#">45</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -134,6 +123,7 @@ if (!empty($category)) {
                             </ul>
                         </div>
                     </div>
+
                 </div>
             </div>
             <div class="col-lg-9 col-xl-9">

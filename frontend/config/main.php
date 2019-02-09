@@ -49,11 +49,12 @@ return [
             'rules' => [
 
                 'product/<slug>' => 'product/index',
-                'category/<slug:\w+>' => 'category/index',
-                'category/<slug:\w+>/<name:\w+>' => 'category/index',
+                'category/<slug>' => 'category/index',
+                'category/<slug>/<name:\w+>' => 'category/index',
                 'blog' => 'blog/blog/index',
                 'article/<slug>' => 'blog/blog/article',
-                'products/<slug:\w+>' => 'products/'
+                'products/<slug>' => 'products/',
+                'site/cart/<slug>' => 'site/cart'
 
 
             ],

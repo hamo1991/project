@@ -2376,6 +2376,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
     border-radius: .2rem;
 }
 
+
 .was-validated .form-control:valid, .form-control.is-valid, .was-validated
 .custom-select:valid,
 .custom-select.is-valid {
@@ -10429,7 +10430,6 @@ h1, h2, h3, h4, h5,
 }
 
 .colorlib-nav ul li.active > a {
-    color: #88c8bc !important;
     position: relative;
 }
 

@@ -2,12 +2,13 @@
 
 $this->title = 'My Cart';
 ?>
-
+<?php //var_dump($products, $quantity, $sum);die(); ?>
 <div class="breadcrumbs">
     <div class="container">
         <div class="row">
             <div class="col">
-                <p class="bread"><span><a href="<?= \yii\helpers\Url::to(['/']) ?>">Home</a></span> / <span>Shopping Cart</span></p>
+                <p class="bread"><span><a href="<?= \yii\helpers\Url::to(['/']) ?>">Home</a></span> / <span>Shopping Cart</span>
+                </p>
             </div>
         </div>
     </div>
@@ -35,101 +36,49 @@ $this->title = 'My Cart';
                         <span>Remove</span>
                     </div>
                 </div>
-                <div class="product-cart d-flex">
-                    <div class="one-forth">
-                        <div class="product-img"
-                             style="background-image: url(<?= \yii\helpers\Url::to(['/']) ?>images/item-6.jpg);">
+                <?php
+                if (!empty($products)) {
+                    foreach ($products as $product) {
+                        ?>
+
+                        <div class="product-cart d-flex">
+                            <div class="one-forth">
+                                <div class="product-img"
+                                     style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['img'] ?>);">
+                                </div>
+                                <div class="display-tc">
+                                    <h3><?= $product['name'] ?></h3>
+                                </div>
+                            </div>
+                            <div class="one-eight text-center">
+                                <div class="display-tc">
+                                    <span class="price"><?= $product['price'] ?></span>
+                                </div>
+                            </div>
+                            <div class="one-eight text-center">
+                                <div class="display-tc">
+                                    <span class="price"><?= $product['qty'] ?></span>
+                                </div>
+                            </div>
+                            <div class="one-eight text-center">
+                                <div class="display-tc">
+                                    <span class="price">$120.00</span>
+                                </div>
+                            </div>
+                            <div class="one-eight text-center">
+                                <div class="display-tc">
+                                    <a href="#" class="closed"></a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="display-tc">
-                            <h3>Product Name</h3>
-                        </div>
-                    </div>
-                    <div class="one-eight text-center">
-                        <div class="display-tc">
-                            <span class="price">$68.00</span>
-                        </div>
-                    </div>
-                    <div class="one-eight text-center">
-                        <div class="display-tc">
-                            <input type="text" id="quantity" name="quantity"
-                                   class="form-control input-number text-center" value="1" min="1" max="100">
-                        </div>
-                    </div>
-                    <div class="one-eight text-center">
-                        <div class="display-tc">
-                            <span class="price">$120.00</span>
-                        </div>
-                    </div>
-                    <div class="one-eight text-center">
-                        <div class="display-tc">
-                            <a href="#" class="closed"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-cart d-flex">
-                    <div class="one-forth">
-                        <div class="product-img"
-                             style="background-image: url(<?= \yii\helpers\Url::to(['/']) ?>images/item-7.jpg);">
-                        </div>
-                        <div class="display-tc">
-                            <h3>Product Name</h3>
-                        </div>
-                    </div>
-                    <div class="one-eight text-center">
-                        <div class="display-tc">
-                            <span class="price">$68.00</span>
-                        </div>
-                    </div>
-                    <div class="one-eight text-center">
-                        <div class="display-tc">
-                            <form action="#">
-                                <input type="text" name="quantity" class="form-control input-number text-center"
-                                       value="1" min="1" max="100">
-                            </form>
-                        </div>
-                    </div>
-                    <div class="one-eight text-center">
-                        <div class="display-tc">
-                            <span class="price">$120.00</span>
-                        </div>
-                    </div>
-                    <div class="one-eight text-center">
-                        <div class="display-tc">
-                            <a href="#" class="closed"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-cart d-flex">
-                    <div class="one-forth">
-                        <div class="product-img"
-                             style="background-image: url(<?= \yii\helpers\Url::to(['/']) ?>images/item-8.jpg);">
-                        </div>
-                        <div class="display-tc">
-                            <h3>Product Name</h3>
-                        </div>
-                    </div>
-                    <div class="one-eight text-center">
-                        <div class="display-tc">
-                            <span class="price">$68.00</span>
-                        </div>
-                    </div>
-                    <div class="one-eight text-center">
-                        <div class="display-tc">
-                            <input type="text" id="quantity" name="quantity"
-                                   class="form-control input-number text-center" value="1" min="1" max="100">
-                        </div>
-                    </div>
-                    <div class="one-eight text-center">
-                        <div class="display-tc">
-                            <span class="price">$120.00</span>
-                        </div>
-                    </div>
-                    <div class="one-eight text-center">
-                        <div class="display-tc">
-                            <a href="#" class="closed"></a>
-                        </div>
-                    </div>
-                </div>
+
+
+                        <?php
+                    }
+                }
+                ?>
+
+
             </div>
 
         </div>
@@ -236,15 +185,21 @@ $this->title = 'My Cart';
                         <div class="cart-detail">
                             <h2>Cart Total</h2>
                             <ul>
-                                <li>
-                                    <span>Subtotal</span> <span>$100.00</span>
-                                    <ul>
-                                        <li><span>1 x Product Name</span> <span>$99.00</span></li>
-                                        <li><span>1 x Product Name</span> <span>$78.00</span></li>
-                                    </ul>
-                                </li>
-                                <li><span>Shipping</span> <span>$0.00</span></li>
-                                <li><span>Order Total</span> <span>$180.00</span></li>
+                                <?php
+                                if (!empty($quantity) && !empty($sum)) {
+                                    ?>
+
+                                    <li><span>Quantity</span> <span><?= $quantity ?></span></li>
+                                    <li><span>Total</span> <span><?= $sum ?></span></li>
+                                <?php
+                                }else {
+                                ?>
+                                <li><span>Quantity</span></li>
+                                <li><span>Total</span></li>
+                                <?php
+                                }
+                                ?>
+
                             </ul>
                         </div>
                     </div>
@@ -278,7 +233,8 @@ $this->title = 'My Cart';
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <div class="checkbox">
-                                        <label><input type="checkbox" value=""> I have read and accept the terms and conditions</label>
+                                        <label><input type="checkbox" value=""> I have read and accept the terms and
+                                            conditions</label>
                                     </div>
                                 </div>
                             </div>

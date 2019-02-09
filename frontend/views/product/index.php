@@ -22,27 +22,32 @@ $this->title = 'Product Details';
                     <div class="item">
                         <div class="product-entry border">
                             <a href="#" class="prod-img">
-                          </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="product-entry border">
-                            <a href="#" class="prod-img">
-                                <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
+                                <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>"
+                                     class="img-fluid" alt="Free html5 bootstrap 4 template">
                             </a>
                         </div>
                     </div>
                     <div class="item">
                         <div class="product-entry border">
                             <a href="#" class="prod-img">
-                                <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
+                                <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>"
+                                     class="img-fluid" alt="Free html5 bootstrap 4 template">
                             </a>
                         </div>
                     </div>
                     <div class="item">
                         <div class="product-entry border">
                             <a href="#" class="prod-img">
-                                <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>" class="img-fluid" alt="Free html5 bootstrap 4 template">
+                                <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>"
+                                     class="img-fluid" alt="Free html5 bootstrap 4 template">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product-entry border">
+                            <a href="#" class="prod-img">
+                                <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>"
+                                     class="img-fluid" alt="Free html5 bootstrap 4 template">
                             </a>
                         </div>
                     </div>
@@ -53,21 +58,18 @@ $this->title = 'Product Details';
                     <h3><?= $product['title'] ?></h3>
                     <div class="desc">
                         <?php
-                        if($product['sale_price']){
+                        if ($product['sale_price']) {
                             ?>
-                            <p class="price"><span><del><?= $product['price']?></del></span></p>
-                            <p class="price"><span><?= $product['sale_price']?></span></p>
+                            <p class="price"><span><del><?= $product['price'] ?></del></span></p>
+                            <p class="price"><span><?= $product['sale_price'] ?></span></p>
                             <?php
-                        }else {
+                        } else {
                             ?>
-                            <p class="price"><span><?= $product['price']?></span></p>
+                            <p class="price"><span><?= $product['price'] ?></span></p>
                             <?php
                         }
                         ?>
                     </div>
-<!--                    <p class="price">-->
-<!--                        <span>--><?//= $product['price'] ?><!--</span>-->
-<!--                    </p>-->
                     <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
                         unorthographic life One day however a small line of blind text by the name of Lorem Ipsum
                         decided to leave for the far World of Grammar.</p>
@@ -89,11 +91,29 @@ $this->title = 'Product Details';
                             </ul>
                         </div>
                     </div>
-                    <div class="input-group mb-4"></div>
+                    <div class="block-26">
+                        <h4>Quantity</h4>
+                    </div>
+                    <div class="input-group mb-4">
+                     	<span class="input-group-btn">
+                        	<button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
+                           <i class="icon-minus2"></i>
+                        	</button>
+                    		</span>
+                        <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1"
+                               min="1" max="100">
+                        <span class="input-group-btn ml-1">
+                        	<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
+                             <i class="icon-plus2"></i>
+                         </button>
+                     	</span>
+                    </div>
                     <div class="row">
                         <div class="col-sm-12 text-center">
-                            <p class="addtocart"><a href="cart.html" class="btn btn-primary btn-addtocart"><i
-                                        class="icon-shopping-cart"></i> Add to Cart</a></p>
+                            <p class="addtocart"><a
+                                        href="<?= \yii\helpers\Url::to(['/']) . 'site/cart/' . $product['slug'] ?>"
+                                        class="btn btn-primary btn-addtocart"><i
+                                            class="icon-shopping-cart"></i> Add to Cart</a></p>
                         </div>
                     </div>
                 </div>

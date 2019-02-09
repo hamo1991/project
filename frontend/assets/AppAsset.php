@@ -48,13 +48,13 @@ class AppAsset extends AssetBundle
         'yii\bootstrap\BootstrapAsset',
     ];
 
-//    public function init()
-//    {
-//        if (\Yii::$app->controller->action->id === 'login') {
+    public function init()
+    {
+        if (\Yii::$app->controller->action->id === 'index') {
 //            $this->css[] = 'css/login.css';
-//
-//            $this->js[] = 'js/prefixfree.min.js';
-//        }
-//
-//    }
+
+            $this->js[] = 'js/quantity.js';
+        }
+
+    }
 }

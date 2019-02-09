@@ -1,6 +1,6 @@
 <?php
 
-namespace  common\models;
+namespace common\models;
 
 use Yii;
 
@@ -15,21 +15,18 @@ use Yii;
  * @property User $user
  * @property Products $product
  */
-class Cart extends \yii\db\ActiveRecord
-{
+class Cart extends \yii\db\ActiveRecord {
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'cart';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['product_id', 'user_id', 'quantity'], 'required'],
             [['product_id', 'user_id', 'quantity'], 'integer'],
@@ -41,8 +38,7 @@ class Cart extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => 'ID',
             'product_id' => 'Product ID',
@@ -51,19 +47,32 @@ class Cart extends \yii\db\ActiveRecord
         ];
     }
 
+    public function addToCart ($product,$qty = 1) {
+        if (isset($_SESSION['cart'][$product->id])) {
+            $_SESSION['cart'][$product->id]['qty'] += $qty;
+        }else {
+            $_SESSION['cart'][$product->id] = [
+              'qty'=> $qty,
+              'name'=> $product->title,
+              'price' => $product->price,
+              'img' => $product->image
+            ];
+        }
+        $_SESSION['cart.qty'] = isset($_SESSION['cart.qty']) ? $_SESSION['cart.qty'] + $qty : $qty;
+        $_SESSION['cart.sum'] = isset($_SESSION['cart.sum']) ? $_SESSION['cart.sum'] + $qty * $product->price : $qty * $product->price;
+    }
+
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getUser()
-    {
+    public function getUser() {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getProduct()
-    {
+    public function getProduct() {
         return $this->hasOne(Products::className(), ['id' => 'product_id']);
     }
 }
