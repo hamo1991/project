@@ -19,7 +19,7 @@ use common\models\Brands;
 
 class ProductController extends Controller {
 
-    public function actionIndex($slug) {
+    public function actionIndex($slug = '') {
 
         $product = Products::findOne(['slug' => $slug]);
 

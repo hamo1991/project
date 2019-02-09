@@ -54,7 +54,7 @@ return [
                 'blog' => 'blog/blog/index',
                 'article/<slug>' => 'blog/blog/article',
                 'products/<slug>' => 'products/',
-                'site/cart/<slug>' => 'site/cart'
+                'site/add-cart/<slug>' => 'site/add-cart'
 
 
             ],

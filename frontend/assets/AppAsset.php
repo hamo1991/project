@@ -39,6 +39,7 @@ class AppAsset extends AssetBundle
         'js/bootstrap-datepicker.js',
         'js/jquery.stellar.min.js',
         'js/main.js',
+        'js/script.js',
         'js/jquery.animateNumber.min.js',
         'js/respond.min.js',
 

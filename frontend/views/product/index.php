@@ -95,23 +95,20 @@ $this->title = 'Product Details';
                         <h4>Quantity</h4>
                     </div>
                     <div class="input-group mb-4">
-                     	<span class="input-group-btn">
-                        	<button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
-                           <i class="icon-minus2"></i>
-                        	</button>
-                    		</span>
+                        <button type="button" class="quantity-left-minus btn" data-type="minus" data-field=""><i class="icon-minus2"></i></button>
                         <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1"
                                min="1" max="100">
                         <span class="input-group-btn ml-1">
-                        	<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
-                             <i class="icon-plus2"></i>
-                         </button>
+
                      	</span>
+                        <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
+                            <i class="icon-plus2"></i>
+                        </button>
                     </div>
                     <div class="row">
                         <div class="col-sm-12 text-center">
                             <p class="addtocart"><a
-                                        href="<?= \yii\helpers\Url::to(['/']) . 'site/cart/' . $product['slug'] ?>"
+                                        href="<?= \yii\helpers\Url::to(['/']) . 'site/add-cart/' . $product['slug'] ?>"
                                         class="btn btn-primary btn-addtocart"><i
                                             class="icon-shopping-cart"></i> Add to Cart</a></p>
                         </div>

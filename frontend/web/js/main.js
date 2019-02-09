@@ -189,12 +189,7 @@
 		});
 	
 	};
-
-	// var increment = function(){
-
-	// };
-
-
+	
 	// Loading page
 	var loaderPage = function() {
 		$(".colorlib-loader").fadeOut("slow");

@@ -20,6 +20,7 @@ use common\models\Cart;
 use yii\db\Query;
 use common\models\Brands;
 use common\models\Slider;
+use yii\web\NotFoundHttpException;
 
 /**
  * Site controller
@@ -224,26 +225,45 @@ class SiteController extends Controller {
     }
 
 
-    public function actionCart($slug = '') {
+    public function actionCart() {
+        $session = Yii::$app->session;
 
+        return $this->render('cart',[
+            'products' => $session['cart'],
+            'quantity' => $session['cart.qty'],
+            'sum' => $session['cart.sum']
+        ]);
+    }
+
+    public function actionAddCart($slug = '') {
         $product = Products::findOne(['slug' => $slug]);
         if (!empty($product)) {
             $session = Yii::$app->session;
             $session->open();
             $cart = new Cart();
             $cart->addToCart($product);
-//        var_dump($session['cart']);
-//        var_dump($session['cart.qty']);
-//        var_dump($session['cart.sum']);
-            return $this->render('cart',[
-                'products' => $session['cart'],
-                'quantity' => $session['cart.qty'],
-                'sum' => $session['cart.sum']
-            ]);
-        }else {
-            return $this->render('cart');
         }
+        $this->redirect('@web/site/cart');
+    }
 
+    public function actionUpdateCart() {
+        if(Yii::$app->request->isAjax){
+            $product_id = Yii::$app->request->get('product_id');
+            $qty = (int) Yii::$app->request->get('qty');
+
+            if(isset($_SESSION['cart'], $_SESSION['cart'][$product_id])){
+                if($qty === 0){
+                    unset($_SESSION['cart'][$product_id]);
+                    unset($_SESSION['cart.qty']);
+                    unset($_SESSION['cart.sum']);
+                }else{
+                    $_SESSION['cart'][$product_id]['qty'] = $qty;
+                }
+            }
+
+        }else{
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
 
     }
 

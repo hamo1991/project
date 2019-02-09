@@ -2,7 +2,7 @@
 
 $this->title = 'My Cart';
 ?>
-<?php //var_dump($products, $quantity, $sum);die(); ?>
+<?php var_dump($products, $quantity, $sum);die(); ?>
 <div class="breadcrumbs">
     <div class="container">
         <div class="row">
@@ -36,9 +36,10 @@ $this->title = 'My Cart';
                         <span>Remove</span>
                     </div>
                 </div>
+                <div class="table-responsive">
                 <?php
                 if (!empty($products)) {
-                    foreach ($products as $product) {
+                    foreach ($products as $id => $product) {
                         ?>
 
                         <div class="product-cart d-flex">
@@ -67,17 +68,15 @@ $this->title = 'My Cart';
                             </div>
                             <div class="one-eight text-center">
                                 <div class="display-tc">
-                                    <a href="#" class="closed"></a>
+                                    <a href="#" data-product_id="<?= $id ?>" class="closed"></a>
                                 </div>
                             </div>
                         </div>
-
-
                         <?php
                     }
                 }
                 ?>
-
+                </div>
 
             </div>
 
