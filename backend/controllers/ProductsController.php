@@ -69,10 +69,10 @@ class ProductsController extends Controller {
         $model = new Products();
 
         $categories = Categories::find()->asArray()->all();
-        $categories = ArrayHelper::map($categories,'id','title');
+        $categories = ArrayHelper::map($categories, 'id', 'title');
 
         $brands = Brands::find()->asArray()->all();
-        $brands = ArrayHelper::map($brands,'id','title');
+        $brands = ArrayHelper::map($brands, 'id', 'title');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $imgFile = UploadedFile::getInstance($model, "image");
@@ -107,10 +107,10 @@ class ProductsController extends Controller {
     public function actionUpdate($id) {
 
         $categories = Categories::find()->asArray()->all();
-        $categories = ArrayHelper::map($categories,'id','title');
+        $categories = ArrayHelper::map($categories, 'id', 'title');
 
         $brands = Brands::find()->asArray()->all();
-        $brands = ArrayHelper::map($brands,'id','title');
+        $brands = ArrayHelper::map($brands, 'id', 'title');
 
         $model = $this->findModel($id);
 
@@ -171,11 +171,10 @@ class ProductsController extends Controller {
         $file = $imgPath . $image;
         if ($image == '') {
             $this->findModel($id)->delete();
-        }elseif (file_exists($file)) {
+        } elseif (file_exists($file)) {
             unlink($file);
             $this->findModel($id)->delete();
         }
-
 
 
         return $this->redirect(['/products']);
@@ -195,4 +194,5 @@ class ProductsController extends Controller {
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
 }

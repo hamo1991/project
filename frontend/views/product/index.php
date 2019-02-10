@@ -13,7 +13,6 @@ $this->title = 'Product Details';
     </div>
 </div>
 
-
 <div class="colorlib-product">
     <div class="container">
         <div class="row row-pb-lg product-detail-wrap">
@@ -21,36 +20,28 @@ $this->title = 'Product Details';
                 <div class="owl-carousel">
                     <div class="item">
                         <div class="product-entry border">
-                            <a href="#" class="prod-img">
                                 <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>"
-                                     class="img-fluid" alt="Free html5 bootstrap 4 template">
-                            </a>
+                                     class="img-fluid" alt="Product image">
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="product-entry border">
-                            <a href="#" class="prod-img">
-                                <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>"
-                                     class="img-fluid" alt="Free html5 bootstrap 4 template">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="product-entry border">
-                            <a href="#" class="prod-img">
-                                <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>"
-                                     class="img-fluid" alt="Free html5 bootstrap 4 template">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="product-entry border">
-                            <a href="#" class="prod-img">
-                                <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>"
-                                     class="img-fluid" alt="Free html5 bootstrap 4 template">
-                            </a>
-                        </div>
-                    </div>
+
+
+                    <?php
+                    if (!empty($productImages)) {
+                        foreach ($productImages as $image) {
+                            ?>
+                            <div class="item">
+                                <div class="product-entry border">
+                                        <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $image['image'] ?>"
+                                             class="img-fluid" alt="Product images">
+                                </div>
+                            </div>
+                    <?php
+                        }
+                    }
+                    ?>
+                   <div></div>
+                    
                 </div>
             </div>
             <div class="col-sm-4">
@@ -96,7 +87,7 @@ $this->title = 'Product Details';
                     </div>
                     <div class="input-group mb-4">
                         <button type="button" class="quantity-left-minus btn" data-type="minus" data-field=""><i class="icon-minus2"></i></button>
-                        <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1"
+                        <input type="text" id="quantity" name="quantity" class="form-control input-number" value="<?= $product['quantity'] ?>"
                                min="1" max="100">
                         <span class="input-group-btn ml-1">
 

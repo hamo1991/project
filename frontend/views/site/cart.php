@@ -2,7 +2,7 @@
 
 $this->title = 'My Cart';
 ?>
-<?php var_dump($products, $quantity, $sum);die(); ?>
+<?php //var_dump($products, $quantity, $sum);die(); ?>
 <div class="breadcrumbs">
     <div class="container">
         <div class="row">

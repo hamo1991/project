@@ -254,8 +254,7 @@ class SiteController extends Controller {
             if(isset($_SESSION['cart'], $_SESSION['cart'][$product_id])){
                 if($qty === 0){
                     unset($_SESSION['cart'][$product_id]);
-                    unset($_SESSION['cart.qty']);
-                    unset($_SESSION['cart.sum']);
+
                 }else{
                     $_SESSION['cart'][$product_id]['qty'] = $qty;
                 }

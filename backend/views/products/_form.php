@@ -35,6 +35,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'is_sale')->dropDownList([ '0' => 'No', '1' => 'Yes', ], ['prompt' => '']) ?>
 
+    <?= $form->field($model, 'best')->dropDownList([ '0' => 'No', '1' => 'Yes', ], ['prompt' => '']) ?>
+
 
     <?= $form->field($model, 'cat_id')->dropDownList($categories,['prompt' => 'Please select category']); ?>
 

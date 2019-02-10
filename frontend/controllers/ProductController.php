@@ -12,6 +12,7 @@ use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\Categories;
 use common\models\Products;
+use common\models\Pictures;
 use common\models\Cart;
 use yii\db\Query;
 use common\models\Brands;
@@ -22,9 +23,15 @@ class ProductController extends Controller {
     public function actionIndex($slug = '') {
 
         $product = Products::findOne(['slug' => $slug]);
+        $id = $product->id;
+
+        $productImages = Pictures::find()->alias('p')
+            ->innerJoin('products as pr',"$id = p.product_id")
+            ->asArray()->all();
 
         return $this->render('index', [
-            'product' => $product
+            'product' => $product,
+            'productImages' => $productImages
         ]);
     }
 }

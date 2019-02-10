@@ -2,41 +2,37 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
+use yii\widgets\Pjax;
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\search\ProductsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $searchModel common\models\search\PicturesSearch */
 
-$this->title = 'Products';
+$this->title = 'Pictures';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="products-index">
+<div class="pictures-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+<!--    --><?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php Pjax::begin(); ?>
 
     <p>
-        <?= Html::a('Create Products', ['create'], ['class' => 'btn btn-success']) ?>
-
+        <?= Html::a('Create Pictures', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-    <?php \yii\widgets\Pjax::begin();?>
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'id',
-            'title',
-//            'description:ntext',
-//            'manufacturer:ntext',
-            'price',
-            'sale_price',
-            //'sku',
-            //'quantity',
-            //'available_stock',
-            //'is_new',
-            //'is_sale',
-//            'image',
+            [
+                'attribute' => 'product_id',
+                'filter' => '',
+                'value' => function($model){
+                    return \common\models\Products::find()->where(['id' => $model->product_id])->one()->title;
+                }
+            ] ,
             [
                 'attribute' => 'image',
                 'format' => 'raw',
@@ -45,13 +41,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::img(\yii\helpers\Url::to('/frontend/web/images/uploads/products/'. $model->image),['width' => '100px','height' => '100px',]);
                 }
             ] ,
-            //'cat_id',
-            //'brand_id',
-            //'slug',
-            //'best',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-    <?php  \yii\widgets\Pjax::end();?>
+    <?php Pjax::end(); ?>
 </div>
