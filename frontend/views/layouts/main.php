@@ -93,12 +93,12 @@ AppAsset::register($this);
                                 <div class="owl-carousel2">
                                     <div class="item">
                                         <div class="col">
-                                            <h3  style="color: white">25% off (Almost) Everything! Use Code: Summer Sale</a></h3>
+                                            <h3  style="color: white"><?= \frontend\widgets\info\InfoWidget::widget(['action' => 'headline_one']); ?></a></h3>
                                         </div>
                                     </div>
                                     <div class="item">
                                         <div class="col">
-                                            <h3  style="color: white">Our biggest sale yet 50% off all summer shoes</h3>
+                                            <h3  style="color: white"><?= \frontend\widgets\info\InfoWidget::widget(['action' => 'headline_two']); ?></h3>
                                         </div>
                                     </div>
                                 </div>
