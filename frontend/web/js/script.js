@@ -11,22 +11,19 @@ $(document).ready(function () {
             }
         }).done(function () {
             $this.closest('.product-cart').remove();
+            window.location.reload();
         })
     });
 
 
-
-    $('.addtocart').click(function () {
-
-        var quantity = $('#quantity').val();
-        $.ajax({
-            url: HOME_URL + '/site/cart',
-            data: {
-                quantity: quantity
-
-            }
-        })
+    var owl = $('.brand-slide');
+    owl.owlCarousel({
+        items:5,
+        loop:true,
+        margin:10,
+        autoplay:true,
+        autoplayTimeout:1000,
+        dots: false
     });
-
 
 });

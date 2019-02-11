@@ -228,26 +228,28 @@ class SiteController extends Controller {
     public function actionCart() {
         $session = Yii::$app->session;
 
-            $quantity = (int)Yii::$app->request->get('quantity');
-
-
-
         return $this->render('cart',[
             'products' => $session['cart'],
             'qty' => $session['cart.qty'],
             'sum' => $session['cart.sum'],
-            'quantity' => $quantity
+            'quantity' => $session['quantity']
 
         ]);
     }
 
     public function actionAddCart($slug = '') {
+
         $product = Products::findOne(['slug' => $slug]);
+
+
         if (!empty($product)) {
+            $quantity = (int)Yii::$app->request->get('quantity');
             $session = Yii::$app->session;
             $session->open();
+            $session['quantity'] = $quantity;
             $cart = new Cart();
             $cart->addToCart($product);
+
         }
         $this->redirect('@web/site/cart');
     }

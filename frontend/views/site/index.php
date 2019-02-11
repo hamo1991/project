@@ -132,19 +132,19 @@
         </div>
     </div>
 
-    <div class="colorlib-partner" id="partner">
-        <div class="container">
+    <div class="colorlib-partner " id="partner">
+        <div class="container >
             <div class="row">
                 <div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
                     <h2>Trusted Partners</h2>
                 </div>
             </div>
-            <div class="row">
+            <div class="row brand-slide">
                 <?php
                 if (!empty($brands)) {
                     foreach ($brands as $brand) {
                         ?>
-                        <div class="col partner-col text-center">
+                        <div class="col partner-col text-center ">
                             <a href="<?= \yii\helpers\Url::to(['/']) . 'products/' . $brand['slug'] ?>"><img
                                         src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/brands/' . $brand['image'] ?>"
                                         class="img-fluid"

@@ -57,7 +57,6 @@ class ProductsController extends Controller{
                 'pagination' => $pagination,
                 'brands' => $brands,
 
-
             ]);
         }
 

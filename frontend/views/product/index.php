@@ -85,10 +85,10 @@ $this->title = 'Product Details';
                     <div class="block-26">
                         <h4>Quantity</h4>
                     </div>
+                    <form action="<?= \yii\helpers\Url::to(['/']) . 'site/add-cart/' . $product['slug'] ?>">
                     <div class="input-group mb-4">
                         <button type="button" class="quantity-left-minus btn" data-type="minus" data-field=""><i class="icon-minus2"></i></button>
-                        <input type="text" id="quantity" name="quantity" class="form-control input-number" value="<?= $product['quantity'] ?>"
-                               min="1" max="100">
+                        <input type="text" id="quantity" name="quantity" class="form-control input-number" value="<?= $product['quantity'] ?>">
                         <span class="input-group-btn ml-1">
 
                      	</span>
@@ -98,11 +98,10 @@ $this->title = 'Product Details';
                     </div>
                     <div class="row">
                         <div class="col-sm-12 text-center">
-                            <p class="addtocart"><a href="<?= \yii\helpers\Url::to(['/']) . 'site/add-cart/' . $product['slug'] ?>"
-                                        class="btn btn-primary btn-addtocart"><i
-                                            class="icon-shopping-cart"></i> Add to Cart</a></p>
+                            <p class="addtocart"><button id="btn" type="submit" class="btn-primary btn-addtocart"><i class="icon-shopping-cart"></i>Add to Cart</button></p>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -113,7 +112,6 @@ $this->title = 'Product Details';
                     <div class="col-md-12 pills">
                         <div class="bd-example bd-example-tabs">
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-
                                 <li class="nav-item">
                                     <a class="nav-link active" id="pills-description-tab" data-toggle="pill"
                                        href="#pills-description" role="tab" aria-controls="pills-description"
@@ -125,7 +123,6 @@ $this->title = 'Product Details';
                                        aria-expanded="true">Manufacturer</a>
                                 </li>
                             </ul>
-
                             <div class="tab-content" id="pills-tabContent">
                                 <div class="tab-pane border active " id="pills-description" role="tabpanel"
                                      aria-labelledby="pills-description-tab">

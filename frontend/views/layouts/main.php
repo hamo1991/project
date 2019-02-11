@@ -110,9 +110,9 @@ AppAsset::register($this);
         </nav>
     </header>
 
+    <div id="main_content">
     <?= $content ?>
-
-
+    </div>
     <footer id="colorlib-footer" role="contentinfo">
         <div class="container">
             <div class="row row-pb-md">

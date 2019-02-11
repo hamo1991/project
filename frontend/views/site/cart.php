@@ -3,7 +3,7 @@
 $this->title = 'My Cart';
 ?>
 <?php //var_dump($products, $quantity, $sum);die(); ?>
-<?php //echo $quantity; ?>
+<!--<h1>--><?php //echo $quantity; ?><!--</h1>-->
 <div class="breadcrumbs">
     <div class="container">
         <div class="row">

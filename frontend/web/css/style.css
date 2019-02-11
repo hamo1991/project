@@ -10933,6 +10933,10 @@ h1, h2, h3, h4, h5,
     font-size: 10px;
 }
 
+#btn {
+    padding: 10px 20px;
+    border-radius: 50px;
+}
 .product-detail-wrap .form-control {
     border: 1px solid #e6e6e6 !important;
     text-align: center;
