@@ -3,6 +3,7 @@
 $this->title = 'My Cart';
 ?>
 <?php //var_dump($products, $quantity, $sum);die(); ?>
+<?php //echo $quantity; ?>
 <div class="breadcrumbs">
     <div class="container">
         <div class="row">
@@ -45,7 +46,8 @@ $this->title = 'My Cart';
                         <div class="product-cart d-flex">
                             <div class="one-forth">
                                 <div class="product-img"
-                                     style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['img'] ?>);">
+                                     style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['img'] ?>);
+                                             display: block">
                                 </div>
                                 <div class="display-tc">
                                     <h3><?= $product['name'] ?></h3>
@@ -185,10 +187,10 @@ $this->title = 'My Cart';
                             <h2>Cart Total</h2>
                             <ul>
                                 <?php
-                                if (!empty($quantity) && !empty($sum)) {
+                                if (!empty($qty) && !empty($sum)) {
                                     ?>
 
-                                    <li><span>Quantity</span> <span><?= $quantity ?></span></li>
+                                    <li><span>Quantity</span> <span><?= $qty ?></span></li>
                                     <li><span>Total</span> <span><?= $sum ?></span></li>
                                 <?php
                                 }else {

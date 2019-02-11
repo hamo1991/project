@@ -98,8 +98,7 @@ $this->title = 'Product Details';
                     </div>
                     <div class="row">
                         <div class="col-sm-12 text-center">
-                            <p class="addtocart"><a
-                                        href="<?= \yii\helpers\Url::to(['/']) . 'site/add-cart/' . $product['slug'] ?>"
+                            <p class="addtocart"><a href="<?= \yii\helpers\Url::to(['/']) . 'site/add-cart/' . $product['slug'] ?>"
                                         class="btn btn-primary btn-addtocart"><i
                                             class="icon-shopping-cart"></i> Add to Cart</a></p>
                         </div>

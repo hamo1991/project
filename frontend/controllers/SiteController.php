@@ -228,10 +228,16 @@ class SiteController extends Controller {
     public function actionCart() {
         $session = Yii::$app->session;
 
+            $quantity = (int)Yii::$app->request->get('quantity');
+
+
+
         return $this->render('cart',[
             'products' => $session['cart'],
-            'quantity' => $session['cart.qty'],
-            'sum' => $session['cart.sum']
+            'qty' => $session['cart.qty'],
+            'sum' => $session['cart.sum'],
+            'quantity' => $quantity
+
         ]);
     }
 
@@ -251,8 +257,13 @@ class SiteController extends Controller {
             $product_id = Yii::$app->request->get('product_id');
             $qty = (int) Yii::$app->request->get('qty');
 
+
             if(isset($_SESSION['cart'], $_SESSION['cart'][$product_id])){
                 if($qty === 0){
+                    $qtyMinus = $_SESSION['cart'][$product_id]['qty'];
+                    $sumMinus = $_SESSION['cart'][$product_id]['qty'] * $_SESSION['cart'][$product_id]['price'];
+                    $_SESSION['cart.qty'] -=  $qtyMinus;
+                    $_SESSION['cart.sum'] -= $sumMinus;
                     unset($_SESSION['cart'][$product_id]);
 
                 }else{

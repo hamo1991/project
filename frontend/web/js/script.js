@@ -12,5 +12,21 @@ $(document).ready(function () {
         }).done(function () {
             $this.closest('.product-cart').remove();
         })
-    })
+    });
+
+
+
+    $('.addtocart').click(function () {
+
+        var quantity = $('#quantity').val();
+        $.ajax({
+            url: HOME_URL + '/site/cart',
+            data: {
+                quantity: quantity
+
+            }
+        })
+    });
+
+
 });
