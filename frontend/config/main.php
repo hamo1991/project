@@ -48,6 +48,7 @@ return [
             'showScriptName' => false,
             'rules' => [
 
+                'search' => 'products/search',
                 'product/<slug>' => 'product/index',
                 'category/<slug>' => 'category/index',
                 'category/<slug>/<name:\w+>' => 'category/index',
@@ -55,6 +56,7 @@ return [
                 'article/<slug>' => 'blog/blog/article',
                 'products/<slug>' => 'products/',
                 'site/add-cart/<slug>' => 'site/add-cart',
+
 
 
             ],

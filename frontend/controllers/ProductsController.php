@@ -61,4 +61,24 @@ class ProductsController extends Controller{
         }
 
     }
+
+    public function actionSearch(){
+        $search =  trim(htmlspecialchars(Yii::$app->request->get('search')));
+        $brands = Brands::find()->asArray()->all();
+        if (!$search) {
+            return $this->render('search',[
+                'brands' => $brands
+            ]);
+        }
+        $query = Products::find()
+            ->where(['like', 'title', $search]);
+        $pages = new Pagination(['totalCount' => $query->count(), 'pageSize'=> 8]);
+        $products = $query->offset($pages->offset)->limit($pages->limit)->all();
+        return $this->render('search',[
+            'products' => $products,
+            'pagination' => $pages,
+            'search' => $search,
+            'brands' => $brands
+        ]);
+    }
 }

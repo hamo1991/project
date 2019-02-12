@@ -1,35 +1,19 @@
 <?php
 
-$this->title = 'All Products';
+$this->title = 'Search Products';
 ?>
 <div class="colorlib-product">
 
     <div class="container">
         <div class="row">
             <div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
-                <?php
-
-                if (!empty($productBrands)){
-                    ?>
-                    <h2>Products By Brands</h2>
-                  <?php
-                }else {
-                    ?>
-                    <h2>All Products</h2>
-                <?php
-                }
-
-                ?>
-
+                <h2>Search result</h2>
             </div>
         </div>
         <?php \yii\widgets\Pjax::begin(['enablePushState' => false]); ?>
         <div class="row row-pb-md">
 
             <?php
-            if (!empty($productBrands)) {
-                $products = $productBrands;
-            }
 
             if (!empty($products)) {
                 foreach ($products as $product) {
@@ -71,19 +55,27 @@ $this->title = 'All Products';
                     <?php
                 }
 
+            } else {
+                echo "<h2 style='margin: 0 auto'>NO SUCH PRODUCT</h2>";
+
             }
             ?>
 
         </div>
+
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="block-27">
                     <?php
-                    echo \yii\widgets\LinkPager::widget(
-                        [
-                            'pagination' => $pagination,
+                    if (!empty($search)) {
 
-                        ]);
+                        echo \yii\widgets\LinkPager::widget(
+                            [
+                                'pagination' => $pagination,
+
+                            ]);
+
+                    }
                     ?>
                 </div>
             </div>

@@ -42,9 +42,9 @@ AppAsset::register($this);
                             <div id="colorlib-logo"><a href="/">Footwear</a></div>
                         </div>
                         <div class="col-sm-5 col-md-3">
-                            <form action="#" class="search-wrap">
+                            <form action="<?= \yii\helpers\Url::to(['/search'])?>" method="get" class="search-wrap">
                                 <div class="form-group">
-                                    <input type="search" class="form-control search" placeholder="Search">
+                                    <input type="search" name="search" class="form-control search" placeholder="Search product">
                                     <button class="btn btn-primary submit-search text-center" type="submit"><i
                                                 class="icon-search"></i></button>
                                 </div>

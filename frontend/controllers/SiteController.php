@@ -227,56 +227,51 @@ class SiteController extends Controller {
 
     public function actionCart() {
         $session = Yii::$app->session;
-
-        return $this->render('cart',[
+        return $this->render('cart', [
             'products' => $session['cart'],
             'qty' => $session['cart.qty'],
             'sum' => $session['cart.sum'],
-            'quantity' => $session['quantity']
 
         ]);
     }
 
     public function actionAddCart($slug = '') {
-
+        $session = Yii::$app->session;
+        $session->open();
         $product = Products::findOne(['slug' => $slug]);
-
+        $quantity = (int)Yii::$app->request->get('quantity');
+        $_SESSION['quantity'] = $quantity;
 
         if (!empty($product)) {
-            $quantity = (int)Yii::$app->request->get('quantity');
             $session = Yii::$app->session;
             $session->open();
-            $session['quantity'] = $quantity;
             $cart = new Cart();
             $cart->addToCart($product);
-
         }
+
         $this->redirect('@web/site/cart');
     }
 
     public function actionUpdateCart() {
-        if(Yii::$app->request->isAjax){
+        if (Yii::$app->request->isAjax) {
             $product_id = Yii::$app->request->get('product_id');
-            $qty = (int) Yii::$app->request->get('qty');
-
-
-            if(isset($_SESSION['cart'], $_SESSION['cart'][$product_id])){
-                if($qty === 0){
-                    $qtyMinus = $_SESSION['cart'][$product_id]['qty'];
-                    $sumMinus = $_SESSION['cart'][$product_id]['qty'] * $_SESSION['cart'][$product_id]['price'];
-                    $_SESSION['cart.qty'] -=  $qtyMinus;
-                    $_SESSION['cart.sum'] -= $sumMinus;
-                    unset($_SESSION['cart'][$product_id]);
-
-                }else{
-                    $_SESSION['cart'][$product_id]['qty'] = $qty;
-                }
+            if (isset($_SESSION['cart'], $_SESSION['cart'][$product_id])) {
+                $qtyMinus = $_SESSION['cart'][$product_id]['qty'];
+                $sumMinus = $_SESSION['cart'][$product_id]['qty'] * $_SESSION['cart'][$product_id]['price'];
+                $_SESSION['cart.qty'] -= $qtyMinus;
+                $_SESSION['cart.sum'] -= $sumMinus;
+                unset($_SESSION['cart'][$product_id]);
             }
 
-        }else{
+        } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
 
+    }
+
+
+    public function actionCheckout() {
+        return $this->render('checkout');
     }
 
 

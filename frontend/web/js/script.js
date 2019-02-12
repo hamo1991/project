@@ -6,7 +6,6 @@ $(document).ready(function () {
         $.ajax({
             url: HOME_URL + '/site/update-cart',
             data: {
-                qty: 0,
                 product_id: product_id
             }
         }).done(function () {

@@ -10936,6 +10936,12 @@ h1, h2, h3, h4, h5,
 #btn {
     padding: 10px 20px;
     border-radius: 50px;
+    outline: none;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 .product-detail-wrap .form-control {
     border: 1px solid #e6e6e6 !important;

@@ -1,6 +1,5 @@
    $(document).ready(function(){
 
-        var quantitiy=0;
         $('.quantity-right-plus').click(function(e){
 
             e.preventDefault();
@@ -11,10 +10,13 @@
         });
 
         $('.quantity-left-minus').click(function(e){
-            e.preventDefault();e
+            e.preventDefault();
             var quantity = parseInt($('#quantity').val());
-            if(quantity>0){
+            if (quantity === 1) {
+                return;
+            } else if(quantity>1){
                 $('#quantity').val(quantity - 1);
+
             }
         });
 
