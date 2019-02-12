@@ -6,7 +6,11 @@ $this->title = 'My Cart';
 //$session = Yii::$app->session;
 //
 //
-//var_dump($products,$sum);die(); ?>
+//var_dump($products,$sum);die();
+
+//echo $quantity;die();
+
+?>
 
 <div class="breadcrumbs">
     <div class="container">
