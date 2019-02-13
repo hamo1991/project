@@ -231,7 +231,6 @@ class SiteController extends Controller {
             'products' => $session['cart'],
             'qty' => $session['cart.qty'],
             'sum' => $session['cart.sum'],
-            'quantity' => $_SESSION['quantity']
 
         ]);
     }
@@ -241,15 +240,12 @@ class SiteController extends Controller {
         $session->open();
         $product = Products::findOne(['slug' => $slug]);
         $quantity = (int)Yii::$app->request->get('quantity');
-        $_SESSION['quantity'] = $quantity;
 
         if (!empty($product)) {
-            $session = Yii::$app->session;
-            $session->open();
             $cart = new Cart();
-            $cart->product_id = $product->id;
-            $cart->quantity = $quantity;
-            $cart->addToCart($product);
+//            $cart->product_id = $product->id;
+//            $cart->quantity = $quantity;
+            $cart->addToCart($product, $quantity);
         }
 
         $this->redirect('@web/site/cart');

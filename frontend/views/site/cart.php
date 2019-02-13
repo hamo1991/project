@@ -8,7 +8,6 @@ $this->title = 'My Cart';
 //
 //var_dump($products,$sum);die();
 
-//echo $quantity;die();
 
 ?>
 

@@ -54,6 +54,7 @@ return [
                 'category/<slug>/<name:\w+>' => 'category/index',
                 'blog' => 'blog/blog/index',
                 'article/<slug>' => 'blog/blog/article',
+                'products/index' => 'products/',
                 'products/<slug>' => 'products/',
                 'site/add-cart/<slug>' => 'site/add-cart',
 
