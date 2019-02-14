@@ -27,16 +27,20 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
             'id',
             'title',
-//            'description:ntext',
-//            'manufacturer:ntext',
             'price',
             'sale_price',
+            [
+                'attribute' => 'sizes',
+                'format' => 'raw',
+                'filter' => ''
+
+
+            ] ,
             //'sku',
             //'quantity',
             //'available_stock',
             //'is_new',
-            //'is_sale',
-//            'image',
+            //'is_sale',,
             [
                 'attribute' => 'image',
                 'format' => 'raw',
@@ -47,6 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ] ,
             //'cat_id',
             //'brand_id',
+            //'col_id',
             //'slug',
             //'best',
 

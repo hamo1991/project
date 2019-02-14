@@ -16,7 +16,7 @@ use mihaildev\ckeditor\CKEditor;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-<!--    --><?//= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+
 <?php
     echo $form->field($model, 'description')->widget(CKEditor::className(),[
     'editorOptions' => [
@@ -34,13 +34,24 @@ use mihaildev\ckeditor\CKEditor;
         ],
     ]);
     ?>
-<!--    --><? //= $form->field($model, 'manufacturer')->textarea(['rows' => 6]) ?>
+
+
+    <?php
+    echo $form->field($model, 'content')->widget(CKEditor::className(),[
+        'editorOptions' => [
+            'preset' => 'full',
+            'inline' => false,
+        ],
+    ]);
+    ?>
 
     <?= $form->field($model, 'price')->textInput() ?>
 
     <?= $form->field($model, 'image')->fileInput(['multiple' => true]) ?>
 
     <?= $form->field($model, 'sale_price')->textInput() ?>
+
+    <?= $form->field($model, 'sizes')->textInput() ?>
 
     <?= $form->field($model, 'sku')->textInput(['maxlength' => true]) ?>
 
@@ -58,6 +69,8 @@ use mihaildev\ckeditor\CKEditor;
     <?= $form->field($model, 'cat_id')->dropDownList($categories,['prompt' => 'Please select category']); ?>
 
     <?= $form->field($model, 'brand_id')->dropDownList($brands,['prompt' => 'Please select brand']); ?>
+
+<!--    --><?//= $form->field($model, 'col_id')->dropDownList($brands,['prompt' => 'Please select color']); ?>
 
    <!-- <?//= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?> -->
 

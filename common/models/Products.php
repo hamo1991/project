@@ -12,8 +12,10 @@ use yii\behaviors\SluggableBehavior;
  * @property string $title
  * @property string $description
  * @property string $manufacturer
+ * @property string $content
  * @property double $price
  * @property double $sale_price
+ * @property string $sizes
  * @property string $sku
  * @property int $quantity
  * @property int $available_stock
@@ -57,8 +59,8 @@ class Products extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'price', 'sku', 'quantity', 'available_stock', 'cat_id', 'brand_id'], 'required'],
-            [['description', 'manufacturer','is_new','is_sale'], 'string'],
+            [['title', 'price', 'sku', 'sizes', 'quantity', 'available_stock', 'cat_id', 'brand_id'], 'required'],
+            [['description', 'manufacturer', 'content','is_new', 'sizes','is_sale'], 'string'],
             [['price', 'sale_price'], 'number'],
             [['quantity', 'available_stock', 'best', 'cat_id', 'brand_id'], 'integer'],
             [['title', 'image'], 'string', 'max' => 255],
@@ -79,8 +81,10 @@ class Products extends \yii\db\ActiveRecord
             'title' => 'Title',
             'description' => 'Description',
             'manufacturer' => 'Manufacturer',
+            'content' => 'Content',
             'price' => 'Price',
             'sale_price' => 'Sale Price',
+            'sizes' => 'Sizes',
             'sku' => 'Sku',
             'quantity' => 'Quantity',
             'available_stock' => 'Available Stock',

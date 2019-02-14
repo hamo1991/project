@@ -36,6 +36,7 @@
                     ['label' => 'Categories', 'icon' => 'fab fa-contao', 'url' => ['/categories']],
                     ['label' => 'Brands', 'icon' => 'fab fa-bandcamp', 'url' => ['/brands']],
                     ['label' => 'Brands & Categories', 'icon' => 'fas fa-list-ol', 'url' => ['/rules']],
+                    ['label' => 'About page', 'icon' => 'fas fa-columns', 'url' => ['/about']],
                     ['label' => 'Slider', 'icon' => 'fas fa-play', 'url' => ['/slider']],
                     ['label' => 'Info', 'icon' => 'fas fa-info-circle', 'url' => ['/info']],
                     ['label' => 'Blog', 'icon' => 'fab fa-bitcoin', 'url' => ['/blog/blog']],
@@ -46,24 +47,6 @@
                         'url' => '#',
                         'items' => [
                             ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
-
-                            [
-                                'label' => 'Level One',
-                                'icon' => 'circle-o',
-                                'url' => '#',
-                                'items' => [
-                                    ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
-                                    [
-                                        'label' => 'Level Two',
-                                        'icon' => 'circle-o',
-                                        'url' => '#',
-                                        'items' => [
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                        ],
-                                    ],
-                                ],
-                            ],
                         ],
                     ],
                 ],

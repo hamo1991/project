@@ -23,9 +23,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'manufacturer') ?>
 
+<!--    --><?//= $form->field($model, 'content') ?>
+
     <?= $form->field($model, 'price') ?>
 
     <?= $form->field($model, 'sale_price') ?>
+
+<!--    --><?//= $form->field($model, 'sizes') ?>
 
     <?php // echo $form->field($model, 'sku') ?>
 
@@ -42,6 +46,8 @@ use yii\widgets\ActiveForm;
     <?php // echo $form->field($model, 'cat_id') ?>
 
     <?php // echo $form->field($model, 'brand_id') ?>
+
+    <?php // echo $form->field($model, 'col_id') ?>
 
     <?php // echo $form->field($model, 'slug') ?>
 

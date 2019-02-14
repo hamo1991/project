@@ -32,14 +32,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             'description:html',
             'manufacturer:html',
+            'content:html',
             'price',
             'sale_price',
             'sku',
             'quantity',
             'available_stock',
-            'is_new',
-            'is_sale',
-//            'image',
+//            'is_new',
+//            'is_sale',
+            'sizes',
             [
                 'attribute' => 'image',
                 'format' => 'raw',
@@ -48,10 +49,32 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::img(\yii\helpers\Url::to('/frontend/web/images/uploads/products/'. $model->image),['width' => '100px','height' => '100px',]);
                 }
             ] ,
-            'cat_id',
-            'brand_id',
-            'slug',
-            'best',
+
+            [
+                'attribute' => 'cat_id',
+                'filter' => '',
+                'value' => function($model){
+                    return \common\models\Categories::find()->where(['id' => $model->cat_id])->one()->title;
+                }
+            ] ,
+            [
+                'attribute' => 'brand_id',
+                'filter' => '',
+                'value' => function($model){
+                    return \common\models\Brands::find()->where(['id' => $model->brand_id])->one()->title;
+                }
+            ] ,
+
+//            [
+//                'attribute' => 'col_id',
+//                'filter' => '',
+//                'value' => function($model){
+//                    return \common\models\Colors::find()->where(['id' => $model->col_id])->one()->title;
+//                }
+//            ] ,
+
+//            'slug',
+//            'best',
         ],
     ]) ?>
 

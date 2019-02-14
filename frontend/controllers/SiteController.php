@@ -15,7 +15,7 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use common\models\Categories;
 use common\models\Products;
-
+use common\models\About;
 use common\models\Cart;
 use yii\db\Query;
 use common\models\Brands;
@@ -154,7 +154,11 @@ class SiteController extends Controller {
      * @return mixed
      */
     public function actionAbout() {
-        return $this->render('about');
+
+        $about = About::find()->asArray()->all();
+        return $this->render('about',[
+            'about' => $about
+        ]);
     }
 
     /**

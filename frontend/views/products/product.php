@@ -61,24 +61,20 @@ $this->title = 'Product Details';
                         }
                         ?>
                     </div>
-                    <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                        unorthographic life One day however a small line of blind text by the name of Lorem Ipsum
-                        decided to leave for the far World of Grammar.</p>
+                    <p><?= $product['content'] ?></p>
                     <div class="size-wrap">
                         <div class="block-26 mb-2">
-                            <h4>Size</h4>
+                            <h4>Sizes</h4>
                             <ul>
-                                <li><a href="#">35</a></li>
-                                <li><a href="#">36</a></li>
-                                <li><a href="#">37</a></li>
-                                <li><a href="#">38</a></li>
-                                <li><a href="#">39</a></li>
-                                <li><a href="#">40</a></li>
-                                <li><a href="#">41</a></li>
-                                <li><a href="#">42</a></li>
-                                <li><a href="#">43</a></li>
-                                <li><a href="#">44</a></li>
-                                <li><a href="#">45</a></li>
+                                <?php
+                                $sizes = explode(',',$product['sizes']);
+                                foreach ($sizes as $size) {
+                                    ?>
+                                    <li><a><?= $size ?></a></li>
+                                <?php
+                                }
+
+                                ?>
                             </ul>
                         </div>
                     </div>
@@ -96,11 +92,17 @@ $this->title = 'Product Details';
                                 <i class="icon-plus2"></i>
                             </button>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12 text-center">
-                                <p class="addtocart"><button id="btn" type="submit" class="btn-primary btn-addtocart"><i class="icon-shopping-cart"></i>Add to Cart</button></p>
+                        <?php
+                        if (!Yii::$app->user->isGuest) {
+                            ?>
+                            <div class="row">
+                                <div class="col-sm-12 text-center">
+                                    <p class="addtocart"><button id="btn" type="submit" class="btn-primary btn-addtocart"><i class="icon-shopping-cart"></i>Add to Cart</button></p>
+                                </div>
                             </div>
-                        </div>
+                        <?php
+                        }
+                        ?>
                     </form>
                 </div>
             </div>

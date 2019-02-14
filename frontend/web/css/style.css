@@ -3320,6 +3320,10 @@ fieldset:disabled a.btn {
     color: #2CC8BC;
 }
 
+/*#logout {*/
+    /*padding-bottom: 1px;*/
+/*}*/
+
 .logout-btn {
     bottom: 7px;
 }
@@ -10357,13 +10361,12 @@ h1, h2, h3, h4, h5,
 
 #nav-form {
     display: inline;
-
 }
 
 #nav-button {
     padding: 0;!important;
     border: none;!important;
-    margin-bottom: 2.7px;
+    margin-bottom: 1.5px;!important;
 
 }
 
@@ -10375,8 +10378,8 @@ h1, h2, h3, h4, h5,
     font-weight: 400;
     font-family: "Rokkitt", Georgia, serif;
     text-transform: uppercase;
-    font-size: 16px;
-    letter-spacing: 2px;
+    font-size: 18px;
+    letter-spacing: 1px;
 }
 
 .new-sale {
@@ -10809,6 +10812,7 @@ h1, h2, h3, h4, h5,
 }
 
 .block-26 ul li {
+    cursor: default;
     margin-bottom: 5px;
     margin-right: 5px;
     width: 40px;
@@ -10828,10 +10832,6 @@ h1, h2, h3, h4, h5,
     vertical-align: middle;
     color: #fff;
     padding: 0;
-}
-
-.block-26 ul li a:hover {
-    background: #616161;
 }
 
 .block-26 h4 {

@@ -40,6 +40,7 @@ class AppAsset extends AssetBundle
         'js/jquery.stellar.min.js',
         'js/main.js',
         'js/script.js',
+        'js/quantity.js',
         'js/jquery.animateNumber.min.js',
         'js/respond.min.js',
 
