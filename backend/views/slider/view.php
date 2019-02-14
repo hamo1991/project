@@ -29,10 +29,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'title',
-            'description',
-            'content',
-            'image',
+            'title:html',
+            'description:html',
+            'content:html',
+//            'image',
+            [
+                'attribute' => 'image',
+                'format' => 'raw',
+                'filter' => '',
+                'value' => function($model){
+                    return Html::img(\yii\helpers\Url::to('/frontend/web/images/uploads/slider/'. $model->image),['width' => '120px','height' => '80px',]);
+                }
+            ] ,
         ],
     ]) ?>
 

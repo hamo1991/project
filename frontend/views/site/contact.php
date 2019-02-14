@@ -7,6 +7,7 @@ use yii\captcha\Captcha;
 
 
 $this->title = 'Contact';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="breadcrumbs">
@@ -44,14 +45,14 @@ $this->title = 'Contact';
         <div class="row">
             <div class="col-md-6">
                 <div class="contact-wrap">
-                    <h3>Get In Touch</h3>
+                    <h2>Get In Touch</h2>
                     <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
                     <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
 
                     <?= $form->field($model, 'email') ?>
 
-                    <?= $form->field($model, 'subject')->fileInput() ?>
+                    <?= $form->field($model, 'subject') ?>
 
                     <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
 
@@ -84,3 +85,4 @@ $this->title = 'Contact';
     }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwtvaOIGoZZezU3Sm-KDZAtnGxtY5VOUI&callback=myMap"></script>
+

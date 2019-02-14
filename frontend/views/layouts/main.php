@@ -53,34 +53,35 @@ AppAsset::register($this);
                     </div>
                     <div class="row">
                         <div class="col-sm-12 text-left menu-1">
-                            <?php
-                            $menuItems = [
-                                ['label' => 'Home', 'url' => ['site/']],
-                                ['label' => 'About', 'url' => ['site/about']],
-                                ['label' => 'Contact', 'url' => ['site/contact']],
-                            ];
 
-                            if (Yii::$app->user->isGuest) {
-                                $menuItems[] = ['label' => 'Signup', 'url' => ['site/signup']];
-                                $menuItems[] = ['label' => 'Login', 'url' => ['site/login']];
-                            } else {
-                                $menuItems[] = "<li class='logout-btn'>"
-                                    . Html::beginForm(['/site/logout'], 'post')
-                                    . Html::submitButton(
-                                        'Logout (' . Yii::$app->user->identity->username . ')',
-                                        ['class' => 'btn btn-link logout']
-                                    )
-                                    . Html::endForm()
-                                    . "</li>";
-                            }
-                            $menuItems[] = ['label' => ' Cart [0]', 'options' => ['id' => 'cart'], 'url' => ['site/cart',]];
-                            echo Nav::widget([
-                                'options' => ['class' => 'active'],
-                                'items' => $menuItems,
-                            ]);
-                            ?>
-                            <!--                            <li class="cart"><a href="../site/cart.php"><i class="icon-shopping-cart"></i> Cart [0]</a></li>-->
 
+                            <ul>
+                                <li class="active"><a href="<?= \yii\helpers\Url::to(['/']) . 'site/' ?>">Home</a></li>
+                                <li><a href="<?= \yii\helpers\Url::to(['/']) . 'site/about' ?>">About</a></li>
+                                <li><a href="<?= \yii\helpers\Url::to(['/']) . 'site/contact' ?>">Contact</a></li>
+                                <?php
+                                if (Yii::$app->user->isGuest) {
+                                    ?>
+                                    <li><a href="<?= \yii\helpers\Url::to(['/']) . 'site/signup' ?>">Signup</a></li>
+                                    <li><a href="<?= \yii\helpers\Url::to(['/']) . 'site/login' ?>">Login</a></li>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <li>
+                                        <form id="nav-form" action="<?= \yii\helpers\Url::to(['/']) . 'site/logout' ?>" method="post">
+                                            <input type="hidden" name="_csrf-frontend" value="wqOKrocOxVjlwA10wE3aL9happ62mB-JkYcttODH4s6o17ze3TugNJ2zNReJD69GqmvH8t_hU8ajsRzcmoKOoQ==">
+                                            <button id="nav-button" class="btn btn-link logout" name="submit" type="submit"><a id="logout">Logout
+                                                    (<?= Yii::$app->user->identity->username ?>)</a>
+                                            </button>
+
+
+                                        </form>
+                                    </li>
+                                    <?php
+                                }
+                                ?>
+                                <li class="cart"><a href="<?= \yii\helpers\Url::to(['/']) . 'site/cart' ?>"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>

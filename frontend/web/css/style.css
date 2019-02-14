@@ -10252,7 +10252,7 @@ h1, h2, h3, h4, h5,
 }
 
 .colorlib-nav .top-menu {
-    padding-top: 50px;
+   padding: 50px 0 0 0;
 }
 
 @media (max-width: 767.98px) {
@@ -10335,6 +10335,7 @@ h1, h2, h3, h4, h5,
 
 .colorlib-nav .menu-1 {
     display: block;
+    margin-bottom: 10px;
 }
 
 @media (max-width: 767.98px) {
@@ -10346,6 +10347,24 @@ h1, h2, h3, h4, h5,
 .colorlib-nav ul {
     padding: 0;
     margin: 20px 0 0 -12px;
+}
+
+
+
+.colorlib-nav ul li.cart {
+    float: right;
+}
+
+#nav-form {
+    display: inline;
+
+}
+
+#nav-button {
+    padding: 0;!important;
+    border: none;!important;
+    margin-bottom: 2.7px;
+
 }
 
 .colorlib-nav ul li {
@@ -10368,21 +10387,6 @@ h1, h2, h3, h4, h5,
 
 #category a {
     color: #2CC8BC;!important;
-}
-#cart {
-   margin-left: 43%;
-}
-
-#cart a {
-    color: #2CC8BC;
-    font-weight: bold;
-    bottom: 14px;
-}
-
-#cart a:before {
-    content: url("../images/shopping-cart.png");
-    position: relative;
-    top: 5px;
 }
 
 .colorlib-nav ul li a {

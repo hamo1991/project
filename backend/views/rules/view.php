@@ -29,8 +29,22 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'cat_id',
-            'brand_id',
+//            'cat_id',
+//            'brand_id',
+            [
+                'attribute' => 'cat_id',
+                'filter' => '',
+                'value' => function($model){
+                    return \common\models\Categories::find()->where(['id' => $model->cat_id])->one()->title;
+                }
+            ] ,
+            [
+                'attribute' => 'brand_id',
+                'filter' => '',
+                'value' => function($model){
+                    return \common\models\Brands::find()->where(['id' => $model->brand_id])->one()->title;
+                }
+            ] ,
         ],
     ]) ?>
 

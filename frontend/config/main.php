@@ -39,9 +39,11 @@ return [
                 ],
             ],
         ],
+
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+
 
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -49,7 +51,7 @@ return [
             'rules' => [
 
                 'search' => 'products/search',
-                'product/<slug>' => 'product/index',
+                'products/product/<slug>' => 'products/product',
                 'category/<slug>' => 'category/index',
                 'category/<slug>/<name:\w+>' => 'category/index',
                 'blog' => 'blog/blog/index',

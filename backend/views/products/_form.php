@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use mihaildev\ckeditor\CKEditor;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Products */
@@ -15,9 +16,25 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+<!--    --><?//= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+<?php
+    echo $form->field($model, 'description')->widget(CKEditor::className(),[
+    'editorOptions' => [
+    'preset' => 'full',
+    'inline' => false,
+    ],
+    ]);
+?>
 
-    <?= $form->field($model, 'manufacturer')->textarea(['rows' => 6]) ?>
+    <?php
+    echo $form->field($model, 'manufacturer')->widget(CKEditor::className(),[
+        'editorOptions' => [
+            'preset' => 'full',
+            'inline' => false,
+        ],
+    ]);
+    ?>
+<!--    --><? //= $form->field($model, 'manufacturer')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'price')->textInput() ?>
 
@@ -31,11 +48,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'available_stock')->textInput() ?>
 
-    <?= $form->field($model, 'is_new')->dropDownList([ '0' => 'No', '1' => 'Yes', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'is_new')->checkbox([ '0', '1' ]) ?>
 
-    <?= $form->field($model, 'is_sale')->dropDownList([ '0' => 'No', '1' => 'Yes', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'is_sale')->checkbox([ '0', '1' ]) ?>
 
-    <?= $form->field($model, 'best')->dropDownList([ '0' => 'No', '1' => 'Yes', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'best')->checkbox([ '0', '1' ]) ?>
 
 
     <?= $form->field($model, 'cat_id')->dropDownList($categories,['prompt' => 'Please select category']); ?>

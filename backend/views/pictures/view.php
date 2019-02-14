@@ -29,8 +29,23 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'product_id',
-            'image',
+//            'product_id',
+//            'image',
+            [
+                'attribute' => 'product_id',
+                'filter' => '',
+                'value' => function($model){
+                    return \common\models\Products::find()->where(['id' => $model->product_id])->one()->title;
+                }
+            ] ,
+            [
+                'attribute' => 'image',
+                'format' => 'raw',
+                'filter' => '',
+                'value' => function($model){
+                    return Html::img(\yii\helpers\Url::to('/frontend/web/images/uploads/products/'. $model->image),['width' => '100px','height' => '100px',]);
+                }
+            ] ,
         ],
     ]) ?>
 

@@ -20,8 +20,8 @@ $this->title = 'Product Details';
                 <div class="owl-carousel">
                     <div class="item">
                         <div class="product-entry border">
-                                <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>"
-                                     class="img-fluid" alt="Product image">
+                            <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>"
+                                 class="img-fluid" alt="Product image">
                         </div>
                     </div>
 
@@ -32,16 +32,16 @@ $this->title = 'Product Details';
                             ?>
                             <div class="item">
                                 <div class="product-entry border">
-                                        <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $image['image'] ?>"
-                                             class="img-fluid" alt="Product images">
+                                    <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $image['image'] ?>"
+                                         class="img-fluid" alt="Product images">
                                 </div>
                             </div>
-                    <?php
+                            <?php
                         }
                     }
                     ?>
-                   <div></div>
-                    
+                    <div></div>
+
                 </div>
             </div>
             <div class="col-sm-4">
@@ -86,21 +86,21 @@ $this->title = 'Product Details';
                         <h4>Quantity</h4>
                     </div>
                     <form action="<?= \yii\helpers\Url::to(['/']) . 'site/add-cart/' . $product['slug'] ?>">
-                    <div class="input-group mb-4">
-                        <button type="button" class="quantity-left-minus btn" data-type="minus" data-field=""><i class="icon-minus2"></i></button>
-                        <input type="text" id="quantity" name="quantity" class="form-control input-number" value="<?= $product['quantity'] ?>">
-                        <span class="input-group-btn ml-1">
+                        <div class="input-group mb-4">
+                            <button type="button" class="quantity-left-minus btn" data-type="minus" data-field=""><i class="icon-minus2"></i></button>
+                            <input type="text" id="quantity" name="quantity" class="form-control input-number" value="<?= $product['quantity'] ?>">
+                            <span class="input-group-btn ml-1">
 
                      	</span>
-                        <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
-                            <i class="icon-plus2"></i>
-                        </button>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12 text-center">
-                            <p class="addtocart"><button id="btn" type="submit" class="btn-primary btn-addtocart"><i class="icon-shopping-cart"></i>Add to Cart</button></p>
+                            <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
+                                <i class="icon-plus2"></i>
+                            </button>
                         </div>
-                    </div>
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <p class="addtocart"><button id="btn" type="submit" class="btn-primary btn-addtocart"><i class="icon-shopping-cart"></i>Add to Cart</button></p>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

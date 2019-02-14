@@ -30,8 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'title',
-            'description:ntext',
-            'manufacturer:ntext',
+            'description:html',
+            'manufacturer:html',
             'price',
             'sale_price',
             'sku',
@@ -39,7 +39,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'available_stock',
             'is_new',
             'is_sale',
-            'image',
+//            'image',
+            [
+                'attribute' => 'image',
+                'format' => 'raw',
+                'filter' => '',
+                'value' => function($model){
+                    return Html::img(\yii\helpers\Url::to('/frontend/web/images/uploads/products/'. $model->image),['width' => '100px','height' => '100px',]);
+                }
+            ] ,
             'cat_id',
             'brand_id',
             'slug',

@@ -37,7 +37,7 @@ $this->title = 'All Products';
 
                     <div class="col-lg-3 mb-4 text-center">
                         <div class="product-entry border">
-                            <a href="<?= \yii\helpers\Url::to(['product/' . $product['slug']]) ?>" class="prod-img">
+                            <a href="<?= \yii\helpers\Url::to(['products/product/' . $product['slug']]) ?>" class="prod-img">
                                 <?php if ($product['is_new']) : ?>
                                     <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png' ?>"
                                          alt="new">
@@ -50,7 +50,7 @@ $this->title = 'All Products';
                             </a>
                             <div class="desc">
                                 <h2>
-                                    <a href="<?= \yii\helpers\Url::to(['product/', 'slug' => $product['slug']]) ?>"><?= $product['title'] ?></a>
+                                    <a href="<?= \yii\helpers\Url::to(['products/product', 'slug' => $product['slug']]) ?>"><?= $product['title'] ?></a>
                                 </h2>
                                 <?php
                                 if ($product['sale_price']) {

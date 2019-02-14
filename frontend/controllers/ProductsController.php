@@ -15,6 +15,7 @@ use common\models\Products;
 use common\models\Cart;
 use yii\db\Query;
 use common\models\Brands;
+use common\models\Pictures;
 use yii\data\Pagination;
 use yii\data\ActiveDataProvider;
 
@@ -31,7 +32,7 @@ class ProductsController extends Controller{
                 $id = $brand->id;
 
                 $productBrands = Products::find()->where(['brand_id' => $id])->orderBy(['title' => 4]);
-                $pagination = new Pagination(['totalCount' => $productBrands->count(), 'pageSize' => 2]);
+                $pagination = new Pagination(['totalCount' => $productBrands->count(), 'pageSize' => 8]);
                 $productBrands = $productBrands->offset($pagination->offset)->limit($pagination->limit)->asArray()->all();
 
                 $dataProvider = new ActiveDataProvider([
@@ -82,6 +83,27 @@ class ProductsController extends Controller{
             'search' => $search,
             'brands' => $brands
         ]);
+    }
+
+    public function actionProduct($slug = '') {
+
+        $product = Products::findOne(['slug' => $slug]);
+        if (!empty($product)) {
+            $id = $product->id;
+
+            $productImages = Pictures::find()->alias('p')
+                ->innerJoin('products as pr',"$id = p.product_id")
+                ->asArray()->all();
+
+            return $this->render('product', [
+                'product' => $product,
+                'productImages' => $productImages
+            ]);
+        }else {
+            return $this->redirect('/');
+        }
+
+
     }
 
 

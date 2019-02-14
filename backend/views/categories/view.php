@@ -30,10 +30,26 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'title',
-            'description:ntext',
-            'image',
+            'description:html',
             'slug',
-            'info_image',
+//            'image',
+//            'info_image',
+            [
+                'attribute' => 'image',
+                'format' => 'raw',
+                'filter' => '',
+                'value' => function($model){
+                    return Html::img(\yii\helpers\Url::to('/frontend/web/images/uploads/categories/'. $model->image),['width' => '100px','height' => '80px',]);
+                }
+            ] ,
+            [
+                'attribute' => 'info_image',
+                'format' => 'raw',
+                'filter' => '',
+                'value' => function($model){
+                    return Html::img(\yii\helpers\Url::to('/frontend/web/images/uploads/categories/'. $model->info_image),['width' => '100px','height' => '80px',]);
+                }
+            ] ,
         ],
     ]) ?>
 

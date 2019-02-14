@@ -85,7 +85,7 @@
 
                         <div class="product-entry border">
 
-                            <a href="<?= \yii\helpers\Url::to(['product/' . $hit['slug']]) ?>" class="prod-img">
+                            <a href="<?= \yii\helpers\Url::to(['products/product/' . $hit['slug']]) ?>" class="prod-img">
                                 <?php if ($hit['is_new']) : ?>
                                     <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png' ?>"
                                          alt="new">
@@ -99,7 +99,7 @@
                             </a>
                             <div class="desc">
                                 <h2>
-                                    <a href="<?= \yii\helpers\Url::to(['product/', 'slug' => $hit['slug']]) ?>"><?= $hit['title'] ?></a>
+                                    <a href="<?= \yii\helpers\Url::to(['products/product', 'slug' => $hit['slug']]) ?>"><?= $hit['title'] ?></a>
                                 </h2>
                                 <?php
                                 if ($hit['sale_price']) {
