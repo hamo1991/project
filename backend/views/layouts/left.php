@@ -10,7 +10,7 @@
             <div class="pull-left info">
                 <p>Hamo Harutyunyan</p>
 
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                <a href=""><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
 
@@ -35,7 +35,8 @@
                     ['label' => 'Upload product images', 'icon' => 'fas fa-image', 'url' => ['/pictures']],
                     ['label' => 'Categories', 'icon' => 'fab fa-contao', 'url' => ['/categories']],
                     ['label' => 'Brands', 'icon' => 'fab fa-bandcamp', 'url' => ['/brands']],
-                    ['label' => 'Brands & Categories', 'icon' => 'fas fa-list-ol', 'url' => ['/rules']],
+                    ['label' => 'Colors', 'icon' => 'fab fa-bandcamp', 'url' => ['/colors']],
+                    ['label' => 'Brands,Categories & Colors', 'icon' => 'fas fa-list-ol', 'url' => ['/rules']],
                     ['label' => 'About page', 'icon' => 'fas fa-columns', 'url' => ['/about']],
                     ['label' => 'Slider', 'icon' => 'fas fa-play', 'url' => ['/slider']],
                     ['label' => 'Info', 'icon' => 'fas fa-info-circle', 'url' => ['/info']],

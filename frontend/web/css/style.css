@@ -12294,3 +12294,7 @@ input[type="text"] {
 .js .animate-box {
     opacity: 0;
 }
+
+.owl-carousel.single-item{
+    display: block;
+}

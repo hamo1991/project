@@ -12,6 +12,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\Categories;
 use common\models\Products;
+use common\models\Colors;
 use common\models\Cart;
 use yii\db\Query;
 use common\models\Brands;
@@ -21,7 +22,7 @@ use yii\data\ActiveDataProvider;
 
 class CategoryController extends Controller {
 
-    public function actionIndex($slug, $name = '') {
+    public function actionIndex($slug = '', $name = '', $color = '') {
 
         $category = Categories::findOne(['slug' => $slug]);
         $brands = Brands::findOne(['slug' => $name]);
@@ -30,7 +31,7 @@ class CategoryController extends Controller {
         if (!empty($category)) {
             $id_cat = $category->id;
 
-
+            $colors = Colors::find()->asArray()->all();
             $categories = Categories::find()->asArray()->all();
             $category = Categories::find()
                 ->where(['id' => $id_cat])->asArray()->one();
@@ -49,7 +50,9 @@ class CategoryController extends Controller {
                 'categories' => $categories,
                 'category' => $category,
                 'products' => $products,
-                'brands' => $brands
+                'brands' => $brands,
+                'colors' => $colors,
+                'brandName' => $name
             ]);
         }
 

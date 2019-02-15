@@ -5,12 +5,12 @@ namespace common\models\search;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Rules;
+use common\models\Colors;
 
 /**
- * RulesSearch represents the model behind the search form of `common\models\Rules`.
+ * ColorsSearch represents the model behind the search form of `common\models\Colors`.
  */
-class RulesSearch extends Rules
+class ColorsSearch extends Colors
 {
     /**
      * @inheritdoc
@@ -18,7 +18,8 @@ class RulesSearch extends Rules
     public function rules()
     {
         return [
-            [['id', 'cat_id', 'brand_id','color_id'], 'integer'],
+            [['id'], 'integer'],
+            [['title', 'slug'], 'safe'],
         ];
     }
 
@@ -40,15 +41,12 @@ class RulesSearch extends Rules
      */
     public function search($params)
     {
-        $query = Rules::find();
+        $query = Colors::find();
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'pagination' => [
-                'pageSize' => 10,
-            ]
         ]);
 
         $this->load($params);
@@ -62,10 +60,10 @@ class RulesSearch extends Rules
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'cat_id' => $this->cat_id,
-            'brand_id' => $this->brand_id,
-            'color_id' => $this->color_id,
         ]);
+
+        $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'slug', $this->slug]);
 
         return $dataProvider;
     }

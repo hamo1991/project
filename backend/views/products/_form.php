@@ -72,7 +72,7 @@ use mihaildev\ckeditor\CKEditor;
 
     <?= $form->field($model, 'color_id')->dropDownList($colors,['prompt' => 'Please select color']); ?>
 
-<!--    --><?//= $form->field($model, 'col_id')->dropDownList($brands,['prompt' => 'Please select color']); ?>
+    <!--<?//= $form->field($model, 'col_id')->dropDownList($brands,['prompt' => 'Please select color']); ?> -->
 
    <!-- <?//= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?> -->
 

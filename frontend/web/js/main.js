@@ -222,40 +222,49 @@
 	// Owl Carousel
 	var owlCrouselFeatureSlide = function() {
 		var owl = $('.owl-carousel');
-		owl.owlCarousel({
-		   animateOut: 'fadeOut',
-		   animateIn: 'fadeIn',
-		   autoplay: false,
-		   autoplayHoverPause: true,
-		   loop:true,
-		   margin:0,
-		   nav:false,
-		   dots: true,
-		   autoHeight: false,
-		   items: 1,
-		   navText: [
-		      "<i class='icon-chevron-left owl-direction'></i>",
-		      "<i class='icon-chevron-right owl-direction'></i>"
-	     	]
-		});
+		if(owl.find('.item').length > 1){
+            owl.owlCarousel({
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn',
+                autoplay: false,
+                autoplayHoverPause: true,
+                loop:true,
+                margin:0,
+                nav:false,
+                dots: true,
+                autoHeight: false,
+                items: 1,
+                navText: [
+                    "<i class='icon-chevron-left owl-direction'></i>",
+                    "<i class='icon-chevron-right owl-direction'></i>"
+                ]
+            });
+		}else{
+            owl.addClass('single-item')
+		}
+
 
 		var owl2 = $('.owl-carousel2');
-		owl2.owlCarousel({
-			animateOut: 'fadeOut',
-		   animateIn: 'fadeIn',
-		   autoplay: true,
-		   autoplayHoverPause: true,
-		   loop:true,
-		   margin:0,
-		   nav:false,
-		   dots: false,
-		   autoHeight: true,
-		   items: 1,
-		   navText: [
-		      "<i class='icon-chevron-left owl-direction'></i>",
-		      "<i class='icon-chevron-right owl-direction'></i>"
-	     	]
-		});
+        if(owl2.find('.item').length > 1) {
+            owl2.owlCarousel({
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn',
+                autoplay: true,
+                autoplayHoverPause: true,
+                loop: true,
+                margin: 0,
+                nav: false,
+                dots: false,
+                autoHeight: true,
+                items: 1,
+                navText: [
+                    "<i class='icon-chevron-left owl-direction'></i>",
+                    "<i class='icon-chevron-right owl-direction'></i>"
+                ]
+            });
+        }else{
+            owl2.addClass('single-item')
+        }
 	};
 
 	var parallax = function() {

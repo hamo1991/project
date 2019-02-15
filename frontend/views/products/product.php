@@ -24,8 +24,6 @@ $this->title = 'Product Details';
                                  class="img-fluid" alt="Product image">
                         </div>
                     </div>
-
-
                     <?php
                     if (!empty($productImages)) {
                         foreach ($productImages as $image) {
@@ -40,8 +38,6 @@ $this->title = 'Product Details';
                         }
                     }
                     ?>
-                    <div></div>
-
                 </div>
             </div>
             <div class="col-sm-4">

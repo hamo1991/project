@@ -10,7 +10,7 @@ use Yii;
  * @property int $id
  * @property int $cat_id
  * @property int $brand_id
- * @property int $colo_id
+ * @property int $color_id
  *
  * @property Brands $brand
  * @property Categories $cat

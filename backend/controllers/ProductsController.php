@@ -12,6 +12,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 use yii\helpers\ArrayHelper;
+use common\models\Colors;
 
 /**
  * ProductsController implements the CRUD actions for Products model.
@@ -74,6 +75,9 @@ class ProductsController extends Controller {
         $brands = Brands::find()->asArray()->all();
         $brands = ArrayHelper::map($brands, 'id', 'title');
 
+        $colors = Colors::find()->asArray()->all();
+        $colors = ArrayHelper::map($colors, 'id', 'title');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $imgFile = UploadedFile::getInstance($model, "image");
             if (!empty($imgFile)) {
@@ -93,7 +97,8 @@ class ProductsController extends Controller {
         return $this->render('create', [
             'model' => $model,
             'categories' => $categories,
-            'brands' => $brands
+            'brands' => $brands,
+            'colors' => $colors
         ]);
     }
 
@@ -111,6 +116,9 @@ class ProductsController extends Controller {
 
         $brands = Brands::find()->asArray()->all();
         $brands = ArrayHelper::map($brands, 'id', 'title');
+
+        $colors = Colors::find()->asArray()->all();
+        $colors = ArrayHelper::map($colors, 'id', 'title');
 
         $model = $this->findModel($id);
 
@@ -150,7 +158,8 @@ class ProductsController extends Controller {
         return $this->render('update', [
             'model' => $model,
             'categories' => $categories,
-            'brands' => $brands
+            'brands' => $brands,
+            'colors' => $colors
         ]);
 
     }

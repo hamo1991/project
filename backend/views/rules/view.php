@@ -29,8 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-//            'cat_id',
-//            'brand_id',
             [
                 'attribute' => 'cat_id',
                 'filter' => '',
@@ -43,6 +41,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filter' => '',
                 'value' => function($model){
                     return \common\models\Brands::find()->where(['id' => $model->brand_id])->one()->title;
+                }
+            ] ,
+
+            [
+                'attribute' => 'color_id',
+                'filter' => '',
+                'value' => function($model){
+                    return \common\models\Colors::find()->where(['id' => $model->color_id])->one()->title;
                 }
             ] ,
         ],

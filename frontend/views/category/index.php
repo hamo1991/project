@@ -70,18 +70,18 @@ if (!empty($category)) {
                         <div class="side border mb-1">
                             <h3>Brands</h3>
                             <ul>
-                                <?php
+                            <?php
                                 if (!empty($brands)) {
-                                    foreach ($brands as $key=>$brand) {
+                                    foreach ($brands as $brand) {
                                         ?>
 
-<!--                                        --><?php //if () {
-//                                            $name = 'category';
-//                                        } else {
-//                                            $name = '';
-//                                        }
-//                                        ?>
-                                        <li >
+                                        <?php if ($brandName == strtolower($brand['title'])) {
+                                            $name = 'category';
+                                        } else {
+                                            $name = '';
+                                        }
+                                        ?>
+                                        <li id="<?= $name ?>">
                                             <a href="<?= \yii\helpers\Url::to(['/category/' . $category['slug'] . '/' . $brand['slug']]) ?>"><?= $brand['title'] ?></a>
                                         </li>
                                         <?php
@@ -97,15 +97,37 @@ if (!empty($category)) {
                         <div class="side border mb-1">
                             <h3>Colors</h3>
                             <ul>
-                                <li><a href="#">Black</a></li>
-                                <li><a href="#">White</a></li>
-                                <li><a href="#">Blue</a></li>
-                                <li><a href="#">Red</a></li>
-                                <li><a href="#">Green</a></li>
-                                <li><a href="#">Grey</a></li>
-                                <li><a href="#">Orange</a></li>
-                                <li><a href="#">Cream</a></li>
-                                <li><a href="#">Brown</a></li>
+
+                                <?php
+                                if (!empty($colors)) {
+                                    foreach ($colors as $col) {
+                                        ?>
+
+<!--                                        --><?php //if ($brandName == strtolower($col['title'])) {
+//                                            $name = 'category';
+//                                        } else {
+//                                            $name = '';
+//                                        }
+//                                        ?>
+
+                                        <li id="<?= $name ?>">
+                                            <a href="<?= \yii\helpers\Url::to(['/category/' . $category['slug'] . '/' . $brand['slug'] . '/' . $col['slug']]) ?>"><?= $col['title'] ?></a>
+                                        </li>
+                                        <?php
+                                    }
+                                }
+
+                                ?>
+
+<!--                                <li><a href="#">Black</a></li>-->
+<!--                                <li><a href="#">White</a></li>-->
+<!--                                <li><a href="#">Blue</a></li>-->
+<!--                                <li><a href="#">Red</a></li>-->
+<!--                                <li><a href="#">Green</a></li>-->
+<!--                                <li><a href="#">Grey</a></li>-->
+<!--                                <li><a href="#">Orange</a></li>-->
+<!--                                <li><a href="#">Cream</a></li>-->
+<!--                                <li><a href="#">Brown</a></li>-->
                             </ul>
                         </div>
                     </div>
@@ -156,9 +178,7 @@ if (!empty($category)) {
                                 </div>
                             </div>
                             <?php
-
                         }
-
                     }
                     ?>
                 </div>
