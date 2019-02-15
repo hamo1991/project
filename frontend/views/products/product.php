@@ -63,11 +63,11 @@ $this->title = 'Product Details';
                             <h4>Sizes</h4>
                             <ul>
                                 <?php
-                                $sizes = explode(',',$product['sizes']);
+                                $sizes = explode(',', $product['sizes']);
                                 foreach ($sizes as $size) {
                                     ?>
                                     <li><a><?= $size ?></a></li>
-                                <?php
+                                    <?php
                                 }
 
                                 ?>
@@ -77,28 +77,29 @@ $this->title = 'Product Details';
                     <div class="block-26">
                         <h4>Quantity</h4>
                     </div>
-                    <form action="<?= \yii\helpers\Url::to(['/']) . 'site/add-cart/' . $product['slug'] ?>">
+                    <form action="<?= \yii\helpers\Url::to(['@web/']) . 'cart/add'?>" method="get">
                         <div class="input-group mb-4">
-                            <button type="button" class="quantity-left-minus btn" data-type="minus" data-field=""><i class="icon-minus2"></i></button>
-                            <input type="text" id="quantity" name="quantity" class="form-control input-number" value="<?= $product['quantity'] ?>">
+                            <button type="button" class="quantity-left-minus btn" data-type="minus" data-field=""><i
+                                        class="icon-minus2"></i></button>
+                            <input type="text" id="quantity" name="quantity" class="form-control input-number"
+                                   value="<?= $product['quantity'] ?>">
                             <span class="input-group-btn ml-1">
-
+                            <input type="hidden" name="id" value="<?= $product['id'] ?>">
                      	</span>
                             <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
                                 <i class="icon-plus2"></i>
                             </button>
                         </div>
-                        <?php
-                        if (!Yii::$app->user->isGuest) {
-                            ?>
-                            <div class="row">
-                                <div class="col-sm-12 text-center">
-                                    <p class="addtocart"><button id="btn" type="submit" class="btn-primary btn-addtocart"><i class="icon-shopping-cart"></i>Add to Cart</button></p>
-                                </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <p class="addtocart">
+                                    <button id="btn" type="submit" class="btn-primary btn-addtocart"><i
+                                                class="icon-shopping-cart"></i>Add to Cart
+                                    </button>
+                                </p>
                             </div>
-                        <?php
-                        }
-                        ?>
+                        </div>
                     </form>
                 </div>
             </div>

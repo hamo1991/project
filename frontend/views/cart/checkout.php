@@ -159,7 +159,7 @@ $this->title = 'Checkout';
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <p><a href="#" class="btn btn-primary">Place an order</a></p>
+                <p><a href="<?= \yii\helpers\Url::to(['/']) . 'cart/complete' ?>" class="btn btn-primary">Place an order</a></p>
             </div>
         </div>
     </div>

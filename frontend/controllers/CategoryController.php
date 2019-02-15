@@ -26,12 +26,13 @@ class CategoryController extends Controller {
 
         $category = Categories::findOne(['slug' => $slug]);
         $brands = Brands::findOne(['slug' => $name]);
+        $colors = Colors::findOne(['slug' => $color]);
 
 
         if (!empty($category)) {
             $id_cat = $category->id;
 
-            $colors = Colors::find()->asArray()->all();
+
             $categories = Categories::find()->asArray()->all();
             $category = Categories::find()
                 ->where(['id' => $id_cat])->asArray()->one();
@@ -44,6 +45,10 @@ class CategoryController extends Controller {
 
             $brands = Brands::find()->alias('b')
                 ->innerJoin('rules as ru', 'ru.brand_id = b.id')
+                ->where(['ru.cat_id' => $id_cat])->asArray()->all();
+
+            $colors = Colors::find()->alias('c')
+                ->innerJoin('rules as ru', 'ru.color_id = c.id')
                 ->where(['ru.cat_id' => $id_cat])->asArray()->all();
 
             return $this->render('index', [

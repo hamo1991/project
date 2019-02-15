@@ -2,7 +2,12 @@
 
 $this->title = 'My Cart';
 ?>
+<?php
+//var_dump($qty,$id);die();
 
+
+//var_dump($cart);die();
+?>
 <div class="breadcrumbs">
     <div class="container">
         <div class="row">
@@ -40,7 +45,7 @@ $this->title = 'My Cart';
                                 <div class="one-forth">
                                     <div class="product-img"
                                          style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['img'] ?>);
-                                                 display: block">
+                                             display: block">
                                     </div>
                                     <div class="display-tc">
                                         <h3><?= $product['name'] ?></h3>
@@ -107,7 +112,7 @@ $this->title = 'My Cart';
                                 </ul>
                             </div>
                             <div class="col-sm-3">
-                                <input type="submit" value="Proceed to checkout" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary"><a id="checkout" href="<?= \yii\helpers\Url::to(['/']) . 'cart/checkout' ?>">Proceed to checkout</a></button>
                             </div>
                         </div>
                     </div>

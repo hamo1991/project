@@ -54,11 +54,12 @@ return [
                 'products/product/<slug>' => 'products/product',
                 'category/<slug>' => 'category/index',
                 'category/<slug>/<name:\w+>' => 'category/index',
+//                'category/<slug>/<name:\w+>/<color:\w+>' => 'category/index',
                 'blog' => 'blog/blog/index',
                 'article/<slug>' => 'blog/blog/article',
                 'products/index' => 'products/',
                 'products/<slug>' => 'products/',
-                'site/add-cart/<slug>' => 'site/add-cart',
+//                'site/add-cart/<slug>' => 'site/add-cart',
 
 
 

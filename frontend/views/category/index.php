@@ -110,8 +110,8 @@ if (!empty($category)) {
 //                                        }
 //                                        ?>
 
-                                        <li id="<?= $name ?>">
-                                            <a href="<?= \yii\helpers\Url::to(['/category/' . $category['slug'] . '/' . $brand['slug'] . '/' . $col['slug']]) ?>"><?= $col['title'] ?></a>
+                                        <li>
+                                            <a href="<?= \yii\helpers\Url::to(['/category/' . $category['slug'] . '/' . $brand['slug']]) ?>"><?= $col['title'] ?></a>
                                         </li>
                                         <?php
                                     }
@@ -119,15 +119,6 @@ if (!empty($category)) {
 
                                 ?>
 
-<!--                                <li><a href="#">Black</a></li>-->
-<!--                                <li><a href="#">White</a></li>-->
-<!--                                <li><a href="#">Blue</a></li>-->
-<!--                                <li><a href="#">Red</a></li>-->
-<!--                                <li><a href="#">Green</a></li>-->
-<!--                                <li><a href="#">Grey</a></li>-->
-<!--                                <li><a href="#">Orange</a></li>-->
-<!--                                <li><a href="#">Cream</a></li>-->
-<!--                                <li><a href="#">Brown</a></li>-->
                             </ul>
                         </div>
                     </div>

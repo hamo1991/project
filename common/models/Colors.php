@@ -1,6 +1,7 @@
 <?php
 
 namespace common\models;
+use yii\behaviors\SluggableBehavior;
 
 use Yii;
 
@@ -22,6 +23,17 @@ class Colors extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'colors';
+    }
+
+    public function behaviors() {
+        return [
+            [
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'title',
+                'slugAttribute' => 'slug',
+                'ensureUnique' => true
+            ],
+        ];
     }
 
     /**
