@@ -47,7 +47,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'brand_id') ?>
 
-    <?php // echo $form->field($model, 'col_id') ?>
+    <?php // echo $form->field($model, 'color_id') ?>
 
     <?php // echo $form->field($model, 'slug') ?>
 

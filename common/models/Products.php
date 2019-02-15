@@ -1,6 +1,6 @@
 <?php
 
-namespace  common\models;
+namespace common\models;
 
 use Yii;
 use yii\behaviors\SluggableBehavior;
@@ -25,25 +25,23 @@ use yii\behaviors\SluggableBehavior;
  * @property string $image
  * @property string $cat_id
  * @property string $brand_id
+ * @property string $color_id
  * @property string $slug
  *
  * @property Cart[] $carts
  * @property Categories $cat
  * @property Brands $brand
  */
-class Products extends \yii\db\ActiveRecord
-{
+class Products extends \yii\db\ActiveRecord {
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'products';
     }
 
 
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             [
                 'class' => SluggableBehavior::className(),
@@ -53,16 +51,16 @@ class Products extends \yii\db\ActiveRecord
             ],
         ];
     }
+
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
-            [['title', 'price', 'sku', 'sizes', 'quantity', 'available_stock', 'cat_id', 'brand_id'], 'required'],
-            [['description', 'manufacturer', 'content','is_new', 'sizes','is_sale'], 'string'],
+            [['title', 'price', 'sku', 'sizes', 'quantity', 'available_stock', 'cat_id', 'brand_id', 'color_id'], 'required'],
+            [['description', 'manufacturer', 'content', 'is_new', 'sizes', 'is_sale'], 'string'],
             [['price', 'sale_price'], 'number'],
-            [['quantity', 'available_stock', 'best', 'cat_id', 'brand_id'], 'integer'],
+            [['quantity', 'available_stock', 'best', 'cat_id', 'brand_id', 'color_id'], 'integer'],
             [['title', 'image'], 'string', 'max' => 255],
             [['sku', 'slug'], 'string', 'max' => 150],
             [['sku'], 'unique'],
@@ -74,8 +72,7 @@ class Products extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => 'ID',
             'title' => 'Title',
@@ -93,6 +90,7 @@ class Products extends \yii\db\ActiveRecord
             'image' => 'Image',
             'cat_id' => 'Categories',
             'brand_id' => 'Brands',
+            'color_id' => 'Colors',
             'slug' => 'Slug',
             'best' => 'Best',
         ];
@@ -101,24 +99,22 @@ class Products extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getCarts()
-    {
+    public function getCarts() {
         return $this->hasMany(Cart::className(), ['product_id' => 'id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getCat()
-    {
+    public function getCat() {
         return $this->hasOne(Categories::className(), ['id' => 'cat_id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getBrand()
-    {
+    public function getBrand() {
         return $this->hasOne(Brands::className(), ['id' => 'brand_id']);
     }
+
 }

@@ -18,7 +18,7 @@ class RulesSearch extends Rules
     public function rules()
     {
         return [
-            [['id', 'cat_id', 'brand_id'], 'integer'],
+            [['id', 'cat_id', 'brand_id','color_id'], 'integer'],
         ];
     }
 
@@ -64,6 +64,7 @@ class RulesSearch extends Rules
             'id' => $this->id,
             'cat_id' => $this->cat_id,
             'brand_id' => $this->brand_id,
+            'color_id' => $this->colo_id,
         ]);
 
         return $dataProvider;
