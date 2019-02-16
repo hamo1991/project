@@ -1,13 +1,10 @@
 <?php
 
 $this->title = 'My Cart';
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 ?>
-<?php
-//var_dump($qty,$id);die();
 
-
-//var_dump($cart);die();
-?>
 <div class="breadcrumbs">
     <div class="container">
         <div class="row">
@@ -21,7 +18,13 @@ $this->title = 'My Cart';
     <div class="container">
         <div class="row row-pb-lg">
             <div class="col-md-12">
-                <div class="product-name d-flex">
+
+                <div class="table-responsive">
+                    <?php
+                    if (!empty($cart)) {
+                        $total = 0;
+                        ?>
+                        <div class="product-name d-flex">
                     <div class="one-forth text-left px-4">
                         <span>Product Details</span>
                     </div>
@@ -31,46 +34,80 @@ $this->title = 'My Cart';
                     <div class="one-eight text-center">
                         <span>Quantity</span>
                     </div>
+                    <div class="one-eight text-center">
+						<span>Total</span>
+					</div>
                     <div class="one-eight text-center px-4">
                         <span>Remove</span>
                     </div>
                 </div>
-                <div class="table-responsive">
-                    <?php
-                    if (!empty($products)) {
-                        foreach ($products as $id => $product) {
+                        <?php
+                        foreach ($cart as $c) {
+                            if (!empty($c['product']['sale_price'])) {
+                                $total = ($c['product']['sale_price'] + $total) * $c['quantity'];
+                            }else {
+                                $total = ($c['product']['price'] + $total) * $c['quantity'];
+                            }
+
                             ?>
 
                             <div class="product-cart d-flex">
                                 <div class="one-forth">
-                                    <div class="product-img"
-                                         style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['img'] ?>);
-                                             display: block">
+                                    <a href="<?= \yii\helpers\Url::to(['/']) . 'products/product/' . $c['product']['slug'] ?>"> <div class="product-img"
+
+                                         style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $c['product']['image'] ?>);
+                                               display: block">
+
                                     </div>
+                                    </a>
                                     <div class="display-tc">
-                                        <h3><?= $product['name'] ?></h3>
-                                    </div>
-                                </div>
-                                <div class="one-eight text-center">
-                                    <div class="display-tc">
-                                        <span class="price"><?= $product['price'] ?></span>
+                                        <h3><a href="<?= \yii\helpers\Url::to(['/']) . 'products/product/' . $c['product']['slug'] ?>"><?= $c['product']['title'] ?></a></h3>
                                     </div>
                                 </div>
                                 <div class="one-eight text-center">
                                     <div class="display-tc">
-                                        <span class="price"><?= $product['qty'] ?></span>
+                                        <?php
+								     if (!empty($c['product']['sale_price'])) {
+								         ?>
+								          <span class="price"><?= $c['product']['sale_price']?></span>
+								         <?php
+								     }else {
+								         ?>
+								         <span class="price"><?= $c['product']['price'] ?></span>
+								         <?php
+								     }
+								     ?>
                                     </div>
                                 </div>
                                 <div class="one-eight text-center">
                                     <div class="display-tc">
-                                        <a href="#" data-product_id="<?= $id ?>" class="closed"></a>
+                                        <span class="price"><?= $c['quantity'] ?></span>
+                                    </div>
+                                </div>
+                                <div class="one-eight text-center">
+								    <div class="display-tc">
+								    <?php
+								     if (!empty($c['product']['sale_price'])) {
+								         ?>
+								          <span class="price"><?= $c['product']['sale_price'] * $c['quantity'] ?></span>
+								         <?php
+								     }else {
+								         ?>
+								         <span class="price"><?= $c['product']['price'] * $c['quantity'] ?></span>
+								         <?php
+								     }
+								     ?>
+								    </div>
+							    </div>
+                                <div class="one-eight text-center">
+                                    <div class="display-tc">
+                                        <a data-product_id="<?= $c['product']['id'] ?>" class="closed"></a>
                                     </div>
                                 </div>
                             </div>
                             <?php
                         }
-                    }
-                    ?>
+                        ?>
                 </div>
             </div>
         </div>
@@ -78,45 +115,80 @@ $this->title = 'My Cart';
             <div class="col-md-12">
                 <div class="total-wrap">
                     <div class="row">
-                        <div class="col-sm-8">
-                            <form action="#">
-                                <div class="row form-group">
-                                    <div class="col-sm-9">
-                                        <input type="text" name="quantity" class="form-control input-number"
-                                               placeholder="Your Coupon Number...">
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <input type="submit" value="Apply Coupon" class="btn btn-primary">
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-sm-4 text-center">
+            <div class="col-md-6">
+                <div class="contact-wrap">
+
+                    <?php $form = ActiveForm::begin(); ?>
+
+                    <?= $form->field($order, 'name') ?>
+
+                    <?= $form->field($order, 'email') ?>
+
+                    <?= $form->field($order, 'phone') ?>
+
+                    <?= $form->field($order, 'address') ?>
+
+                    <div class="form-group">
+                        <?= Html::submitButton('Proceed to checkout', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                    </div>
+
+                    <?php ActiveForm::end(); ?>
+
+                </div>
+            </div>
+                        <div class="col-md-6">
                             <div class="cart-detail">
                                 <h2>Cart Total</h2>
                                 <ul>
-                                    <?php
-                                    if (!empty($qty) && !empty($sum)) {
-                                        ?>
-
-                                        <li><span>Quantity</span> <span><?= $qty ?></span></li>
-                                        <li><span>Total</span> <span><?= $sum ?></span></li>
-                                        <?php
-                                    } else {
-                                        ?>
-                                        <li><span>Quantity</span></li>
-                                        <li><span>Total</span></li>
-                                        <?php
-                                    }
-                                    ?>
+                                    <li><span>Products</span> <span><?= count($cart) ?></span></li>
+                                    <li><span>Total</span> <span><?= $total ?></span></li>
                                 </ul>
+
+                             <div class="col-sm-3">
+                            <form action="<?= \yii\helpers\Url::to(['@web/']) . 'cart/delete'?>" method="get">
+
+                            <input type="hidden" name="user" value="<?= $c['user_id'] ?>">
+                                <button type="submit" class="btn btn-primary">Remove all</button>
+                            </form>
                             </div>
-                            <div class="col-sm-3">
-                                <button type="submit" class="btn btn-primary"><a id="checkout" href="<?= \yii\helpers\Url::to(['/']) . 'cart/checkout' ?>">Proceed to checkout</a></button>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="colorlib-partner " id="partner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
+                    <h2>Trusted Partners</h2>
+                </div>
+            </div>
+            <div class="row brand-slide">
+                <?php
+                if (!empty($brands)) {
+                    foreach ($brands as $brand) {
+                        ?>
+                        <div class="col partner-col text-center ">
+                            <a href="<?= \yii\helpers\Url::to(['/']) . 'products/' . $brand['slug'] ?>"><img
+                                        src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/brands/' . $brand['image'] ?>"
+                                        class="img-fluid"
+                                        alt="brand images"></a>
+                        </div>
+                        <?php
+                    }
+                }
+                ?>
+
+            </div>
+        </div>
+    </div>
+        <?php
+} else {
+         ?>
+         <h2 class="cart">Cart is empty</h2>
+    <?php
+    }
+?>

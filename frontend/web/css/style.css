@@ -11238,6 +11238,7 @@ footer {
     height: 20px;
     background: #f2f2f2;
     position: relative;
+    cursor: pointer;
 }
 
 .product-cart .display-tc .closed:before, .product-cart .display-tc .closed:after, .product-name .display-tc .closed:before, .product-name .display-tc .closed:after {
@@ -11288,7 +11289,7 @@ footer {
 
 .product-name {
     padding: .8em 0;
-    background: #f0f0f0;
+    background: #88C8BC;
     border: none;
     width: 100%;
     -webkit-border-radius: 30px;
@@ -11302,7 +11303,7 @@ footer {
 }
 
 .product-name .one-forth span, .product-name .one-eight span {
-    color: #000;
+    color: white;
     font-weight: 400;
     text-transform: uppercase;
 }
@@ -11404,6 +11405,11 @@ footer {
 
 .cart-detail ul li span:last-child {
     width: 100px;
+}
+
+.cart {
+    font-size: 28px;
+    text-align: center;
 }
 
 .colorlib-form {

@@ -7,21 +7,31 @@ use Yii;
 use yii\web\Controller;
 use common\models\Products;
 use common\models\Cart;
+use common\models\Brands;
+use common\models\Orders;
+use common\models\Orderitems;
 
 class CartController extends Controller {
 
     public function beforeAction($action) {
-        if (\Yii::$app->user->isGuest) {
+        if (Yii::$app->user->isGuest) {
             return $this->redirect('@web/site/login');
         }
         return parent::beforeAction($action);
     }
 
     public function actionIndex() {
-        $user = \Yii::$app->user->id;
-        $cart_data = Cart::find()->where(['user_id' => $user])->asArray()->all();
+        $user = Yii::$app->user->id;
+        $cart = Cart::find()->with('product')->where(['user_id'=>$user])->asArray()->all();
+        $brands = Brands::find()->asArray()->all();
+        $order = new Orders();
+        if ($order->load(Yii::$app->request->post())) {
+            var_dump((Yii::$app->request->post()));die();
+        }
         return $this->render('index', [
-            'cart' => $cart_data
+            'brands' => $brands,
+            'cart' => $cart,
+            'order' => $order
         ]);
 
     }
@@ -31,11 +41,11 @@ class CartController extends Controller {
         $id = (int)Yii::$app->request->get('id');
         $qty = (int)Yii::$app->request->get('quantity');
         $qty = !$qty ? 1 : $qty;
-        if (\Yii::$app->user->isGuest) {
-            return \Yii::$app->session->setFlash('ERROR', 'Please Login');
+        if (Yii::$app->user->isGuest) {
+            return Yii::$app->session->setFlash('ERROR', 'Please Login');
         } else {
             if (!empty($id) && !empty($qty)) {
-                $user = \Yii::$app->user->id;
+                $user = Yii::$app->user->id;
                 $product = Products::findOne($id);
                 if (!empty($product)) {
                     $errors = [];
@@ -56,6 +66,20 @@ class CartController extends Controller {
                     $this->redirect('/cart');
                 }
             }
+        }
+    }
+
+
+    public function actionDelete() {
+        if (Yii::$app->request->isAjax) {
+            $product_id = Yii::$app->request->get('product_id');
+            Cart::deleteAll(['product_id' => $product_id]);
+            $this->redirect('/cart');
+        }
+        if ( Yii::$app->request->get('user')) {
+            $user_id = Yii::$app->request->get('user');
+            Cart::deleteAll(['user_id' => $user_id]);
+            $this->redirect('/cart');
         }
     }
 

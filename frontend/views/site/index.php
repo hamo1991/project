@@ -14,8 +14,7 @@
                                         <div class="desc">
                                             <h1 class="head-1"><?= $slide['title'] ?></h1>
                                             <h2 class="head-3"><?= $slide['description'] ?></h2>
-                                            <p class="category"><span
-                                                        class="font-weight-bold"><?= $slide['content'] ?></span></p>
+                                            <p style="color: white" class="category font-weight-bold"><?= $slide['content'] ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -85,7 +84,8 @@
 
                         <div class="product-entry border">
 
-                            <a href="<?= \yii\helpers\Url::to(['products/product/' . $hit['slug']]) ?>" class="prod-img">
+                            <a href="<?= \yii\helpers\Url::to(['products/product/' . $hit['slug']]) ?>"
+                               class="prod-img">
                                 <?php if ($hit['is_new']) : ?>
                                     <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png' ?>"
                                          alt="new">
@@ -133,7 +133,7 @@
     </div>
 
     <div class="colorlib-partner " id="partner">
-        <div class="container >
+        <div class="container">
             <div class="row">
                 <div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
                     <h2>Trusted Partners</h2>
@@ -158,4 +158,5 @@
             </div>
         </div>
     </div>
+
 </div>

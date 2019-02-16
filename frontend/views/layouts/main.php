@@ -77,7 +77,7 @@ AppAsset::register($this);
 
                                         </form>
                                     </li>
-                                    <li class="cart"><a href="<?= \yii\helpers\Url::to(['/']) . 'cart/' ?>"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+                                    <li class="cart"><a href="<?= \yii\helpers\Url::to(['/']) . 'cart/' ?>"><i class="icon-shopping-cart"></i> Cart [<?= \frontend\widgets\cart\CartWidget::widget(); ?>]</a></li>
                                     <?php
                                 }
                                 ?>
