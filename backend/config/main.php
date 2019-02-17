@@ -66,7 +66,6 @@ return [
             'showScriptName' => false,
             'rules' => [
 
-
             ],
         ],
 

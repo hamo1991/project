@@ -4,6 +4,7 @@ $this->title = 'My Cart';
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 ?>
+<?php //var_dump($cart);die(); ?>
 
 <div class="breadcrumbs">
     <div class="container">
@@ -120,13 +121,16 @@ use yii\widgets\ActiveForm;
 
                     <?php $form = ActiveForm::begin(); ?>
 
-                    <?= $form->field($order, 'name') ?>
 
-                    <?= $form->field($order, 'email') ?>
+                    <?= $form->field($order, 'name')->textInput() ?>
 
-                    <?= $form->field($order, 'phone') ?>
+                    <?= $form->field($order, 'email')->input('email') ?>
 
-                    <?= $form->field($order, 'address') ?>
+                    <?= $form->field($order, 'phone')->input('number') ?>
+
+                    <?= $form->field($order, 'address')->textInput() ?>
+
+
 
                     <div class="form-group">
                         <?= Html::submitButton('Proceed to checkout', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
@@ -136,6 +140,7 @@ use yii\widgets\ActiveForm;
 
                 </div>
             </div>
+
                         <div class="col-md-6">
                             <div class="cart-detail">
                                 <h2>Cart Total</h2>
@@ -188,7 +193,7 @@ use yii\widgets\ActiveForm;
         <?php
 } else {
          ?>
-         <h2 class="cart">Cart is empty</h2>
+         <h2 class="cart">Your cart is empty</h2>
     <?php
     }
 ?>

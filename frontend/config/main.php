@@ -59,7 +59,7 @@ return [
                 'article/<slug>' => 'blog/blog/article',
                 'products/index' => 'products/',
                 'products/<slug>' => 'products/',
-//                'site/add-cart/<slug>' => 'site/add-cart',
+
 
 
 

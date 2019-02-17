@@ -22,19 +22,49 @@ class CartController extends Controller {
 
     public function actionIndex() {
         $user = Yii::$app->user->id;
-        $cart = Cart::find()->with('product')->where(['user_id'=>$user])->asArray()->all();
+        $cart = Cart::find()->with('product')->where(['user_id' => $user])->asArray()->all();
         $brands = Brands::find()->asArray()->all();
         $order = new Orders();
         if ($order->load(Yii::$app->request->post())) {
-            var_dump((Yii::$app->request->post()));die();
+            $order->qty = count($cart);
+            $order->user_id = $user;
+            $total =0;
+            foreach ($cart as $c) {
+                if (!empty($c['product']['sale_price'])) {
+                    $total = ($c['product']['sale_price'] + $total) * $c['quantity'];
+                } else {
+                    $total = ($c['product']['price'] + $total) * $c['quantity'];
+                }
+
+            }
+            $order->total = $total;
+            if ($order->save()) {
+                $this->saveOrederItems($cart, $order->id);
+                \Yii::$app->mailer->compose('order',['cart' => $cart])
+                    ->setFrom(['hambardzum1991@mail.ru' => 'Shoes.com'])
+                    ->setTo($order->email)
+                    ->setSubject('Shop')
+                    ->send();
+//                foreach ($cart as $c) {
+//                    $user_id = $c['user_id'];
+//                    Cart::deleteAll(['user_id' => $user_id]);
+//                    return $this->refresh();
+//                }
+
+
+                Yii::$app->session->setFlash('success','Ok');
+            }else {
+                Yii::$app->session->setFlash('error','chok');
+            }
+
         }
         return $this->render('index', [
             'brands' => $brands,
             'cart' => $cart,
             'order' => $order
         ]);
-
     }
+
 
     public function actionAdd() {
 
@@ -73,12 +103,17 @@ class CartController extends Controller {
     public function actionDelete() {
         if (Yii::$app->request->isAjax) {
             $product_id = Yii::$app->request->get('product_id');
-            Cart::deleteAll(['product_id' => $product_id]);
+            if (!empty($product_id)) {
+                Cart::deleteAll(['product_id' => $product_id]);
+            }
             $this->redirect('/cart');
         }
-        if ( Yii::$app->request->get('user')) {
+        if (Yii::$app->request->get('user')) {
             $user_id = Yii::$app->request->get('user');
-            Cart::deleteAll(['user_id' => $user_id]);
+            if (!empty( $user_id)) {
+                Cart::deleteAll(['user_id' => $user_id]);
+            }
+
             $this->redirect('/cart');
         }
     }
@@ -92,5 +127,19 @@ class CartController extends Controller {
         return $this->render('complete');
     }
 
+
+    protected function saveOrederItems($items, $order_id)
+    {
+        foreach ($items as $id => $item) {
+            $order_items = new Orderitems();
+            $order_items->orders_id = $order_id;
+            $order_items->product_id = $item['product_id'];
+            $order_items->title = $item['product']['title'];
+            $order_items->price = $item['product']['price'];
+            $order_items->qty_item = $item['quantity'];
+            $order_items->sum_item = $item['product']['price'] * $item['quantity'];
+            $order_items->save();
+        }
+    }
 
 }

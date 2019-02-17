@@ -39,10 +39,10 @@ class Orders extends \yii\db\ActiveRecord
     {
         return [
             [['created_at', 'updated_at'], 'safe'],
-            [['name', 'email', 'phone', 'address', 'user_id'], 'required'],
+            [['qty', 'total', 'name', 'email', 'phone', 'address', 'user_id'], 'required'],
             [['qty', 'user_id'], 'integer'],
             [['total'], 'number'],
-            [['status'], 'boolean'],
+            [['status'], 'string'],
             [['name', 'email', 'phone', 'address'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
@@ -55,9 +55,9 @@ class Orders extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
-            'qty' => 'Qty',
+            'created_at' => 'Created Date',
+            'updated_at' => 'Updated Date',
+            'qty' => 'Quantity',
             'total' => 'Total',
             'status' => 'Status',
             'name' => 'Name',
