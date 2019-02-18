@@ -10,8 +10,8 @@ $this->title = 'Search Products';
                 <h2>Search result</h2>
             </div>
         </div>
-        <?php \yii\widgets\Pjax::begin(['enablePushState' => false]); ?>
-        <div class="row row-pb-md">
+        <?php \yii\widgets\Pjax::begin(['enablePushState' => true]); ?>
+        <div id="products-search" class="row row-pb-md">
 
             <?php
 

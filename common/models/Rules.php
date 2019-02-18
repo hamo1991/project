@@ -10,7 +10,6 @@ use Yii;
  * @property int $id
  * @property int $cat_id
  * @property int $brand_id
- * @property int $color_id
  *
  * @property Brands $brand
  * @property Categories $cat
@@ -31,8 +30,8 @@ class Rules extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['cat_id', 'brand_id','color_id'], 'required'],
-            [['cat_id', 'brand_id','color_id'], 'integer'],
+            [['cat_id', 'brand_id'], 'required'],
+            [['cat_id', 'brand_id'], 'integer'],
             [['brand_id'], 'exist', 'skipOnError' => true, 'targetClass' => Brands::className(), 'targetAttribute' => ['brand_id' => 'id']],
             [['cat_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categories::className(), 'targetAttribute' => ['cat_id' => 'id']],
         ];
@@ -47,7 +46,6 @@ class Rules extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'cat_id' => Yii::t('app', 'Category'),
             'brand_id' => Yii::t('app', 'Brand'),
-            'color_id' => Yii::t('app', 'Colors'),
         ];
     }
 

@@ -33,6 +33,7 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 <main id="page">
+
     <header>
         <nav class="colorlib-nav" role="navigation">
             <div class="top-menu">
@@ -42,6 +43,7 @@ AppAsset::register($this);
                             <div id="colorlib-logo"><a href="/">Footwear</a></div>
                         </div>
                         <div class="col-sm-5 col-md-3">
+
                             <form action="<?= \yii\helpers\Url::to(['/search'])?>" method="get" class="search-wrap">
                                 <div class="form-group">
                                     <input type="search" name="search" class="form-control search" placeholder="Search product">
@@ -49,6 +51,7 @@ AppAsset::register($this);
                                                 class="icon-search"></i></button>
                                 </div>
                             </form>
+
                         </div>
                     </div>
                     <div class="row">
@@ -115,6 +118,7 @@ AppAsset::register($this);
     <div id="main_content">
     <?= $content ?>
     </div>
+
     <footer id="colorlib-footer" role="contentinfo">
         <div class="container">
             <div class="row row-pb-md">
@@ -186,6 +190,7 @@ AppAsset::register($this);
             </div>
         </div>
     </footer>
+
 </main>
 
 <div class="gototop js-top">

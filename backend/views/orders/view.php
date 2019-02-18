@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'email:email',
             'phone',
             'address',
-            'user_id',
+//            'user_id',
         ],
     ]) ?>
 
@@ -68,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <tbody>
     <?php foreach ($items as $item):?>
         <tr>
-            <td><a href="/"><?= $item['title'] ?></a></td>
+            <td><a href="<?= \yii\helpers\Url::to(['/products/view','id' => $item['product_id']])?>"><?= $item['title'] ?></a></td>
             <td><?= $item['qty_item'] ?></td>
             <td><?= $item['price'] ?></td>
             <td><?= $item['sum_item'] ?></td>

@@ -11321,11 +11321,11 @@ footer {
     text-align: center;
 }
 
-@media (max-width: 767.98px) {
-    .total-wrap .btn {
-        width: 100%;
-    }
-}
+/*@media (max-width: 767.98px) {*/
+    /*.total-wrap .btn {*/
+        /*width: 100%;*/
+    /*}*/
+/*}*/
 
 .total-wrap .total {
     padding: 1em;
@@ -12307,4 +12307,18 @@ input[type="text"] {
 
 .owl-carousel.single-item{
     display: block;
+}
+.butflex{
+    width: 330px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/*#right {*/
+    /*float: right;*/
+/*}*/
+
+#right a {
+    color: white;
 }

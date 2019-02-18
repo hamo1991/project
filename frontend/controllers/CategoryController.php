@@ -22,11 +22,10 @@ use yii\data\ActiveDataProvider;
 
 class CategoryController extends Controller {
 
-    public function actionIndex($slug = '', $name = '', $color = '') {
+    public function actionIndex($slug = '', $name = '') {
 
         $category = Categories::findOne(['slug' => $slug]);
         $brands = Brands::findOne(['slug' => $name]);
-        $colors = Colors::findOne(['slug' => $color]);
 
 
         if (!empty($category)) {
@@ -47,16 +46,12 @@ class CategoryController extends Controller {
                 ->innerJoin('rules as ru', 'ru.brand_id = b.id')
                 ->where(['ru.cat_id' => $id_cat])->asArray()->all();
 
-            $colors = Colors::find()->alias('c')
-                ->innerJoin('rules as ru', 'ru.color_id = c.id')
-                ->where(['ru.cat_id' => $id_cat])->asArray()->all();
 
             return $this->render('index', [
                 'categories' => $categories,
                 'category' => $category,
                 'products' => $products,
                 'brands' => $brands,
-                'colors' => $colors,
                 'brandName' => $name
             ]);
         }

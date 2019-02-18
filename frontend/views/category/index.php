@@ -3,6 +3,7 @@ if (!empty($category)) {
 
     $this->title = $category['title'] . " Collection";
     ?>
+    <?php \yii\widgets\Pjax::begin(['enablePushState' => true]); ?>
     <div class="breadcrumbs">
         <div class="container">
             <div class="row">
@@ -177,3 +178,4 @@ if (!empty($category)) {
         </div>
     </div>
 </div>
+<?php \yii\widgets\Pjax::end(); ?>

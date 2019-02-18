@@ -1,10 +1,13 @@
 <?php
 
 $this->title = 'My Cart';
+
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+
 ?>
-<?php //var_dump($cart);die(); ?>
+
+<?php \yii\widgets\Pjax::begin(['enablePushState' => true]); ?>
 
 <div class="breadcrumbs">
     <div class="container">
@@ -23,92 +26,96 @@ use yii\widgets\ActiveForm;
                 <div class="table-responsive">
                     <?php
                     if (!empty($cart)) {
-                        $total = 0;
+                    $total = 0;
+                    ?>
+                    <div class="product-name d-flex">
+                        <div class="one-forth text-left px-4">
+                            <span>Product Details</span>
+                        </div>
+                        <div class="one-eight text-center">
+                            <span>Price</span>
+                        </div>
+                        <div class="one-eight text-center">
+                            <span>Quantity</span>
+                        </div>
+                        <div class="one-eight text-center">
+                            <span>Total</span>
+                        </div>
+                        <div class="one-eight text-center px-4">
+                            <span>Remove</span>
+                        </div>
+                    </div>
+                    <?php
+                    foreach ($cart as $c) {
+                        if (!empty($c['product']['sale_price'])) {
+                            $total = ($c['product']['sale_price'] + $total) * $c['quantity'];
+                        } else {
+                            $total = ($c['product']['price'] + $total) * $c['quantity'];
+                        }
+
                         ?>
-                        <div class="product-name d-flex">
-                    <div class="one-forth text-left px-4">
-                        <span>Product Details</span>
-                    </div>
-                    <div class="one-eight text-center">
-                        <span>Price</span>
-                    </div>
-                    <div class="one-eight text-center">
-                        <span>Quantity</span>
-                    </div>
-                    <div class="one-eight text-center">
-						<span>Total</span>
-					</div>
-                    <div class="one-eight text-center px-4">
-                        <span>Remove</span>
-                    </div>
-                </div>
-                        <?php
-                        foreach ($cart as $c) {
-                            if (!empty($c['product']['sale_price'])) {
-                                $total = ($c['product']['sale_price'] + $total) * $c['quantity'];
-                            }else {
-                                $total = ($c['product']['price'] + $total) * $c['quantity'];
-                            }
 
-                            ?>
-
-                            <div class="product-cart d-flex">
-                                <div class="one-forth">
-                                    <a href="<?= \yii\helpers\Url::to(['/']) . 'products/product/' . $c['product']['slug'] ?>"> <div class="product-img"
+                        <div class="product-cart d-flex">
+                            <div class="one-forth">
+                                <a href="<?= \yii\helpers\Url::to(['/']) . 'products/product/' . $c['product']['slug'] ?>">
+                                    <div class="product-img"
 
                                          style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $c['product']['image'] ?>);
-                                               display: block">
+                                                 display: block">
 
                                     </div>
-                                    </a>
-                                    <div class="display-tc">
-                                        <h3><a href="<?= \yii\helpers\Url::to(['/']) . 'products/product/' . $c['product']['slug'] ?>"><?= $c['product']['title'] ?></a></h3>
-                                    </div>
-                                </div>
-                                <div class="one-eight text-center">
-                                    <div class="display-tc">
-                                        <?php
-								     if (!empty($c['product']['sale_price'])) {
-								         ?>
-								          <span class="price"><?= $c['product']['sale_price']?></span>
-								         <?php
-								     }else {
-								         ?>
-								         <span class="price"><?= $c['product']['price'] ?></span>
-								         <?php
-								     }
-								     ?>
-                                    </div>
-                                </div>
-                                <div class="one-eight text-center">
-                                    <div class="display-tc">
-                                        <span class="price"><?= $c['quantity'] ?></span>
-                                    </div>
-                                </div>
-                                <div class="one-eight text-center">
-								    <div class="display-tc">
-								    <?php
-								     if (!empty($c['product']['sale_price'])) {
-								         ?>
-								          <span class="price"><?= $c['product']['sale_price'] * $c['quantity'] ?></span>
-								         <?php
-								     }else {
-								         ?>
-								         <span class="price"><?= $c['product']['price'] * $c['quantity'] ?></span>
-								         <?php
-								     }
-								     ?>
-								    </div>
-							    </div>
-                                <div class="one-eight text-center">
-                                    <div class="display-tc">
-                                        <a data-product_id="<?= $c['product']['id'] ?>" class="closed"></a>
-                                    </div>
+                                </a>
+                                <div class="display-tc">
+                                    <h3>
+                                        <a href="<?= \yii\helpers\Url::to(['/']) . 'products/product/' . $c['product']['slug'] ?>"><?= $c['product']['title'] ?></a>
+                                    </h3>
                                 </div>
                             </div>
-                            <?php
-                        }
-                        ?>
+                            <div class="one-eight text-center">
+                                <div class="display-tc">
+                                    <?php
+                                    if (!empty($c['product']['sale_price'])) {
+                                        ?>
+                                        <span class="price"><?= $c['product']['sale_price'] ?></span>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <span class="price"><?= $c['product']['price'] ?></span>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="one-eight text-center">
+                                <div class="display-tc">
+                                    <span class="price"><?= $c['quantity'] ?></span>
+                                </div>
+                            </div>
+                            <div class="one-eight text-center">
+                                <div class="display-tc">
+                                    <?php
+                                    if (!empty($c['product']['sale_price'])) {
+                                        ?>
+                                        <span class="price"><?= $c['product']['sale_price'] * $c['quantity'] ?></span>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <span class="price"><?= $c['product']['price'] * $c['quantity'] ?></span>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="one-eight text-center">
+                                <div class="display-tc">
+                                    <a href="<?= \yii\helpers\Url::to(['/cart/delete', 'product_id' => $c['product']['id']]) ?>"
+                                       class="closed"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -116,30 +123,34 @@ use yii\widgets\ActiveForm;
             <div class="col-md-12">
                 <div class="total-wrap">
                     <div class="row">
-            <div class="col-md-6">
-                <div class="contact-wrap">
+                        <div class="col-md-6">
+                            <div class="contact-wrap">
+                                <?php
 
-                    <?php $form = ActiveForm::begin(); ?>
+                                $userName = strtoupper(Yii::$app->user->identity->username);
+                                $userEmail = Yii::$app->user->identity->email;
 
-
-                    <?= $form->field($order, 'name')->textInput() ?>
-
-                    <?= $form->field($order, 'email')->input('email') ?>
-
-                    <?= $form->field($order, 'phone')->input('number') ?>
-
-                    <?= $form->field($order, 'address')->textInput() ?>
+                                ?>
+                                <?php $form = ActiveForm::begin(); ?>
 
 
+                                <?= $form->field($order, 'name')->textInput(['readonly' => true, 'value' => $userName]) ?>
 
-                    <div class="form-group">
-                        <?= Html::submitButton('Proceed to checkout', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
-                    </div>
+                                <?= $form->field($order, 'email')->input('email', ['readonly' => true, 'value' => $userEmail]) ?>
 
-                    <?php ActiveForm::end(); ?>
+                                <?= $form->field($order, 'phone')->input('number') ?>
 
-                </div>
-            </div>
+                                <?= $form->field($order, 'address')->textInput() ?>
+
+
+                                <div class="form-group">
+                                    <?= Html::submitButton('Proceed to checkout', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                                </div>
+
+                                <?php ActiveForm::end(); ?>
+
+                            </div>
+                        </div>
 
                         <div class="col-md-6">
                             <div class="cart-detail">
@@ -148,14 +159,20 @@ use yii\widgets\ActiveForm;
                                     <li><span>Products</span> <span><?= count($cart) ?></span></li>
                                     <li><span>Total</span> <span><?= $total ?></span></li>
                                 </ul>
+                                <div class="butflex">
+                                    <div class="col-sm-3">
+                                        <form action="<?= \yii\helpers\Url::to(['@web/']) . 'cart/delete' ?>"
+                                              method="get">
 
-                             <div class="col-sm-3">
-                            <form action="<?= \yii\helpers\Url::to(['@web/']) . 'cart/delete'?>" method="get">
-
-                            <input type="hidden" name="user" value="<?= $c['user_id'] ?>">
-                                <button type="submit" class="btn btn-primary">Remove all</button>
-                            </form>
-                            </div>
+                                            <input type="hidden" name="user" value="<?= $c['user_id'] ?>">
+                                            <button type="submit" class="btn btn-primary">Remove all</button>
+                                        </form>
+                                    </div>
+                                    <div id="right" class="col-sm-3">
+                                        <a href="<?= \yii\helpers\Url::to(['/products/']) ?>" class="btn btn-primary">Continue
+                                            shopping</a>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -190,10 +207,11 @@ use yii\widgets\ActiveForm;
             </div>
         </div>
     </div>
-        <?php
-} else {
-         ?>
-         <h2 class="cart">Your cart is empty</h2>
     <?php
+    } else {
+        ?>
+        <h2 class="cart">Your cart is empty</h2>
+        <?php
     }
-?>
+    ?>
+    <?php \yii\widgets\Pjax::end(); ?>

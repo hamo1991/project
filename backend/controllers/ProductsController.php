@@ -130,7 +130,6 @@ class ProductsController extends Controller {
 
             if (!empty($imgFile)) {
                 $imgPath = Yii::getAlias('@frontend') . '/web/images/uploads/products/';
-//                $imgName = (uniqid('logo').$imgFile->baseName.date('dHis') ). '.' . $imgFile->extension;
 
                 $imgName = Yii::$app->security->generateRandomString() . '.' . $imgFile->extension;
                 $model->image = $imgName;

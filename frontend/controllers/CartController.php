@@ -101,7 +101,7 @@ class CartController extends Controller {
 
 
     public function actionDelete() {
-        if (Yii::$app->request->isAjax) {
+        if (Yii::$app->request->get('product_id')) {
             $product_id = Yii::$app->request->get('product_id');
             if (!empty($product_id)) {
                 Cart::deleteAll(['product_id' => $product_id]);
