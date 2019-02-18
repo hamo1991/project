@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::img(\yii\helpers\Url::to('/frontend/web/images/uploads/products/'. $model->image),['width' => '100px','height' => '100px',]);
                 }
             ] ,
-
+            'colors',
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

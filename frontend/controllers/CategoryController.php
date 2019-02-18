@@ -12,20 +12,21 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\Categories;
 use common\models\Products;
-use common\models\Colors;
 use common\models\Cart;
 use yii\db\Query;
 use common\models\Brands;
+use common\models\Pictures;
 use yii\web\NotFoundHttpException;
 use yii\data\Pagination;
 use yii\data\ActiveDataProvider;
 
 class CategoryController extends Controller {
 
-    public function actionIndex($slug = '', $name = '') {
+    public function actionIndex($slug = '', $name = '', $title = '') {
 
         $category = Categories::findOne(['slug' => $slug]);
         $brands = Brands::findOne(['slug' => $name]);
+//        $colors = Pictures::findOne(['title' => $title]);
 
 
         if (!empty($category)) {

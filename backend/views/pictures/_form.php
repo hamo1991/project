@@ -13,6 +13,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(['options'=>['enctype'=>'multipart/form-data']]); ?>
 
     <?= $form->field($upload, 'image[]')->fileInput(['multiple' => true]) ?>
+    <?= $form->field($upload, 'colors')->textInput() ?>
     <?= $form->field($upload, 'product_id')->dropDownList($products,['prompt' => 'Please select product']); ?>
 
     <div class="form-group">

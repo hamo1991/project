@@ -65,14 +65,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ] ,
 
-            [
-                'attribute' => 'color_id',
-                'filter' => '',
-                'value' => function($model){
-                    return \common\models\Colors::find()->where(['id' => $model->color_id])->one()->title;
-                }
-            ] ,
-
 //            'slug',
 //            'best',
         ],

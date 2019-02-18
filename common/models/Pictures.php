@@ -10,6 +10,7 @@ use Yii;
  * @property string $id
  * @property string $product_id
  * @property string $image
+ * @property string $colors
  *
  * @property Products $product
  */
@@ -31,6 +32,7 @@ class Pictures extends \yii\db\ActiveRecord
         return [
             [['product_id'], 'required'],
             [['product_id'], 'integer'],
+            [['colors'], 'string'],
             [['image'], 'file', 'extensions' => 'png,jpg,gif','maxFiles'=>5,'skipOnEmpty'=>false],
             [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Products::className(), 'targetAttribute' => ['product_id' => 'id']],
         ];
@@ -45,6 +47,7 @@ class Pictures extends \yii\db\ActiveRecord
             'id' => 'ID',
             'product_id' => 'Product Name',
             'image' => 'Image',
+            'colors' => 'Colors'
         ];
     }
 

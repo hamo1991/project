@@ -25,7 +25,6 @@ use yii\behaviors\SluggableBehavior;
  * @property string $image
  * @property string $cat_id
  * @property string $brand_id
- * @property string $color_id
  * @property string $slug
  *
  * @property Cart[] $carts
@@ -57,10 +56,10 @@ class Products extends \yii\db\ActiveRecord {
      */
     public function rules() {
         return [
-            [['title', 'price', 'sku', 'sizes', 'quantity', 'available_stock', 'cat_id', 'brand_id', 'color_id'], 'required'],
+            [['title', 'price', 'sku', 'sizes', 'quantity', 'available_stock', 'cat_id', 'brand_id'], 'required'],
             [['description', 'manufacturer', 'content', 'is_new', 'sizes', 'is_sale'], 'string'],
             [['price', 'sale_price'], 'number'],
-            [['quantity', 'available_stock', 'best', 'cat_id', 'brand_id', 'color_id'], 'integer'],
+            [['quantity', 'available_stock', 'best', 'cat_id', 'brand_id'], 'integer'],
             [['title', 'image'], 'string', 'max' => 255],
             [['sku', 'slug'], 'string', 'max' => 150],
             [['sku'], 'unique'],
@@ -90,7 +89,6 @@ class Products extends \yii\db\ActiveRecord {
             'image' => 'Image',
             'cat_id' => 'Categories',
             'brand_id' => 'Brands',
-            'color_id' => 'Colors',
             'slug' => 'Slug',
             'best' => 'Best',
         ];

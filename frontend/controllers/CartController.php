@@ -45,11 +45,11 @@ class CartController extends Controller {
                     ->setTo($order->email)
                     ->setSubject('Shop')
                     ->send();
-//                foreach ($cart as $c) {
-//                    $user_id = $c['user_id'];
-//                    Cart::deleteAll(['user_id' => $user_id]);
-//                    return $this->refresh();
-//                }
+                foreach ($cart as $c) {
+                    $user_id = $c['user_id'];
+                    Cart::deleteAll(['user_id' => $user_id]);
+                    return $this->refresh();
+                }
 
 
                 Yii::$app->session->setFlash('success','Ok');

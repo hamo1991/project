@@ -3,7 +3,7 @@
 $this->title = 'All Products';
 ?>
 <div class="colorlib-product">
-
+    <?php \yii\widgets\Pjax::begin(); ?>
     <div class="container">
         <div class="row">
             <div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
@@ -20,10 +20,9 @@ $this->title = 'All Products';
                 }
 
                 ?>
-
             </div>
         </div>
-        <?php \yii\widgets\Pjax::begin(['enablePushState' => false]); ?>
+
         <div class="row row-pb-md">
 
             <?php
@@ -88,7 +87,7 @@ $this->title = 'All Products';
                 </div>
             </div>
         </div>
-        <?php \yii\widgets\Pjax::end(); ?>
+
     </div>
 
 
@@ -118,3 +117,4 @@ $this->title = 'All Products';
         </div>
     </div>
 </div>
+<?php \yii\widgets\Pjax::end(); ?>

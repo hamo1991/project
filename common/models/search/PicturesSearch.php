@@ -19,7 +19,7 @@ class PicturesSearch extends Pictures
     {
         return [
             [['id', 'product_id'], 'integer'],
-            [['image'], 'safe'],
+            [['image','colors'], 'safe'],
         ];
     }
 
@@ -67,6 +67,7 @@ class PicturesSearch extends Pictures
         ]);
 
         $query->andFilterWhere(['like', 'image', $this->image]);
+        $query->andFilterWhere(['like', 'colors', $this->colors]);
 
         return $dataProvider;
     }

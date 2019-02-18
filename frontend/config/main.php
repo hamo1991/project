@@ -50,11 +50,12 @@ return [
             'showScriptName' => false,
             'rules' => [
 
+
+
                 'search' => 'products/search',
                 'products/product/<slug>' => 'products/product',
                 'category/<slug>' => 'category/index',
                 'category/<slug>/<name:\w+>' => 'category/index',
-//                'category/<slug>/<name:\w+>/<color:\w+>' => 'category/index',
                 'blog' => 'blog/blog/index',
                 'article/<slug>' => 'blog/blog/article',
                 'products/index' => 'products/',

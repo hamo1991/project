@@ -35,7 +35,6 @@
                     ['label' => 'Upload product images', 'icon' => 'fas fa-image', 'url' => ['/pictures']],
                     ['label' => 'Categories', 'icon' => 'fab fa-contao', 'url' => ['/categories']],
                     ['label' => 'Brands', 'icon' => 'fab fa-bandcamp', 'url' => ['/brands']],
-                    ['label' => 'Colors', 'icon' => 'fas fa-paint-brush', 'url' => ['/colors']],
                     ['label' => 'Brands & Categories', 'icon' => 'fas fa-list-ol', 'url' => ['/rules']],
                     ['label' => 'About page', 'icon' => 'fas fa-columns', 'url' => ['/about']],
                     ['label' => 'Slider', 'icon' => 'fas fa-play', 'url' => ['/slider']],

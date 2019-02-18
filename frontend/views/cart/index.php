@@ -5,9 +5,10 @@ $this->title = 'My Cart';
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
+
 ?>
 
-<?php \yii\widgets\Pjax::begin(['enablePushState' => true]); ?>
+
 
 <div class="breadcrumbs">
     <div class="container">
@@ -18,6 +19,7 @@ use yii\widgets\ActiveForm;
         </div>
     </div>
 </div>
+<?php \yii\widgets\Pjax::begin(); ?>
 <div class="colorlib-product">
     <div class="container">
         <div class="row row-pb-lg">
@@ -67,7 +69,7 @@ use yii\widgets\ActiveForm;
                                 </a>
                                 <div class="display-tc">
                                     <h3>
-                                        <a href="<?= \yii\helpers\Url::to(['/']) . 'products/product/' . $c['product']['slug'] ?>"><?= $c['product']['title'] ?></a>
+                                        <a href="<?= \yii\helpers\Url::to(['/']) . 'products/' . $c['product']['slug'] ?>"><?= $c['product']['title'] ?></a>
                                     </h3>
                                 </div>
                             </div>
@@ -119,99 +121,102 @@ use yii\widgets\ActiveForm;
                 </div>
             </div>
         </div>
-        <div class="row row-pb-lg">
-            <div class="col-md-12">
-                <div class="total-wrap">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="contact-wrap">
-                                <?php
+    </div>
+    <div class="row row-pb-lg">
+        <div class="col-md-12">
+            <div class="total-wrap">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="contact-wrap">
+                            <?php
 
-                                $userName = strtoupper(Yii::$app->user->identity->username);
-                                $userEmail = Yii::$app->user->identity->email;
+                            $userName = strtoupper(Yii::$app->user->identity->username);
+                            $userEmail = Yii::$app->user->identity->email;
 
-                                ?>
-                                <?php $form = ActiveForm::begin(); ?>
-
-
-                                <?= $form->field($order, 'name')->textInput(['readonly' => true, 'value' => $userName]) ?>
-
-                                <?= $form->field($order, 'email')->input('email', ['readonly' => true, 'value' => $userEmail]) ?>
-
-                                <?= $form->field($order, 'phone')->input('number') ?>
-
-                                <?= $form->field($order, 'address')->textInput() ?>
+                            ?>
+                            <?php $form = ActiveForm::begin(); ?>
 
 
-                                <div class="form-group">
-                                    <?= Html::submitButton('Proceed to checkout', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                            <?= $form->field($order, 'name')->textInput(['readonly' => true, 'value' => $userName]) ?>
+
+                            <?= $form->field($order, 'email')->input('email', ['readonly' => true, 'value' => $userEmail]) ?>
+
+                            <?= $form->field($order, 'phone')->input('number') ?>
+
+                            <?= $form->field($order, 'address')->textInput() ?>
+
+
+                            <div class="form-group">
+                                <?= Html::submitButton('Proceed to checkout', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                            </div>
+
+                            <?php ActiveForm::end(); ?>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="cart-detail">
+                            <h2>Cart Total</h2>
+                            <ul>
+                                <li><span>Products</span> <span><?= count($cart) ?></span></li>
+                                <li><span>Total</span> <span><?= $total ?></span></li>
+                            </ul>
+                            <div class="butflex">
+                                <div class="col-sm-3">
+                                    <form action="<?= \yii\helpers\Url::to(['@web/']) . 'cart/delete' ?>"
+                                          method="get">
+
+                                        <input type="hidden" name="user" value="<?= $c['user_id'] ?>">
+                                        <button type="submit" class="btn btn-primary">Remove all</button>
+                                    </form>
                                 </div>
-
-                                <?php ActiveForm::end(); ?>
-
+                                <div id="right" class="col-sm-3">
+                                    <a href="<?= \yii\helpers\Url::to(['/products/']) ?>" class="btn btn-primary">Continue
+                                        shopping</a>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-md-6">
-                            <div class="cart-detail">
-                                <h2>Cart Total</h2>
-                                <ul>
-                                    <li><span>Products</span> <span><?= count($cart) ?></span></li>
-                                    <li><span>Total</span> <span><?= $total ?></span></li>
-                                </ul>
-                                <div class="butflex">
-                                    <div class="col-sm-3">
-                                        <form action="<?= \yii\helpers\Url::to(['@web/']) . 'cart/delete' ?>"
-                                              method="get">
-
-                                            <input type="hidden" name="user" value="<?= $c['user_id'] ?>">
-                                            <button type="submit" class="btn btn-primary">Remove all</button>
-                                        </form>
-                                    </div>
-                                    <div id="right" class="col-sm-3">
-                                        <a href="<?= \yii\helpers\Url::to(['/products/']) ?>" class="btn btn-primary">Continue
-                                            shopping</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="colorlib-partner " id="partner">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
-                    <h2>Trusted Partners</h2>
-                </div>
-            </div>
-            <div class="row brand-slide">
-                <?php
-                if (!empty($brands)) {
-                    foreach ($brands as $brand) {
-                        ?>
-                        <div class="col partner-col text-center ">
-                            <a href="<?= \yii\helpers\Url::to(['/']) . 'products/' . $brand['slug'] ?>"><img
-                                        src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/brands/' . $brand['image'] ?>"
-                                        class="img-fluid"
-                                        alt="brand images"></a>
-                        </div>
-                        <?php
-                    }
-                }
-                ?>
+</div>
+<?php \yii\widgets\Pjax::end(); ?>
 
+<?php
+} else {
+    ?>
+    <h2 class="cart">Your cart is empty</h2>
+    <?php
+}
+?>
+
+<div class="colorlib-partner " id="partner">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
+                <h2>Trusted Partners</h2>
             </div>
         </div>
+        <div class="row brand-slide">
+            <?php
+            if (!empty($brands)) {
+                foreach ($brands as $brand) {
+                    ?>
+                    <div class="col partner-col text-center ">
+                        <a href="<?= \yii\helpers\Url::to(['/']) . 'products/' . $brand['slug'] ?>"><img
+                                    src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/brands/' . $brand['image'] ?>"
+                                    class="img-fluid"
+                                    alt="brand images"></a>
+                    </div>
+                    <?php
+                }
+            }
+            ?>
+
+        </div>
     </div>
-    <?php
-    } else {
-        ?>
-        <h2 class="cart">Your cart is empty</h2>
-        <?php
-    }
-    ?>
-    <?php \yii\widgets\Pjax::end(); ?>
+</div>

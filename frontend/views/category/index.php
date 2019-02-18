@@ -99,27 +99,16 @@ if (!empty($category)) {
                             <h3>Colors</h3>
                             <ul>
 
-                                <?php
-                                if (!empty($colors)) {
-                                    foreach ($colors as $col) {
-                                        ?>
-
-<!--                                        --><?php //if ($brandName == strtolower($col['title'])) {
-//                                            $name = 'category';
-//                                        } else {
-//                                            $name = '';
-//                                        }
-//                                        ?>
-
-                                        <li>
-                                            <a href="<?= \yii\helpers\Url::to(['/category/' . $category['slug'] . '/' . $brand['slug']]) ?>"><?= $col['title'] ?></a>
-                                        </li>
-                                        <?php
-                                    }
-                                }
-
-                                ?>
-
+                                <li><a href="">Black</a></li>
+                                <li><a href="#">White</a></li>
+                                <li><a href="#">Blue</a></li>
+                                <li><a href="#">Red</a></li>
+                                <li><a href="#">Green</a></li>
+                                <li><a href="#">Grey</a></li>
+                                <li><a href="#">Pink</a></li>
+                                <li><a href="#">Cream</a></li>
+                                <li><a href="#">Brown</a></li>
+                                <li><a href="#">Yellow</a></li>
                             </ul>
                         </div>
                     </div>
