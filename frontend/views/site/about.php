@@ -20,13 +20,13 @@ $this->title = 'About';
             if (!empty($about)) {
                 foreach ($about as $a) {
                     ?>
-                    <div class="col-sm-6 mb-3">
+                    <div class="col-sm-6 mb-3 animated bounceInLeft">
                         <div class="video colorlib-video" style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/about/' . $a['image'] ?>);">
                             <a href="https://vimeo.com/76175542" class="popup-vimeo"><i class="icon-play3"></i></a>
                             <div class="overlay"></div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 animated bounceInRight">
                         <div class="about-wrap">
                             <h2><?= $a['title'] ?></h2>
                             <p><?= $a['content'] ?></p>

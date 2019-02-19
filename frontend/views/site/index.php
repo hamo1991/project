@@ -39,7 +39,7 @@
         </div>
     </div>
 </div>
-<div class="colorlib-product container">
+<div id="border" class="colorlib-product container">
     <div class="container-fluid">
         <div class="row">
             <?php
@@ -50,7 +50,7 @@
                         <div class="featured">
                             <a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['slug'] ?>"
                                class="featured-img"
-                               style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/categories/' . $cat['image'] ?>);"></a>
+                               style="  background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/categories/' . $cat['image'] ?>);"></a>
                             <div class="desc">
                                 <h2>
                                     <a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['slug'] ?>"><?= $cat['title'] ?>
@@ -66,7 +66,6 @@
         </div>
     </div>
 </div>
-<hr>
 <div class="colorlib-product">
     <div class="container">
         <div class="row">
@@ -95,7 +94,7 @@
                                          alt="sale">
                                 <?php endif ?>
                                 <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $hit['image'] ?>"
-                                     class="img-fluid" alt="Free html5 bootstrap 4 template">
+                                     class="img-fluid" alt="Product images">
                             </a>
                             <div class="desc">
                                 <h2>

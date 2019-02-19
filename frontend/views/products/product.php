@@ -77,7 +77,7 @@ $this->title = 'Product Details';
                     <div class="block-26">
                         <h4>Quantity</h4>
                     </div>
-                    <form action="<?= \yii\helpers\Url::to(['@web/']) . 'cart/add'?>" method="get">
+                    <form action="<?= \yii\helpers\Url::to(['@web/']) . 'cart/add' ?>" method="get">
                         <div class="input-group mb-4">
                             <button type="button" class="quantity-left-minus btn" data-type="minus" data-field=""><i
                                         class="icon-minus2"></i></button>
@@ -93,11 +93,10 @@ $this->title = 'Product Details';
 
                         <div class="row">
                             <div class="col-sm-12 text-center">
-                                <p class="addtocart">
-                                    <button id="btn" type="submit" class="btn-primary btn-addtocart"><i
-                                                class="icon-shopping-cart"></i>Add to Cart
-                                    </button>
-                                </p>
+                                <button id="btn" type="submit" class="btn-primary btn-addtocart"><i
+                                            class="icon-shopping-cart"></i>Add to Cart
+                                </button>
+
                             </div>
                         </div>
                     </form>

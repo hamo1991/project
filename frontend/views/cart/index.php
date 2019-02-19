@@ -19,7 +19,21 @@ use yii\widgets\ActiveForm;
         </div>
     </div>
 </div>
-<?php \yii\widgets\Pjax::begin(); ?>
+
+<div class="breadcrumbs-two">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="breadcrumbs-img"
+                     style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/shopping.jpg' ?>);">
+                    <h2 style="color: white">Online SHOP</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php //\yii\widgets\Pjax::begin(); ?>
 <div class="colorlib-product">
     <div class="container">
         <div class="row row-pb-lg">
@@ -60,12 +74,8 @@ use yii\widgets\ActiveForm;
                         <div class="product-cart d-flex">
                             <div class="one-forth">
                                 <a href="<?= \yii\helpers\Url::to(['/']) . 'products/product/' . $c['product']['slug'] ?>">
-                                    <div class="product-img"
-
-                                         style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $c['product']['image'] ?>);
-                                                 display: block">
-
-                                    </div>
+                                    <div class="product-img" style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $c['product']['image'] ?>);
+                                                 display: block"></div>
                                 </a>
                                 <div class="display-tc">
                                     <h3>
@@ -121,75 +131,76 @@ use yii\widgets\ActiveForm;
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row row-pb-lg">
-        <div class="col-md-12">
-            <div class="total-wrap">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="contact-wrap">
-                            <?php
 
-                            $userName = strtoupper(Yii::$app->user->identity->username);
-                            $userEmail = Yii::$app->user->identity->email;
+        <div id="checkout-div" class="row row-pb-lg">
+            <div class="col-md-12">
+                <div class="total-wrap">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="contact-wrap">
+                                <h2 style="text-align: center">Fill in the data</h2>
+                                <?php
 
-                            ?>
-                            <?php $form = ActiveForm::begin(); ?>
+                                $userName = strtoupper(Yii::$app->user->identity->username);
+                                $userEmail = Yii::$app->user->identity->email;
 
-
-                            <?= $form->field($order, 'name')->textInput(['readonly' => true, 'value' => $userName]) ?>
-
-                            <?= $form->field($order, 'email')->input('email', ['readonly' => true, 'value' => $userEmail]) ?>
-
-                            <?= $form->field($order, 'phone')->input('number') ?>
-
-                            <?= $form->field($order, 'address')->textInput() ?>
+                                ?>
+                                <?php $form = ActiveForm::begin(); ?>
 
 
-                            <div class="form-group">
-                                <?= Html::submitButton('Proceed to checkout', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
-                            </div>
+                                <?= $form->field($order, 'name')->textInput(['readonly' => true, 'value' => $userName]) ?>
 
-                            <?php ActiveForm::end(); ?>
+                                <?= $form->field($order, 'email')->input('email', ['readonly' => true, 'value' => $userEmail]) ?>
 
-                        </div>
-                    </div>
+                                <?= $form->field($order, 'phone')->input('number') ?>
 
-                    <div class="col-md-6">
-                        <div class="cart-detail">
-                            <h2>Cart Total</h2>
-                            <ul>
-                                <li><span>Products</span> <span><?= count($cart) ?></span></li>
-                                <li><span>Total</span> <span><?= $total ?></span></li>
-                            </ul>
-                            <div class="butflex">
-                                <div class="col-sm-3">
-                                    <form action="<?= \yii\helpers\Url::to(['@web/']) . 'cart/delete' ?>"
-                                          method="get">
+                                <?= $form->field($order, 'address')->textInput() ?>
 
-                                        <input type="hidden" name="user" value="<?= $c['user_id'] ?>">
-                                        <button type="submit" class="btn btn-primary">Remove all</button>
-                                    </form>
+
+                                <div class="form-group text-center">
+                                    <?= Html::submitButton('Proceed to checkout', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
                                 </div>
-                                <div id="right" class="col-sm-3">
-                                    <a href="<?= \yii\helpers\Url::to(['/products/']) ?>" class="btn btn-primary">Continue
-                                        shopping</a>
-                                </div>
+
+                                <?php ActiveForm::end(); ?>
+
                             </div>
                         </div>
 
+                        <div class="col-md-6">
+                            <div class="cart-detail">
+                                <h2 style="text-align: center">Cart Total</h2>
+                                <ul>
+                                    <li><span>Products</span> <span><?= count($cart) ?></span></li>
+                                    <li><span>Total</span> <span><?= $total ?></span></li>
+                                </ul>
+                                <div class="butflex">
+                                    <div class="col-sm-3">
+                                        <form action="<?= \yii\helpers\Url::to(['@web/']) . 'cart/delete' ?>"
+                                              method="get">
+
+                                            <input type="hidden" name="user" value="<?= $c['user_id'] ?>">
+                                            <button type="submit" class="btn btn-primary">Remove all</button>
+                                        </form>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <a href="<?= \yii\helpers\Url::to(['/category/mens']) ?>" class="btn btn-primary">Continue
+                                            shopping</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<?php \yii\widgets\Pjax::end(); ?>
+<?php //\yii\widgets\Pjax::end(); ?>
 
 <?php
 } else {
     ?>
-    <h2 class="cart">Your cart is empty</h2>
+    <h2 id="cart">Your cart is empty</h2>
     <?php
 }
 ?>

@@ -19,12 +19,12 @@ use yii\bootstrap\ActiveForm;
         </div>
 
     </div>
-    <div class="site-login">
-        <h1><?= Html::encode($this->title) ?></h1>
+    <div class="site-login animated fadeInUp">
+        <h1 style="text-align: center"><?= Html::encode($this->title) ?></h1>
 
-        <p>Please fill out the following fields to login:</p>
+        <p style="text-align: center">Please fill out the following fields to login:</p>
 
-        <div class="row">
+        <div class="row ">
             <div class="col-lg-5">
                 <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
@@ -38,7 +38,7 @@ use yii\bootstrap\ActiveForm;
                     If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
                 </div>
 
-                <div class="form-group">
+                <div class="form-group text-center">
                     <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                 </div>
 

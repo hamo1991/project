@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <div class="row">
             <div class="col-md-6">
-                <div class="contact-wrap">
+                <div class="contact-wrap animated bounceInLeft">
                     <h2>Get In Touch</h2>
                     <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
@@ -68,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 animated bounceInRight">
                 <div id="map" class="colorlib-map"></div>
             </div>
         </div>

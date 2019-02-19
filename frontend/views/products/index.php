@@ -23,7 +23,7 @@ $this->title = 'All Products';
             </div>
         </div>
 
-        <div class="row row-pb-md">
+        <div class="row row-pb-md animated bounceInUp">
 
             <?php
             if (!empty($productBrands)) {

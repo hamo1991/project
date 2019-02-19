@@ -19,10 +19,10 @@ use yii\bootstrap\ActiveForm;
         </div>
 
     </div>
-    <div class="site-signup">
-        <h1><?= Html::encode($this->title) ?></h1>
+    <div class="site-signup animated fadeInUp">
+        <h1 style="text-align: center"><?= Html::encode($this->title) ?></h1>
 
-        <p>Please fill out the following fields to signup:</p>
+        <p style="text-align: center">Please fill out the following fields to signup:</p>
 
         <div class="row">
             <div class="col-lg-5">
@@ -34,7 +34,7 @@ use yii\bootstrap\ActiveForm;
 
                 <?= $form->field($model, 'password')->passwordInput() ?>
 
-                <div class="form-group">
+                <div class="form-group text-center">
                     <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                 </div>
 

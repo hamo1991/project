@@ -48,7 +48,7 @@ class Blog extends \yii\db\ActiveRecord
             [['title', 'content', 'slug'], 'required'],
             [['content'], 'string'],
             [['date'], 'safe'],
-            [['title'], 'string', 'max' => 255],
+            [['title','image'], 'string', 'max' => 255],
             [['slug'], 'string', 'max' => 150],
         ];
     }
@@ -62,6 +62,7 @@ class Blog extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Title',
             'content' => 'Content',
+            'image' => 'Image',
             'slug' => 'Slug',
             'date' => 'Date',
         ];

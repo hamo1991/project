@@ -17,7 +17,7 @@ if (!empty($category)) {
 
         </div>
     </div>
-    <div class="breadcrumbs-two">
+    <div class="breadcrumbs-two animated bounceInRight">
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -39,7 +39,7 @@ if (!empty($category)) {
 <div class="colorlib-product">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-xl-3">
+            <div class="col-lg-3 col-xl-3 animated bounceInLeft">
                 <div class="row">
 
                     <div class="col-sm-12">
@@ -94,28 +94,9 @@ if (!empty($category)) {
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-12">
-                        <div class="side border mb-1">
-                            <h3>Colors</h3>
-                            <ul>
-
-                                <li><a href="">Black</a></li>
-                                <li><a href="#">White</a></li>
-                                <li><a href="#">Blue</a></li>
-                                <li><a href="#">Red</a></li>
-                                <li><a href="#">Green</a></li>
-                                <li><a href="#">Grey</a></li>
-                                <li><a href="#">Pink</a></li>
-                                <li><a href="#">Cream</a></li>
-                                <li><a href="#">Brown</a></li>
-                                <li><a href="#">Yellow</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
                 </div>
             </div>
-            <div class="col-lg-9 col-xl-9">
+            <div class="col-lg-9 col-xl-9 animated bounceInUp">
                 <div class="row row-pb-md">
 
                     <?php

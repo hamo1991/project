@@ -40,7 +40,7 @@ AppAsset::register($this);
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-7 col-md-9">
-                            <div id="colorlib-logo"><a href="/">Footwear</a></div>
+                            <div id="colorlib-logo"><a href="/">ArmShoes</a></div>
                         </div>
                         <div class="col-sm-5 col-md-3">
 
@@ -62,6 +62,7 @@ AppAsset::register($this);
                                 <li class="active"><a href="<?= \yii\helpers\Url::to(['/']) . 'site/' ?>">Home</a></li>
                                 <li><a href="<?= \yii\helpers\Url::to(['/']) . 'site/about' ?>">About</a></li>
                                 <li><a href="<?= \yii\helpers\Url::to(['/']) . 'site/contact' ?>">Contact</a></li>
+                                <li><a href="<?= \yii\helpers\Url::to(['/']) . 'blog/blog' ?>">Blog</a></li>
                                 <?php
                                 if (Yii::$app->user->isGuest) {
                                     ?>
@@ -121,9 +122,9 @@ AppAsset::register($this);
 
     <footer id="colorlib-footer" role="contentinfo">
         <div class="container">
-            <div class="row row-pb-md">
+            <div class="row row-pb-md" id="footer-row">
                 <div class="col footer-col colorlib-widget">
-                    <h4>About Footwear</h4>
+                    <h4>About ArmShoes</h4>
                     <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
                         unorthographic life</p>
                     <p>
@@ -140,8 +141,6 @@ AppAsset::register($this);
                     <p>
                     <ul class="colorlib-footer-links">
                         <li><a href="<?= \yii\helpers\Url::to(['/']) . 'site/contact' ?>">Contact</a></li>
-                        <li><a href="#">Returns/Exchange</a></li>
-                        <li><a href="#">Gift Voucher</a></li>
                         <li><a href="#">Wishlist</a></li>
                         <li><a href="#">Special</a></li>
                         <li><a href="#">Customer Services</a></li>
@@ -153,7 +152,7 @@ AppAsset::register($this);
                     <h4>Information</h4>
                     <p>
                     <ul class="colorlib-footer-links">
-                        <li><a href="#">About us</a></li>
+                        <li><a href=""<?= \yii\helpers\Url::to(['/']) . 'site/about' ?>">About us</a></li>
                         <li><a href="#">Delivery Information</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Support</a></li>
