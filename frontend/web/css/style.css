@@ -12315,10 +12315,40 @@ input[type="text"] {
     flex-wrap: wrap;
 }
 
-/*#right {*/
-    /*float: right;*/
-/*}*/
-
 #right a {
     color: white;
 }
+
+/*.blog{*/
+    /*width: 100%;*/
+    /*height: auto;*/
+    /*float: left;*/
+/*}*/
+.middle-blog{
+    /*margin-left: 55px;*/
+    /*width: 28%;*/
+    /*height: 550px;*/
+    /*margin-bottom: 50px;*/
+    /*float: left;*/
+    /*background: rgba(239, 239, 239, 0.31);*/
+}
+/*.field-orders-name{*/
+    /*width: 30%;*/
+    /*float: left;*/
+    /*margin-left: 180px;*/
+    /*margin-right: 100px;*/
+/*}*/
+/*.field-orders-email{*/
+    /*width: 30%;*/
+    /*float: left;*/
+/*}*/
+/*.field-orders-phone{*/
+    /*width: 30%;*/
+    /*float: left;*/
+    /*margin-left: 180px;*/
+    /*margin-right: 100px;*/
+/*}*/
+/*.field-orders-address{*/
+    /*width: 30%;*/
+    /*float: left;*/
+/*}*/

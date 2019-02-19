@@ -17,7 +17,7 @@ class BlogController extends Controller
      */
     public function actionIndex()
     {
-        $articles = Blog::find()->with('comments')->orderBy(['date'=>SORT_DESC])->asArray()->all();
+        $articles = Blog::find()->with('comments')->orderBy(['created_at'=>SORT_DESC])->asArray()->all();
         return $this->render('index',['articles' => $articles]);
     }
 
@@ -27,23 +27,24 @@ class BlogController extends Controller
         if(!empty($blog)){
             $comment = new Comments();
 
-//            $comment->user_id = \Yii::$app->user->id;
+            $comment->user_id = \Yii::$app->user->id;
             $comment->blog_id = $blog->id;
-            if($comment->load(\Yii::$app->request->post()) && $comment->save()){
-
+            if($comment->load(\Yii::$app->request->post())){
+                if(!$comment->save()){
+                }
             }
 
             $article = Blog::find()
                 ->with(['comments' => function($article){
-                    $article->with('user');
-                    $article->orderBy(['created_at' => SORT_DESC]);
-                }])->where(['id' => $blog->id])->asArray()->one();
+                $article->with('user');
+                $article->orderBy(['created_at' => SORT_DESC]);
+            }])->where(['id' => $blog->id])->asArray()->one();
 
 
-
-            return $this->render('blog',['article' => $article,'comment' => $comment]);
+            return $this->render('blog',
+                ['article' => $article,
+                    'comment' => $comment]);
         }
     }
 
 }
-

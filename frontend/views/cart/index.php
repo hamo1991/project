@@ -69,7 +69,7 @@ use yii\widgets\ActiveForm;
                                 </a>
                                 <div class="display-tc">
                                     <h3>
-                                        <a href="<?= \yii\helpers\Url::to(['/']) . 'products/' . $c['product']['slug'] ?>"><?= $c['product']['title'] ?></a>
+                                        <a href="<?= \yii\helpers\Url::to(['/']) . 'products/product/' . $c['product']['slug'] ?>"><?= $c['product']['title'] ?></a>
                                     </h3>
                                 </div>
                             </div>

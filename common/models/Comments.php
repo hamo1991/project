@@ -5,7 +5,7 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "comment".
+ * This is the model class for table "comments".
  *
  * @property int $id
  * @property int $blog_id
@@ -23,7 +23,7 @@ class Comments extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'comment';
+        return 'comments';
     }
 
     /**
@@ -47,11 +47,11 @@ class Comments extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'blog_id' => 'Blog ID',
-            'comment' => 'Comment',
-            'user_id' => 'User ID',
-            'created_at' => 'Created At',
+            'id' => Yii::t('app', 'ID'),
+            'blog_id' => Yii::t('app', 'Blog ID'),
+            'comment' => Yii::t('app', 'Comment'),
+            'user_id' => Yii::t('app', 'User ID'),
+            'created_at' => Yii::t('app', 'Created At'),
         ];
     }
 
