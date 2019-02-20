@@ -480,8 +480,14 @@ mark,
 }
 
 .img-fluid {
+
     max-width: 100%;
     height: auto;
+}
+
+#radius {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .img-thumbnail {
@@ -10704,6 +10710,10 @@ h1, h2, h3, h4, h5,
     width: 100%;
 }
 
+.featured #box:hover {
+    box-shadow: 0 0 18px 6px rgba(0,0,0,0.56);
+}
+
 .featured .featured-img {
     height: 500px;
     display: block;
@@ -10730,9 +10740,17 @@ h1, h2, h3, h4, h5,
 }
 
 .product-entry {
-
+    border-radius: 15px;
     display: block;
     height: 100% !important;
+}
+
+.product-entry:hover {
+    box-shadow: 0 0 26px -2px rgba(0,0,0,0.51)
+}
+
+.product-entry img {
+
 }
 
 .product-entry .prod-img {
@@ -12332,3 +12350,4 @@ input[type="text"] {
 #blog {
     padding: 0;
 }
+

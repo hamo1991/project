@@ -118,7 +118,7 @@ if (!empty($category)) {
                                                  alt="sale">
                                         <?php endif ?>
                                         <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $prod['image'] ?>"
-                                             class="img-fluid" alt="Free html5 bootstrap 4 template">
+                                             id="radius" class="img-fluid" alt="Free html5 bootstrap 4 template">
                                     </a>
                                     <div class="desc">
                                         <h2>

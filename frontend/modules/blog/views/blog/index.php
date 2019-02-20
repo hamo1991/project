@@ -31,7 +31,7 @@
                     ?>
                     <div class="col-sm-6 text-center animated bounceInUp">
                         <div class="featured">
-                            <a href="<?= '/article/' . $article['slug']?>"
+                            <a id="box" href="<?= '/article/' . $article['slug']?>"
                                class="featured-img"
                                style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/blog/' . $article['image']?>);"></a>
                             <div class="desc">

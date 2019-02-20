@@ -21,12 +21,10 @@
                             </div>
                         </div>
                     </li>
-
                     <?php
                 }
             }
             ?>
-
         </ul>
     </div>
 </aside>
@@ -48,7 +46,7 @@
                     ?>
                     <div class="col-sm-6 text-center" id="kids">
                         <div class="featured">
-                            <a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['slug'] ?>"
+                            <a id="box" href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['slug'] ?>"
                                class="featured-img"
                                style="  background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/categories/' . $cat['image'] ?>);"></a>
                             <div class="desc">
@@ -93,7 +91,7 @@
                                     <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png' ?>"
                                          alt="sale">
                                 <?php endif ?>
-                                <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $hit['image'] ?>"
+                                <img id="radius" src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $hit['image'] ?>"
                                      class="img-fluid" alt="Product images">
                             </a>
                             <div class="desc">
@@ -153,9 +151,7 @@
                     }
                 }
                 ?>
-
             </div>
         </div>
     </div>
-
 </div>

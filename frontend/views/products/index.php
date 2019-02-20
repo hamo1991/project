@@ -45,7 +45,7 @@ $this->title = 'All Products';
                                     <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png' ?>"
                                          alt="sale">
                                 <?php endif ?>
-                                <?= \yii\helpers\Html::img("@web/images/uploads/products/{$product['image']}", ['alt' => "picture", 'class' => 'img-fluid']) ?>
+                                <?= \yii\helpers\Html::img("@web/images/uploads/products/{$product['image']}", ['alt' => "picture", 'class' => 'img-fluid','id' => 'radius']) ?>
                             </a>
                             <div class="desc">
                                 <h2>

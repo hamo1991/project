@@ -10,6 +10,7 @@ use common\models\Cart;
 use common\models\Brands;
 use common\models\Orders;
 use common\models\Orderitems;
+use common\widgets;
 
 class CartController extends Controller {
 
@@ -110,7 +111,7 @@ class CartController extends Controller {
         }
         if (Yii::$app->request->get('user')) {
             $user_id = Yii::$app->request->get('user');
-            if (!empty( $user_id)) {
+            if (!empty($user_id)) {
                 Cart::deleteAll(['user_id' => $user_id]);
             }
 
