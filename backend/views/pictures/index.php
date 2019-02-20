@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $searchModel common\models\search\PicturesSearch */
 
-$this->title = 'Pictures';
+$this->title = 'Product Pictures';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pictures-index">
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            'id',
+//            'id',
             [
                 'attribute' => 'product_id',
                 'filter' => '',

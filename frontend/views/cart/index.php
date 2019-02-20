@@ -4,29 +4,28 @@ $this->title = 'My Cart';
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use common\models\Cart;
 
 
 ?>
 
-<?php if (Yii::$app->session->hasFlash('success')): ?>
-    <div class="alert alert-success alert-dismissable">
-        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-        <!--        <h4><i class="icon fa fa-check"></i>Saved!</h4>-->
-        <?= Yii::$app->session->getFlash('success') ?>
-    </div>
-<?php endif; ?>
-
-
-<?php if (Yii::$app->session->hasFlash('error')): ?>
-    <div class="alert alert-danger alert-dismissable">
-        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-        <!--        <h4><i class="icon fa fa-check"></i>Saved!</h4>-->
-        <?= Yii::$app->session->getFlash('error') ?>
-    </div>
-<?php endif; ?>
-
 <div class="breadcrumbs">
     <div class="container">
+        <?php if (Yii::$app->session->hasFlash('success')): ?>
+            <div class="alert alert-success">
+                <button aria-hidden="true" style="display: block" data-dismiss="alert" class="close" type="button">X
+                </button>
+                <?= Yii::$app->session->getFlash('success') ?>
+            </div>
+        <?php endif; ?>
+
+
+        <?php if (Yii::$app->session->hasFlash('error')): ?>
+            <div class="alert alert-danger">
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">X</button>
+                <?= Yii::$app->session->getFlash('error') ?>
+            </div>
+        <?php endif; ?>
         <div class="row">
             <div class="col">
                 <p class="bread"><span>Shopping Cart</span></p>
@@ -89,7 +88,8 @@ use yii\widgets\ActiveForm;
                         <div class="product-cart d-flex">
                             <div class="one-forth">
                                 <a href="<?= \yii\helpers\Url::to(['/']) . 'products/product/' . $c['product']['slug'] ?>">
-                                    <div class="product-img" style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $c['product']['image'] ?>);
+                                    <div class="product-img"
+                                         style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $c['product']['image'] ?>);
                                                  display: block"></div>
                                 </a>
                                 <div class="display-tc">
@@ -162,7 +162,6 @@ use yii\widgets\ActiveForm;
                                 ?>
                                 <?php $form = ActiveForm::begin(); ?>
 
-
                                 <?= $form->field($order, 'name')->textInput(['readonly' => true, 'value' => $userName]) ?>
 
                                 <?= $form->field($order, 'email')->input('email', ['readonly' => true, 'value' => $userEmail]) ?>
@@ -170,7 +169,6 @@ use yii\widgets\ActiveForm;
                                 <?= $form->field($order, 'phone')->input('number') ?>
 
                                 <?= $form->field($order, 'address')->textInput() ?>
-
 
                                 <div class="form-group text-center">
                                     <?= Html::submitButton('Proceed to checkout', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
@@ -185,8 +183,19 @@ use yii\widgets\ActiveForm;
                             <div class="cart-detail">
                                 <h2 style="text-align: center">Cart Total</h2>
                                 <ul>
-                                    <li><span>Products</span> <span><?= count($cart) ?></span></li>
-                                    <li><span>Total</span> <span><?= $total ?></span></li>
+                                    <?php
+                                    $sum = 0;
+                                    $count = 0;
+                                    $cart = Cart::find()->where(['user_id' => Yii::$app->user->id])->asArray()->all();
+                                    foreach ($cart as $item) {
+
+                                        $sum += $item['quantity'];
+                                    }
+                                    $count += $sum;
+                                    ?>
+
+                                    <li><span>Total quantity</span> <span><?= $count ?></span></li>
+                                    <li><span>Total sum</span> <span><?= $total ?></span></li>
                                 </ul>
                                 <div class="butflex">
                                     <div class="col-sm-3">
@@ -198,7 +207,8 @@ use yii\widgets\ActiveForm;
                                         </form>
                                     </div>
                                     <div class="col-sm-3">
-                                        <a href="<?= \yii\helpers\Url::to(['/category/mens']) ?>" class="btn btn-primary">Continue
+                                        <a href="<?= \yii\helpers\Url::to(['/category/mens']) ?>"
+                                           class="btn btn-primary">Continue
                                             shopping</a>
                                     </div>
                                 </div>

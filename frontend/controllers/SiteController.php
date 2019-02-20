@@ -16,7 +16,6 @@ use frontend\models\ContactForm;
 use common\models\Categories;
 use common\models\Products;
 use common\models\About;
-use common\models\Cart;
 use yii\db\Query;
 use common\models\Brands;
 use common\models\Slider;

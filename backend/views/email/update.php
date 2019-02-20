@@ -3,21 +3,19 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Rules */
+/* @var $model backend\models\Email */
 
-$this->title = 'Update brands & categories';
-$this->params['breadcrumbs'][] = ['label' => 'Rules', 'url' => ['index']];
+$this->title = 'Update Email: {nameAttribute}';
+$this->params['breadcrumbs'][] = ['label' => 'Emails', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="rules-update">
+<div class="email-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,
-        'categories' => $categories,
-        'brands' => $brands
     ]) ?>
 
 </div>

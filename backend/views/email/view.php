@@ -4,18 +4,18 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Info */
+/* @var $model backend\models\Email */
 
-$this->title = $model->type;
-$this->params['breadcrumbs'][] = ['label' => 'Infos', 'url' => ['index']];
+$this->title = $model->email;
+$this->params['breadcrumbs'][] = ['label' => 'Emails', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="info-view">
+<div class="email-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+<!--        --><?//= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
@@ -29,8 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
 //            'id',
-            'type',
+            'email:email',
             'content',
+            'date',
         ],
     ]) ?>
 

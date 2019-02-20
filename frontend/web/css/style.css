@@ -5451,6 +5451,8 @@ input[type="button"].btn-block {
     color: inherit;
 }
 
+
+
 .alert-primary {
     color: #004085;
     background-color: #cce5ff;
@@ -5873,6 +5875,7 @@ input[type="button"].btn-block {
 
 .close:not(:disabled):not(.disabled) {
     cursor: pointer;
+    position: initial;;
 }
 
 button.close {

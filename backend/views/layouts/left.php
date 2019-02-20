@@ -41,6 +41,7 @@
                     ['label' => 'Info', 'icon' => 'fas fa-info-circle', 'url' => ['/info']],
                     ['label' => 'Blog', 'icon' => 'fab fa-bitcoin', 'url' => ['/blog/blog']],
                     ['label' => 'Orders', 'icon' => 'fas fa-cart-arrow-down', 'url' => ['/orders']],
+                    ['label' => 'Messages', 'icon' => 'fas fa-envelope', 'url' => ['/email']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Some tools',

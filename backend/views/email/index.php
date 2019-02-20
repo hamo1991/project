@@ -3,35 +3,39 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\search\InfoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Info';
+$this->title = 'Emails';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="info-index">
+<div class="email-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create Info', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <!---->
+    <!--    <p>-->
+    <!--        --><? //= Html::a('Create Email', ['create'], ['class' => 'btn btn-success']) ?>
+    <!--    </p>-->
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
 //            'id',
-            'type',
+            'email:email',
             'content',
+            'date',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {delete}'
+            ],
+
         ],
+
     ]); ?>
     <?php Pjax::end(); ?>
 </div>

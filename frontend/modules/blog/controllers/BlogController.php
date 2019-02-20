@@ -25,8 +25,8 @@ class BlogController extends Controller
         $blog = Blog::findOne(['slug'=>$slug]);
 
         if(!empty($blog)){
-            $comment = new Comments();
 
+            $comment = new Comments();
             $comment->user_id = \Yii::$app->user->id;
             $comment->blog_id = $blog->id;
             if($comment->load(\Yii::$app->request->post())){

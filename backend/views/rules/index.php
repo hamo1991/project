@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel common\models\search\BrandsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Rules';
+$this->title = 'Brands & Categories';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="rules-index">

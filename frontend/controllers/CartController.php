@@ -10,7 +10,7 @@ use common\models\Cart;
 use common\models\Brands;
 use common\models\Orders;
 use common\models\Orderitems;
-use common\widgets;
+use common\widgets\Alert;
 
 class CartController extends Controller {
 
@@ -49,13 +49,11 @@ class CartController extends Controller {
                 foreach ($cart as $c) {
                     $user_id = $c['user_id'];
                     Cart::deleteAll(['user_id' => $user_id]);
+                    Yii::$app->session->setFlash('success','Your order is complete, Please check the mail');
                     return $this->refresh();
                 }
-
-
-                Yii::$app->session->setFlash('success','Ok');
             }else {
-                Yii::$app->session->setFlash('error','chok');
+                Yii::$app->session->setFlash('error','Please try later');
             }
 
         }
@@ -73,7 +71,7 @@ class CartController extends Controller {
         $qty = (int)Yii::$app->request->get('quantity');
         $qty = !$qty ? 1 : $qty;
         if (Yii::$app->user->isGuest) {
-            return Yii::$app->session->setFlash('ERROR', 'Please Login');
+            return Yii::$app->session->setFlash('error', 'Please Login');
         } else {
             if (!empty($id) && !empty($qty)) {
                 $user = Yii::$app->user->id;
