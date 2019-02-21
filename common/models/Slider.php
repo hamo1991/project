@@ -11,6 +11,7 @@ use Yii;
  * @property string $title
  * @property string $description
  * @property string $content
+ * @property string $slug
  * @property string $image
  */
 class Slider extends \yii\db\ActiveRecord
@@ -29,7 +30,7 @@ class Slider extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'description', 'content'], 'string', 'max' => 100],
+            [['title', 'description', 'content','slug'], 'string', 'max' => 100],
             [['image'], 'string', 'max' => 255],
         ];
     }
@@ -44,6 +45,7 @@ class Slider extends \yii\db\ActiveRecord
             'title' => 'Title',
             'description' => 'Description',
             'content' => 'Content',
+            'slug' => 'Slug',
             'image' => 'Image',
         ];
     }

@@ -4,6 +4,12 @@ use yii\widgets\Pjax;
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 
+
+
+$this->title = 'Blog';
+
+
+
 $this->registerJs(
     '$("document").ready(function(){ 
         $("#new_comment").on("pjax:end", function() {
@@ -27,7 +33,7 @@ $this->registerJs(
     <div class="colorlib-product container" id="blog">
         <div class="container-fluid">
             <div class="row">
-                <div class="animated bounceInUp">
+                <div style="width: 100%" class="animated bounceInUp">
                     <div class="featured">
                         <a class="featured-img"
                            style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/blog/' . $article['image'] ?>);"></a>
@@ -68,7 +74,7 @@ $this->registerJs(
                 $form = ActiveForm::begin(['options' => ['data-pjax' => true]]);
                 echo $form->field($comment, 'comment')->textarea();
                 echo '<div class="form-group">';
-                echo Html::submitButton('Send', ['class' => 'btn btn-primary']);
+                echo Html::submitButton('Send comment', ['class' => 'btn btn-primary']);
                 echo '</div>';
                 ActiveForm::end();
                 Pjax::end();

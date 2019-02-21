@@ -1,4 +1,6 @@
-
+<?php
+$this->title = 'Blog';
+?>
 <div class="breadcrumbs">
     <div class="container">
         <div class="row">

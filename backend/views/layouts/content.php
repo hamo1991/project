@@ -3,7 +3,7 @@ use yii\widgets\Breadcrumbs;
 use dmstr\widgets\Alert;
 
 ?>
-<div style="background-image: url('<?= $directoryAsset ?>/img/shoes.jpg')" class="content-wrapper">
+<div style="background-image: url('<?= $directoryAsset ?>/img/dust_scratches.png');background-size: cover" class="content-wrapper">
     <section class="content-header">
         <?php if (isset($this->blocks['content-header'])) { ?>
             <h1><?= $this->blocks['content-header'] ?></h1>
@@ -11,7 +11,7 @@ use dmstr\widgets\Alert;
             <h1>
                 <?php
                 if ($this->title !== null) {
-                    echo \yii\helpers\Html::encode($this->title);
+                    echo "ArmShoes";
                 } else {
                     echo \yii\helpers\Inflector::camel2words(
                         \yii\helpers\Inflector::id2camel($this->context->module->id)
@@ -29,7 +29,7 @@ use dmstr\widgets\Alert;
         ) ?>
     </section>
 
-    <section class="content">
+    <section class="content" style="background-image: url('<?= $directoryAsset ?>/img/dust_scratches.png')">
         <?= Alert::widget() ?>
         <?= $content ?>
     </section>

@@ -34,7 +34,7 @@ use common\models\Cart;
     </div>
 </div>
 
-<div class="breadcrumbs-two">
+<div class="breadcrumbs-two animated pulse">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -188,7 +188,6 @@ use common\models\Cart;
                                     $count = 0;
                                     $cart = Cart::find()->where(['user_id' => Yii::$app->user->id])->asArray()->all();
                                     foreach ($cart as $item) {
-
                                         $sum += $item['quantity'];
                                     }
                                     $count += $sum;

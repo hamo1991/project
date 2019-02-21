@@ -73,7 +73,7 @@ AppAsset::register($this);
                                     <li>
                                         <form id="nav-form" action="<?= \yii\helpers\Url::to(['/']) . 'site/logout' ?>" method="post">
                                             <input type="hidden" name="_csrf-frontend" value="wqOKrocOxVjlwA10wE3aL9happ62mB-JkYcttODH4s6o17ze3TugNJ2zNReJD69GqmvH8t_hU8ajsRzcmoKOoQ==">
-                                            <button id="nav-button" class="btn btn-link logout" name="submit" type="submit"><a>Logout
+                                            <button id="nav-button" class="btn btn-link logout" name="submit" type="submit"><a id="logout">Logout
                                                     (<?= Yii::$app->user->identity->username ?>)</a>
                                             </button>
 

@@ -10,7 +10,6 @@ use common\models\Cart;
 use common\models\Brands;
 use common\models\Orders;
 use common\models\Orderitems;
-use common\widgets\Alert;
 
 class CartController extends Controller {
 

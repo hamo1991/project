@@ -19,7 +19,7 @@ class SliderSearch extends Slider
     {
         return [
             [['id'], 'integer'],
-            [['title', 'description', 'content', 'image'], 'safe'],
+            [['title', 'description', 'content', 'slug', 'image'], 'safe'],
         ];
     }
 

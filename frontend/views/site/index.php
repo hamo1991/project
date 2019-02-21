@@ -15,6 +15,7 @@
                                             <h1 class="head-1"><?= $slide['title'] ?></h1>
                                             <h2 class="head-3"><?= $slide['description'] ?></h2>
                                             <p style="color: white" class="category font-weight-bold"><?= $slide['content'] ?></p>
+                                            <p><a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $slide['slug'] ?>" class="btn btn-primary">Shop Collection</a></p>
                                         </div>
                                     </div>
                                 </div>

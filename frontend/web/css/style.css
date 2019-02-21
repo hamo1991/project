@@ -3325,7 +3325,6 @@ fieldset:disabled a.btn {
 .btn-link {
     font-family: "Rokkitt", Georgia, serif;
     text-transform: uppercase;
-    font-size: 16px !important;
     font-weight: 400;
     color: black;
 }
@@ -3335,9 +3334,9 @@ fieldset:disabled a.btn {
     color: #2CC8BC;
 }
 
-/*#logout {*/
-    /*padding-bottom: 1px;*/
-/*}*/
+#logout {
+    font-size: 18px;
+}
 
 .logout-btn {
     bottom: 7px;

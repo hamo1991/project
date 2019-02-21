@@ -29,7 +29,7 @@ use yii\helpers\Html;
                             <!-- inner menu: contains the actual data -->
                             <ul class="menu">
                                 <li>
-                                    <a><img src="<?= $directoryAsset ?>/img/messages.png" alt="message" width="20" height="18"><span style="font-weight: bold"><?= \backend\widgets\email\EmailWidget::widget();?></span> Messages</a>
+                                    <a><img src="<?= $directoryAsset ?>/img/message.png" alt="message" width="20" height="18"><span style="font-weight: bold"><?= \backend\widgets\email\EmailWidget::widget();?></span> Messages</a>
                                 </li>
                                 <li style="text-align: center" class="header"><a href="<?= \yii\helpers\Url::to(['/email'])?>">See All Messages</a></li>
                             </ul>
