@@ -29,14 +29,14 @@ class CartController extends Controller {
         if ($order->load(Yii::$app->request->post())) {
             $order->qty = count($cart);
             $order->user_id = $user;
-            $total =0;
+            $total = 0;
+
             foreach ($cart as $c) {
                 if (!empty($c['product']['sale_price'])) {
                     $total = ($c['product']['sale_price'] + $total) * $c['quantity'];
                 } else {
                     $total = ($c['product']['price'] + $total) * $c['quantity'];
                 }
-
             }
             $order->total = $total;
             if ($order->save()) {
@@ -52,6 +52,7 @@ class CartController extends Controller {
                     Yii::$app->session->setFlash('success','Your order is complete, Please check the mail');
                     return $this->refresh();
                 }
+
             }else {
                 Yii::$app->session->setFlash('error','Please try later');
             }

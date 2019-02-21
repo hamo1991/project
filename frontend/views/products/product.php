@@ -81,8 +81,8 @@ $this->title = 'Product Details';
                         <div class="input-group mb-4">
                             <button type="button" class="quantity-left-minus btn" data-type="minus" data-field=""><i
                                         class="icon-minus2"></i></button>
-                            <input type="text" id="quantity" name="quantity" class="form-control input-number"
-                                   value="<?= $product['quantity'] ?>">
+                            <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1"
+                                    max="<?= $product['quantity'] ?>">
                             <span class="input-group-btn ml-1">
                             <input type="hidden" name="id" value="<?= $product['id'] ?>">
                      	</span>

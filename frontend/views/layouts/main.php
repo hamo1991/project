@@ -57,7 +57,6 @@ AppAsset::register($this);
                     <div class="row">
                         <div class="col-sm-12 text-left menu-1">
 
-
                             <ul>
                                 <li class="active"><a href="<?= \yii\helpers\Url::to(['/']) . 'site/' ?>">Home</a></li>
                                 <li><a href="<?= \yii\helpers\Url::to(['/']) . 'site/about' ?>">About</a></li>
@@ -78,14 +77,12 @@ AppAsset::register($this);
                                                     (<?= Yii::$app->user->identity->username ?>)</a>
                                             </button>
 
-
                                         </form>
                                     </li>
                                     <li class="cart"><a href="<?= \yii\helpers\Url::to(['/']) . 'cart/' ?>"><i class="icon-shopping-cart"></i> Cart [<?= \frontend\widgets\cart\CartWidget::widget(); ?>]</a></li>
                                     <?php
                                 }
                                 ?>
-
                             </ul>
                         </div>
                     </div>

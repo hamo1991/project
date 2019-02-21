@@ -4,7 +4,10 @@
 
             e.preventDefault();
             var quantity = parseInt($('#quantity').val());
-
+            var max = parseInt($('#quantity').attr('max'));
+            if (quantity >= max) {
+                return;
+            }
             $('#quantity').val(quantity + 1);
 
         });

@@ -47,7 +47,7 @@ use common\models\Cart;
     </div>
 </div>
 
-<?php //\yii\widgets\Pjax::begin(); ?>
+<?php //\yii\widgets\Pjax::begin(['enablePushState' => false]); ?>
 <div class="colorlib-product">
     <div class="container">
         <div class="row row-pb-lg">
