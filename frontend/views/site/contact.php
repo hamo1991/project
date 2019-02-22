@@ -13,7 +13,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="container">
         <?php if (Yii::$app->session->hasFlash('success')): ?>
             <div class="alert alert-success">
-                <button aria-hidden="true" style="display: block"  data-dismiss="alert" class="close" type="button">X</button>
+                <button aria-hidden="true" style="display: block" data-dismiss="alert" class="close" type="button">X
+                </button>
                 <?= Yii::$app->session->getFlash('success') ?>
             </div>
         <?php endif; ?>
@@ -27,7 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php endif; ?>
         <div class="row">
             <div class="col">
-                <p class="bread"><span><a href="<?= \yii\helpers\Url::to(['/']) ?>">Home</a></span> / <span>Contact</span></p>
+                <p class="bread"><span><a href="<?= \yii\helpers\Url::to(['/']) ?>">Home</a></span> /
+                    <span>Contact</span></p>
             </div>
         </div>
     </div>
@@ -41,13 +43,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 <h3>Contact Information</h3>
                 <div class="row contact-info-wrap">
                     <div class="col-md-3">
-                        <p><span><i class="icon-location"></i></span><?= \frontend\widgets\info\InfoWidget::widget(['action' => 'address']); ?></p>
+                        <p>
+                            <span><i class="icon-location"></i></span><?= \frontend\widgets\info\InfoWidget::widget(['action' => 'address']); ?>
+                        </p>
                     </div>
                     <div class="col-md-3">
-                        <p><span><i class="icon-phone3"></i></span> <a href="tel://1234567920"><?= \frontend\widgets\info\InfoWidget::widget(['action' => 'phone']); ?></a></p>
+                        <p><span><i class="icon-phone3"></i></span> <a
+                                    href="tel://1234567920"><?= \frontend\widgets\info\InfoWidget::widget(['action' => 'phone']); ?></a>
+                        </p>
                     </div>
                     <div class="col-md-3">
-                        <p><span><i class="icon-paperplane"></i></span> <a href="mailto:info@yoursite.com"><?= \frontend\widgets\info\InfoWidget::widget(['action' => 'email']); ?></a></p>
+                        <p><span><i class="icon-paperplane"></i></span> <a
+                                    href="mailto:info@yoursite.com"><?= \frontend\widgets\info\InfoWidget::widget(['action' => 'email']); ?></a>
+                        </p>
                     </div>
                     <div class="col-md-3">
                         <p><span><i class="icon-globe"></i></span> <a href="#">yoursite.com</a></p>
@@ -81,6 +89,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 </div>
             </div>
+
+
             <div class="col-md-6 animated bounceInRight">
                 <div id="map" class="colorlib-map"></div>
             </div>

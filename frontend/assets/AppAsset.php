@@ -13,6 +13,7 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/animate.css',
+//        'css/main.css',
         'css/icomoon.css',
         'css/ionicons.min.css',
         'css/bootstrap.min.css',
@@ -27,6 +28,7 @@ class AppAsset extends AssetBundle
     public $js = [
         'js/jquery-migrate-3.0.1.min.js',
         'js/aos.js',
+//        'js/distance.js',
         'js/popper.min.js',
         'js/bootstrap.min.js',
         'js/jquery.countTo.js',
