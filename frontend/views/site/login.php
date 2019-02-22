@@ -33,7 +33,7 @@ use yii\bootstrap\ActiveForm;
 
     </div>
     <div class="site-login animated fadeInUp">
-        <h1 style="text-align: center"><?= Html::encode($this->title) ?></h1>
+        <h1 style="text-align: center;font-size: 50px"><?= Html::encode($this->title) ?></h1>
 
         <p style="text-align: center">Please fill out the following fields to login:</p>
 

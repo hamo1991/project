@@ -1,27 +1,17 @@
 
-
-<style>
-    table ,th,td {
-        width: 100%;
-        border: 2px solid black;
-        border-collapse: collapse;
-    };
-
-</style>
-
-<h1 style="text-align: center">Thanks for shopping</h1>
+<h1 style="text-align: center;font-weight: bold">Thanks for shopping</h1>
 <br>
-<table>
+<table style="width: 100%;border: 2px solid black; border-collapse: collapse">
     <?php
     if (!empty($cart)) {
     $total = 0;
     ?>
     <thead>
     <tr>
-        <th>Product name</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Total</th>
+        <th style="border: 1px solid black">Product name</th>
+        <th style="border: 1px solid black">Quantity</th>
+        <th style="border: 1px solid black">Price</th>
+        <th style="border: 1px solid black">Total</th>
     </tr>
     </thead>
     <tbody>
@@ -33,9 +23,9 @@
         }
         ?>
         <tr>
-            <td><?= $item['product']['title'] ?></td>
-            <td><?= $item['quantity'] ?></td>
-            <td>
+            <td style="border: 1px solid black"><?= $item['product']['title'] ?></td>
+            <td style="border: 1px solid black"><?= $item['quantity'] ?></td>
+            <td style="border: 1px solid black">
                 <?php
                 if (!empty($item['product']['sale_price'])) {
                     ?>
@@ -48,7 +38,7 @@
                 }
                 ?>
             </td>
-            <td>
+            <td style="border: 1px solid black">
 
                 <?php
                 if (!empty($item['product']['sale_price'])) {
@@ -65,8 +55,8 @@
         </tr>
     <?php endforeach; ?>
     <tr>
-        <td colspan="3">Total price:</td>
-        <td><?= $total ?></td>
+        <td style="border: 1px solid black" colspan="3">Total price:</td>
+        <td style="border: 1px solid black"><?= $total ?></td>
     </tr>
     </tbody>
 </table>

@@ -52,6 +52,8 @@ class CartController extends Controller {
                     return $this->refresh();
                 }
 
+
+
             }else {
                 Yii::$app->session->setFlash('error','Please try later');
             }
@@ -69,13 +71,16 @@ class CartController extends Controller {
 
         $id = (int)Yii::$app->request->get('id');
         $qty = (int)Yii::$app->request->get('quantity');
+        $product = Products::findOne($id);
         $qty = !$qty ? 1 : $qty;
+        if ($qty >  (int)$product['available_stock']) {
+            $qty = 1;
+        }
         if (Yii::$app->user->isGuest) {
             return Yii::$app->session->setFlash('error', 'Please Login');
         } else {
             if (!empty($id) && !empty($qty)) {
                 $user = Yii::$app->user->id;
-                $product = Products::findOne($id);
                 if (!empty($product)) {
                     $errors = [];
                     $cart = Cart::findOne(['product_id' => $product->id, 'user_id' => $user]);
@@ -91,7 +96,6 @@ class CartController extends Controller {
                             $errors[] = $new_cart->errors;
                         }
                     }
-
                     $this->redirect('/cart');
                 }
             }
