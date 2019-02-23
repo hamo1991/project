@@ -8,9 +8,7 @@ if (!empty($category)) {
         <div class="container">
             <div class="row">
                 <div class="col">
-
                     <p class="bread"><span><?= $category['title'] ?> Collection</span></p>
-
 
                 </div>
             </div>
@@ -22,7 +20,7 @@ if (!empty($category)) {
             <div class="row">
                 <div class="col">
                     <div class="breadcrumbs-img"
-                         style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/categories/' . $category['info_image'] ?>);">
+                         style="background-image: url(<?='/images/uploads/categories/' . $category['info_image'] ?>);">
                         <h2><?= $category['title'] ?></h2>
                     </div>
                 </div>
@@ -88,9 +86,7 @@ if (!empty($category)) {
                                         <?php
                                     }
                                 }
-
                                 ?>
-
                             </ul>
                         </div>
                     </div>
@@ -109,16 +105,12 @@ if (!empty($category)) {
                                     <a href="<?= \yii\helpers\Url::to(['products/product/' . $prod['slug']]) ?>"
                                        class="prod-img">
                                         <?php if ($prod['is_new']) : ?>
-                                            <img class="new-sale"
-                                                 src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png' ?>" alt="new">
+                                            <?= \yii\helpers\Html::img("@web/images/new.png", ['alt' => "new", 'class' => 'new-sale']) ?>
                                         <?php endif ?>
                                         <?php if ($prod['is_sale']) : ?>
-                                            <img class="new-sale"
-                                                 src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png' ?>"
-                                                 alt="sale">
+                                            <?= \yii\helpers\Html::img("@web/images/sale.png", ['alt' => "sale", 'class' => 'new-sale']) ?>
                                         <?php endif ?>
-                                        <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $prod['image'] ?>"
-                                             id="radius" class="img-fluid" alt="Free html5 bootstrap 4 template">
+                                        <?= \yii\helpers\Html::img("@web/images/uploads/products/{$prod['image']}", ['alt' => "picture-products", 'class' => 'img-fluid','id' => 'radius']) ?>
                                     </a>
                                     <div class="desc">
                                         <h2>

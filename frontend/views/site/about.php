@@ -21,7 +21,7 @@ $this->title = 'About';
                 foreach ($about as $a) {
                     ?>
                     <div class="col-sm-6 mb-3 animated bounceInLeft">
-                        <div class="video colorlib-video" style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/about/' . $a['image'] ?>);">
+                        <div class="video colorlib-video" style="background-image: url(<?= '/images/uploads/about/' . $a['image'] ?>);">
                             <a href="https://vimeo.com/76175542" class="popup-vimeo"><i class="icon-play3"></i></a>
                             <div class="overlay"></div>
                         </div>

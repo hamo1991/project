@@ -21,20 +21,18 @@ $this->title = 'Search Products';
 
                     <div class="col-lg-3 mb-4 text-center">
                         <div class="product-entry border">
-                            <a href="<?= \yii\helpers\Url::to(['product/' . $product['slug']]) ?>" class="prod-img">
+                            <a href="<?= \yii\helpers\Url::to(['products/product/' . $product['slug']]) ?>" class="prod-img">
                                 <?php if ($product['is_new']) : ?>
-                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png' ?>"
-                                         alt="new">
+                                    <?= \yii\helpers\Html::img("@web/images/new.png", ['alt' => "new", 'class' => 'new-sale']) ?>
                                 <?php endif ?>
                                 <?php if ($product['is_sale']) : ?>
-                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png' ?>"
-                                         alt="sale">
+                                    <?= \yii\helpers\Html::img("@web/images/sale.png", ['alt' => "sale", 'class' => 'new-sale']) ?>
                                 <?php endif ?>
-                                <?= \yii\helpers\Html::img("@web/images/uploads/products/{$product['image']}", ['alt' => "picture", 'class' => 'img-fluid','id' => 'radius']) ?>
+                                <?= \yii\helpers\Html::img("@web/images/uploads/products/{$product['image']}", ['alt' => "product picture", 'class' => 'img-fluid','id' => 'radius']) ?>
                             </a>
                             <div class="desc">
                                 <h2>
-                                    <a href="<?= \yii\helpers\Url::to(['product/', 'slug' => $product['slug']]) ?>"><?= $product['title'] ?></a>
+                                    <a href="<?= \yii\helpers\Url::to(['/products/product/', 'slug' => $product['slug']]) ?>"><?= $product['title'] ?></a>
                                 </h2>
                                 <?php
                                 if ($product['sale_price']) {
@@ -97,10 +95,9 @@ $this->title = 'Search Products';
                     foreach ($brands as $brand) {
                         ?>
                         <div class="col partner-col text-center">
-                            <a href="<?= \yii\helpers\Url::to(['/']) . 'products/' . $brand['slug'] ?>"><img
-                                        src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/brands/' . $brand['image'] ?>"
-                                        class="img-fluid"
-                                        alt="brand images"></a>
+                            <a href="<?= \yii\helpers\Url::to(['/']) . 'products/' . $brand['slug'] ?>">
+                                <?= \yii\helpers\Html::img("@web/images/uploads/brands/{$brand['image']}", ['alt' => "brand-image", 'class' => 'img-fluid']) ?>
+                            </a>
                         </div>
                         <?php
                     }

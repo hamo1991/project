@@ -20,8 +20,7 @@ $this->title = 'Product Details';
                 <div class="owl-carousel">
                     <div class="item">
                         <div class="product-entry border">
-                            <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>"
-                                 class="img-fluid" alt="Product image">
+                            <?= \yii\helpers\Html::img("@web/images/uploads/products/{$product['image']}", ['alt' => "product-image", 'class' => 'img-fluid']) ?>
                         </div>
                     </div>
                     <?php
@@ -30,8 +29,7 @@ $this->title = 'Product Details';
                             ?>
                             <div class="item">
                                 <div class="product-entry border">
-                                    <img src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $image['image'] ?>"
-                                         class="img-fluid" alt="Product images">
+                                    <?= \yii\helpers\Html::img("@web/images/uploads/products/{$image['image']}", ['alt' => "product-images", 'class' => 'img-fluid']) ?>
                                 </div>
                             </div>
                             <?php
@@ -77,7 +75,7 @@ $this->title = 'Product Details';
                     <div class="block-26">
                         <h4>Quantity</h4>
                     </div>
-                    <form action="<?= \yii\helpers\Url::to(['@web/']) . 'cart/add' ?>" method="get">
+                    <form action="<?= \yii\helpers\Url::to(['@web/']) . '/cart/add' ?>" method="get">
                         <div class="input-group mb-4">
                             <button type="button" class="quantity-left-minus btn" data-type="minus" data-field=""><i
                                         class="icon-minus2"></i></button>

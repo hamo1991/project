@@ -66,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="row">
             <div class="col-md-6">
                 <div class="contact-wrap animated bounceInLeft">
-                    <h2>Get In Touch</h2>
+                    <h2 style="font-size: 40px">Get In Touch</h2>
                     <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
                     <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>

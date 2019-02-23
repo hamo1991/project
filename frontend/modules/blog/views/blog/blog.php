@@ -36,7 +36,7 @@ $this->registerJs(
                 <div style="width: 100%" class="animated bounceInUp">
                     <div class="featured">
                         <a class="featured-img"
-                           style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/blog/' . $article['image'] ?>);"></a>
+                           style="background-image: url(<?= '/images/uploads/blog/' . $article['image'] ?>);"></a>
                         <div class="desc">
                             <h2><a style="color: black; text-decoration: none"><?= $article['title']; ?></a></h2>
                         </div>

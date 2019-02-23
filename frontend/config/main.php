@@ -19,13 +19,28 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
-            'baseUrl' => ''
+            'baseUrl' => '',
+            'class' => 'frontend\components\LangRequest'
         ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
         ],
+        'language'=>'en-EN',
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@common/translations',
+                    'sourceLanguage' => 'en',
+                    'fileMap' => [
+//                        'main' => 'app.php',
+                    ],
+                ],
+            ],
+        ],
+
         'session' => [
             // this is the name of the session cookie used for login on the frontend
             'name' => 'advanced-frontend',
@@ -49,10 +64,12 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'class'=>'frontend\components\LangUrlManager',
             'rules' => [
 
 
-
+//                '/' => 'site/index',
+//                '<controller:\w+>/<action:\w+>/*'=>'<controller>/<action>',
                 'search' => 'products/search',
                 'products/product/<slug>' => 'products/product',
                 'category/<slug>' => 'category/index',

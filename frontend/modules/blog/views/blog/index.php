@@ -16,7 +16,7 @@ $this->title = 'Blog';
         <div class="row">
             <div class="col">
                 <div class="breadcrumbs-img"
-                     style="background-size: cover; background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/blog-bg.jpg' ?>);">
+                     style="background-size: cover; background-image: url(<?= '/images/blog-bg.jpg' ?>);">
                     <h2 style="color: white">All New's</h2>
                 </div>
             </div>
@@ -35,7 +35,7 @@ $this->title = 'Blog';
                         <div class="featured">
                             <a id="box" href="<?= '/article/' . $article['slug']?>"
                                class="featured-img"
-                               style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/blog/' . $article['image']?>);"></a>
+                               style="background-image: url(<?= '/images/uploads/blog/' . $article['image']?>);"></a>
                             <div class="desc">
                                 <h2><a style="color: black; text-decoration: none" href="<?= '/article/'.$article['slug'];?>"><?= $article['title'];?></a></h2>
                             </div>

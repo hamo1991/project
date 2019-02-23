@@ -5,7 +5,7 @@
             if (!empty($slider)) {
                 foreach ($slider as $slide) {
                     ?>
-                    <li style="background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/slider/' . $slide['image'] ?>);">
+                    <li style="background-image: url(<?='/images/uploads/slider/' . $slide['image'] ?>);">
                         <div class="overlay"></div>
                         <div class="container-fluid ">
                             <div class="row">
@@ -15,7 +15,7 @@
                                             <h1 class="head-1"><?= $slide['title'] ?></h1>
                                             <h2 class="head-3"><?= $slide['description'] ?></h2>
                                             <p style="color: white" class="category font-weight-bold"><?= $slide['content'] ?></p>
-                                            <p><a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $slide['slug'] ?>" class="btn btn-primary">Shop Collection</a></p>
+                                            <p><a href="<?= \yii\helpers\Url::to(['/']) . '/category/' . $slide['slug'] ?>" class="btn btn-primary">Shop Collection</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -33,7 +33,10 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 text-center">
-                <h2 class="intro"><?= \frontend\widgets\info\InfoWidget::widget(['action' => 'about']); ?></h2>
+                <h2 class="intro">
+                    <?=Yii::t('app',  'It started with a simple idea: Create quality, well-designed products that I wanted myself.') ?>
+<!--                    --><?//= \frontend\widgets\info\InfoWidget::widget(['action' => 'about']); ?>
+                    </h2>
             </div>
         </div>
     </div>
@@ -47,18 +50,16 @@
                     ?>
                     <div class="col-sm-6 text-center" id="kids">
                         <div class="featured">
-                            <a id="box" href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['slug'] ?>"
+                            <a id="box" href="<?= \yii\helpers\Url::to(['/']) . '/category/' . $cat['slug'] ?>"
                                class="featured-img"
-                               style="  background-image: url(<?= \yii\helpers\Url::to(['/']) . 'images/uploads/categories/' . $cat['image'] ?>);"></a>
+                               style="  background-image: url(<?='/images/uploads/categories/' . $cat['image'] ?>);"></a>
                             <div class="desc">
                                 <h2>
-                                    <a href="<?= \yii\helpers\Url::to(['/']) . 'category/' . $cat['slug'] ?>"><?= $cat['title'] ?>
-                                        Collection</a></h2>
+                                    <a href="<?= \yii\helpers\Url::to(['/']) . '/category/' . $cat['slug'] ?>"><?=Yii::t('app',  $cat['title'] . " Collection" ) ?> </a></h2>
                             </div>
                         </div>
                     </div>
                     <?php
-
                 }
             }
             ?>
@@ -69,7 +70,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
-                <h2>Best Sellers</h2>
+                <h2><?=Yii::t('app',  'BEST SELLERS' ) ?></h2>
             </div>
         </div>
         <div class="row row-pb-md">
@@ -82,18 +83,15 @@
 
                         <div class="product-entry border">
 
-                            <a href="<?= \yii\helpers\Url::to(['products/product/' . $hit['slug']]) ?>"
+                            <a href="<?= \yii\helpers\Url::to(['/products/product/' . $hit['slug']]) ?>"
                                class="prod-img">
                                 <?php if ($hit['is_new']) : ?>
-                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/new.png' ?>"
-                                         alt="new">
+                                    <?= \yii\helpers\Html::img("@web/images/new.png", ['alt' => "new", 'class' => 'new-sale']) ?>
                                 <?php endif ?>
                                 <?php if ($hit['is_sale']) : ?>
-                                    <img class="new-sale" src="<?= \yii\helpers\Url::to(['/']) . 'images/sale.png' ?>"
-                                         alt="sale">
+                                    <?= \yii\helpers\Html::img("@web/images/sale.png", ['alt' => "sale", 'class' => 'new-sale']) ?>
                                 <?php endif ?>
-                                <img id="radius" src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $hit['image'] ?>"
-                                     class="img-fluid" alt="Product images">
+                                <?= \yii\helpers\Html::img("@web/images/uploads/products/{$hit['image']}", ['alt' => "picture", 'class' => 'img-fluid','id' => 'radius']) ?>
                             </a>
                             <div class="desc">
                                 <h2>
@@ -124,7 +122,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <p><a href="<?= \yii\helpers\Url::to(['/']) ?>products/" class="btn btn-primary btn-lg">All Products</a>
+                <p><a href="<?= \yii\helpers\Url::to(['/']) . '/products/' ?>" class="btn btn-primary btn-lg"><?=Yii::t('app',  'All products') ?></a>
                 </p>
             </div>
         </div>
@@ -134,7 +132,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
-                    <h2>Trusted Partners</h2>
+                    <h2><?=Yii::t('app',  'TRUSTED PARTNERS') ?></h2>
                 </div>
             </div>
             <div class="row brand-slide">
@@ -143,10 +141,12 @@
                     foreach ($brands as $brand) {
                         ?>
                         <div class="col partner-col text-center ">
-                            <a href="<?= \yii\helpers\Url::to(['/']) . 'products/' . $brand['slug'] ?>"><img
-                                        src="<?= \yii\helpers\Url::to(['/']) . 'images/uploads/brands/' . $brand['image'] ?>"
-                                        class="img-fluid"
-                                        alt="brand images"></a>
+                            <a href="<?= \yii\helpers\Url::to(['/']) . '/products/' . $brand['slug'] ?>">
+
+
+                                <?= \yii\helpers\Html::img("@web/images/uploads/brands/{$brand['image']}", ['alt' => "brand-image", 'class' => 'img-fluid']) ?>
+                            </a>
+
                         </div>
                         <?php
                     }

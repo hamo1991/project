@@ -64,6 +64,14 @@ body {
     background-color: #fff;
 }
 
+#lang {
+    display: contents;
+}
+#flags {
+    padding: 0;
+    margin: 0 0 0 -12px;
+}
+
 [tabindex="-1"]:focus {
     outline: 0 !important;
 }
@@ -10273,7 +10281,7 @@ h1, h2, h3, h4, h5,
 }
 
 .colorlib-nav .top-menu {
-   padding: 50px 0 0 0;
+   padding: 20px 0 0 0;
 }
 
 @media (max-width: 767.98px) {
@@ -12352,4 +12360,3 @@ input[type="text"] {
 #blog {
     padding: 0;
 }
-
