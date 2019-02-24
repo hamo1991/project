@@ -97,15 +97,23 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
-<script>
-    function myMap() {
-        let mapOptions = {
-            center: new google.maps.LatLng(40.79229336, 43.84778612),
-            zoom: 16,
-            mapTypeId: google.maps.MapTypeId.HYBRID,
-        };
-        let map = new google.maps.Map(document.getElementById("map"), mapOptions);
-    }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwtvaOIGoZZezU3Sm-KDZAtnGxtY5VOUI&callback=myMap"></script>
 
+<script>
+    var map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 40.807240, lng: 43.847615},
+            zoom: 16
+        });
+
+        var marker = new google.maps.Marker({
+            position: {lat: 40.807240, lng: 43.847615},
+            map: map,
+            title: 'Xanut',
+            animation: google.maps.Animation.BOUNCE,
+            draggable: true
+        });
+    }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwtvaOIGoZZezU3Sm-KDZAtnGxtY5VOUI&callback=initMap"></script>

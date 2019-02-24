@@ -35,7 +35,7 @@
             <div class="col-sm-12 text-center">
                 <h2 class="intro">
                     <?=Yii::t('app',  'It started with a simple idea: Create quality, well-designed products that I wanted myself.') ?>
-<!--                    --><?//= \frontend\widgets\info\InfoWidget::widget(['action' => 'about']); ?>
+<!--                    <?//= \frontend\widgets\info\InfoWidget::widget(['action' => 'about']); ?> -->
                     </h2>
             </div>
         </div>

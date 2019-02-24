@@ -169,7 +169,6 @@ AppAsset::register($this);
                         <li><a href="tel://1234567920"><?= \frontend\widgets\info\InfoWidget::widget(['action' => 'phone']); ?></a></li>
                         <li style="text-transform: lowercase"><a href="mailto:info@yoursite.com"><?= \frontend\widgets\info\InfoWidget::widget(['action' => 'email']); ?></a></li>
                         <li><a href="#">yoursite.com</a></li>
-<!--                        <li>--><?//= $this->render('language') ?><!--</li>-->
                     </ul>
                 </div>
             </div>

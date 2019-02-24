@@ -9,6 +9,7 @@ use Yii;
  *
  * @property string $id
  * @property string $email
+ * @property string $name
  * @property string $content
  * @property string $date
  */
@@ -31,7 +32,7 @@ class Email extends \yii\db\ActiveRecord
             [['email', 'content'], 'required'],
             [['date'], 'safe'],
             [['email'], 'string', 'max' => 150],
-            [['content'], 'string', 'max' => 255],
+            [['content','name'], 'string', 'max' => 255],
         ];
     }
 
@@ -43,6 +44,7 @@ class Email extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'email' => 'Email',
+            'name' => 'Name',
             'content' => 'Content',
             'date' => 'Date',
         ];

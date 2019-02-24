@@ -18,23 +18,13 @@ use yii\helpers\Html;
         <div class="navbar-custom-menu">
 
             <ul class="nav navbar-nav">
-                <li class="dropdown notifications-menu">
+
+                <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-envelope-o"></i>
-                        <span class="label label-success"><?= \backend\widgets\email\EmailWidget::widget(); ?></span>
+                        <span class="label label-success"><?= \backend\widgets\email\EmailWidget::widget(['count' => 'count']);?></span>
                     </a>
-                    <ul class="dropdown-menu">
-                        <li style="font-weight: bold" class="header">Messages</li>
-                        <li>
-                            <!-- inner menu: contains the actual data -->
-                            <ul class="menu">
-                                <li>
-                                    <a><img src="<?= $directoryAsset ?>/img/message.png" alt="message" width="20" height="18"><span style="font-weight: bold"><?= \backend\widgets\email\EmailWidget::widget();?></span> Messages</a>
-                                </li>
-                                <li style="text-align: center" class="header"><a href="<?= \yii\helpers\Url::to(['/email'])?>">See All Messages</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <?= \backend\widgets\email\EmailWidget::widget();?>
                 </li>
                 <li class="dropdown notifications-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">

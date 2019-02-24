@@ -7,6 +7,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use common\models\Slider;
 
 /**
  * Site controller
@@ -57,7 +58,13 @@ class SiteController extends Controller {
      * @return string
      */
     public function actionIndex() {
-        return $this->render('index');
+
+        $slider = Slider::find()->asArray()->all();
+
+        return $this->render('index',[
+            'slider' => $slider
+
+        ]);
     }
 
     /**

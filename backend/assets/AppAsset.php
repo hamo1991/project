@@ -13,6 +13,7 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
+
     ];
     public $js = [
     ];
@@ -20,4 +21,14 @@ class AppAsset extends AssetBundle
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
     ];
+
+//    public function init()
+//    {
+//        if (\Yii::$app->controller->action->id === 'index') {
+////            $this->css[] = 'css/style.css';
+//
+////            $this->js[] = 'js/quantity.js';
+//        }
+//
+//    }
 }

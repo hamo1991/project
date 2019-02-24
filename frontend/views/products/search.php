@@ -95,7 +95,7 @@ $this->title = 'Search Products';
                     foreach ($brands as $brand) {
                         ?>
                         <div class="col partner-col text-center">
-                            <a href="<?= \yii\helpers\Url::to(['/']) . 'products/' . $brand['slug'] ?>">
+                            <a href="<?= \yii\helpers\Url::to(['/']) . '/products/' . $brand['slug'] ?>">
                                 <?= \yii\helpers\Html::img("@web/images/uploads/brands/{$brand['image']}", ['alt' => "brand-image", 'class' => 'img-fluid']) ?>
                             </a>
                         </div>
