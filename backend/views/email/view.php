@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Email */
 
-$this->title = $model->email;
+$this->title = strtoupper($model->name);
 $this->params['breadcrumbs'][] = ['label' => 'Emails', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

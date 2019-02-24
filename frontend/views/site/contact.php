@@ -89,8 +89,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 </div>
             </div>
-
-
             <div class="col-md-6 animated bounceInRight">
                 <div id="map" class="colorlib-map"></div>
             </div>
@@ -103,13 +101,13 @@ $this->params['breadcrumbs'][] = $this->title;
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 40.807240, lng: 43.847615},
-            zoom: 16
+            zoom: 18
         });
 
         var marker = new google.maps.Marker({
             position: {lat: 40.807240, lng: 43.847615},
             map: map,
-            title: 'Xanut',
+            title: 'ArmShoes shop',
             animation: google.maps.Animation.BOUNCE,
             draggable: true
         });

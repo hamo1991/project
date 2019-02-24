@@ -66,7 +66,7 @@ use yii\helpers\Html;
 
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="/" class="btn btn-default btn-flat">Go Site</a>
                             </div>
                             <div class="pull-right">
                                 <?= Html::a(
@@ -77,6 +77,9 @@ use yii\helpers\Html;
                             </div>
                         </li>
                     </ul>
+                </li>
+                <li>
+                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                 </li>
             </ul>
         </div>
