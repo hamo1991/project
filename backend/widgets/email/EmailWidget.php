@@ -18,7 +18,7 @@ class EmailWidget extends  \yii\bootstrap\Widget
             return count($count);
         }
 
-        $messages = Email::find()->asArray()->all();
+        $messages = Email::find()->orderBy(['date' => SORT_DESC])->asArray()->all();
         return $this->render('messages',[
             'messages' => $messages,
         ]);

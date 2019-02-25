@@ -28,8 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-//            'id',
-//            'product_id',
+
 
             [
                 'attribute' => 'product_id',
@@ -46,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::img(\yii\helpers\Url::to('/frontend/web/images/uploads/products/'. $model->image),['width' => '100px','height' => '100px',]);
                 }
             ] ,
-            'colors',
+
         ],
     ]) ?>
 

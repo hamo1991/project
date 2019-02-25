@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a19b98d8a37a3e4c7d19bbc0b64836d",
+    "content-hash": "0924d0e850e9814d57869c332d41ef4a",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -680,6 +680,49 @@
                 "icon"
             ],
             "time": "2016-10-24T15:52:54+00:00"
+        },
+        {
+            "name": "microinginer/yii2-cbrf-rates",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/microinginer/yii2-cbrf-rates.git",
+                "reference": "5b505eefd72cab816fe48c314cd10f93aa312671"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/microinginer/yii2-cbrf-rates/zipball/5b505eefd72cab816fe48c314cd10f93aa312671",
+                "reference": "5b505eefd72cab816fe48c314cd10f93aa312671",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "2.*"
+            },
+            "type": "yii2-extensions",
+            "autoload": {
+                "psr-4": {
+                    "microinginer\\CbRFRates\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "inginer",
+                    "email": "ruslanmadatov@yandex.ru"
+                }
+            ],
+            "homepage": "https://github.com/microinginer/yii2-cbrf-rates",
+            "keywords": [
+                "cbrf",
+                "rates",
+                "yii2",
+                "валюты",
+                "курсы"
+            ],
+            "time": "2017-01-23T10:06:05+00:00"
         },
         {
             "name": "mihaildev/yii2-ckeditor",
@@ -3785,7 +3828,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "microinginer/yii2-cbrf-rates": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

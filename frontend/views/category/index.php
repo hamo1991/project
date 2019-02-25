@@ -119,12 +119,12 @@ if (!empty($category)) {
                                         <?php
                                         if ($prod['sale_price']) {
                                             ?>
-                                            <span class="price"><del><?= $prod['price'] ?></del></span>
-                                            <span class="price"><?= $prod['sale_price'] ?></span>
+                                            <span class="price"><del><?= $prod['price'] ?>֏</del></span>
+                                            <span class="price"><?= $prod['sale_price'] ?>֏</span>
                                             <?php
                                         } else {
                                             ?>
-                                            <span class="price"><?= $prod['price'] ?></span>
+                                            <span class="price"><?= $prod['price'] ?>֏</span>
                                             <?php
                                         }
                                         ?>

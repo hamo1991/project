@@ -20,9 +20,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-//            'id',
             'created_at',
-            'updated_at',
+//            'updated_at',
             'qty',
             'total',
             [
@@ -32,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return !$data->status ? '<span class="text-danger">Is Active</span>' : '<span class="text-success">Completed</span>';
                 }
             ] ,
-            //'name',
+            'name',
             //'email:email',
             //'phone',
             //'address',

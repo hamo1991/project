@@ -52,13 +52,13 @@ $this->title = 'All Products';
                                 <?php
                                 if ($product['sale_price']) {
                                     ?>
-                                    <p><span class="price"><del><?= $product['price'] ?></del></span>
-                                        <span class="price"><?= $product['sale_price'] ?></span></p>
+                                    <p><span class="price"><del><?= $product['price'] ?>֏</del></span>
+                                        <span class="price"><?= $product['sale_price'] ?>֏</span></p>
 
                                     <?php
                                 } else {
                                     ?>
-                                    <span class="price"><?= $product['price'] ?></span>
+                                    <span class="price"><?= $product['price'] ?>֏</span>
                                     <?php
                                 }
                                 ?>

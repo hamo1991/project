@@ -29,6 +29,16 @@
         </ul>
     </div>
 </aside>
+<?php //var_dump(Yii::$app->CbRF->one()); ?>
+
+<?php
+//var_dump(
+//    Yii::$app
+//        ->CbRF
+//        ->filter(['currency' => 'amd, usd'])
+//    ->all()
+//);
+?>
 <div class="colorlib-intro" id="intro">
     <div class="container">
         <div class="row">
@@ -100,12 +110,12 @@
                                 <?php
                                 if ($hit['sale_price']) {
                                     ?>
-                                    <span class="price"><del><?= $hit['price'] ?></del></span>
-                                    <span class="price"><?= $hit['sale_price'] ?></span>
+                                    <span class="price"><del><?= $hit['price'] ?>֏</del></span>
+                                    <span class="price"><?= $hit['sale_price'] ?> ֏</span>
                                     <?php
                                 } else {
                                     ?>
-                                    <span class="price"><?= $hit['price'] ?></span>
+                                    <span class="price"><?= $hit['price'] ?>֏</span>
                                     <?php
                                 }
                                 ?>

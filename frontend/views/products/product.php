@@ -45,12 +45,12 @@ $this->title = 'Product Details';
                         <?php
                         if ($product['sale_price']) {
                             ?>
-                            <p class="price"><span><del><?= $product['price'] ?></del></span></p>
-                            <p class="price"><span><?= $product['sale_price'] ?></span></p>
+                            <p class="price"><span><del><?= $product['price'] ?>֏</del></span></p>
+                            <p class="price"><span><?= $product['sale_price'] ?>֏</span></p>
                             <?php
                         } else {
                             ?>
-                            <p class="price"><span><?= $product['price'] ?></span></p>
+                            <p class="price"><span><?= $product['price'] ?>֏</span></p>
                             <?php
                         }
                         ?>

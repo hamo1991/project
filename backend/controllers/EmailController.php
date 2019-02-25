@@ -37,10 +37,19 @@ class EmailController extends Controller
     {
         $dataProvider = new ActiveDataProvider([
             'query' => Email::find(),
+            'pagination' => [
+                'pageSize' => 15
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'date' => SORT_DESC
+                ]
+            ]
         ]);
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
+
         ]);
     }
 

@@ -27,6 +27,10 @@ return [
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
         ],
+        'CbRF' => [
+            'class' => 'microinginer\CbRFRates\CBRF',
+            'defaultCurrency' => "USD"
+        ],
         'language'=>'en-EN',
         'i18n' => [
             'translations' => [

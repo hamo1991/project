@@ -20,7 +20,8 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "dmstr/yii2-adminlte-asset": "2.*",
         "mihaildev/yii2-ckeditor": "*",
-        "codemix/yii2-localeurls": "^1.7"
+        "codemix/yii2-localeurls": "^1.7",
+        "microinginer/yii2-cbrf-rates": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
