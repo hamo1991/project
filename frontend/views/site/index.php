@@ -38,7 +38,7 @@
 //        ->filter(['currency' => 'amd, usd'])
 //    ->all()
 //);
-?>
+//?>
 <div class="colorlib-intro" id="intro">
     <div class="container">
         <div class="row">

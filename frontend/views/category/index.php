@@ -39,7 +39,6 @@ if (!empty($category)) {
         <div class="row">
             <div class="col-lg-3 col-xl-3 animated bounceInLeft">
                 <div class="row">
-
                     <div class="col-sm-12">
                         <div class="side border mb-1">
                             <h3>Categories</h3>
