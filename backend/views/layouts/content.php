@@ -83,7 +83,6 @@ use dmstr\widgets\Alert;
 
                         <div class="menu-info">
                             <h4 class="control-sidebar-subheading">Mail & Gmail</h4>
-
                             <p>example@mail.ru</p>
                             <p>example@gmail.com</p>
                         </div>
@@ -95,7 +94,6 @@ use dmstr\widgets\Alert;
 
                         <div class="menu-info">
                             <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
                             <p>Execution time 5 seconds</p>
                         </div>
                     </a>

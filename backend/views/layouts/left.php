@@ -5,7 +5,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?= $directoryAsset ?>/img/hamo.jpg" class="img-circle" alt="User Image"/>
+                <img src="<?= \yii\helpers\Url::to(['/images/hamo.jpg']) ?>" class="img-circle" alt="User Image"/>
             </div>
             <div class="pull-left info">
                 <p>Hamo Harutyunyan</p>

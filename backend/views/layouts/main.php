@@ -38,25 +38,33 @@ if (Yii::$app->controller->action->id === 'login') {
     </head>
     <body class="<?= \dmstr\helpers\AdminLteHelper::skinClass() ?> ">
     <?php $this->beginBody() ?>
-    <div class="wrapper">
-
-        <?= $this->render(
-            'header.php',
-            ['directoryAsset' => $directoryAsset]
-        ) ?>
-
-        <?= $this->render(
-            'left.php',
-            ['directoryAsset' => $directoryAsset]
-        )
+    <?php if (!Yii::$app->user->isGuest){
         ?>
+        <div class="wrapper">
 
-        <?= $this->render(
-            'content.php',
-            ['content' => $content, 'directoryAsset' => $directoryAsset]
-        ) ?>
+            <?= $this->render(
+                'header.php',
+                ['directoryAsset' => $directoryAsset]
+            ) ?>
 
-    </div>
+            <?= $this->render(
+                'left.php',
+                ['directoryAsset' => $directoryAsset]
+            )
+            ?>
+
+            <?= $this->render(
+                'content.php',
+                ['content' => $content, 'directoryAsset' => $directoryAsset]
+            ) ?>
+
+        </div>
+        <?php
+    }else{
+        ?>
+        <img class="error_backend" src="<?= \yii\helpers\Url::to('/backend/web/images/images.png')?>" alt="Error">
+        <?php
+    }?>
 
     <?php $this->endBody() ?>
     </body>

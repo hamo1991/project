@@ -26,7 +26,6 @@ class ProductsController extends Controller{
     public function actionIndex($slug = '') {
         $brands = Brands::find()->asArray()->all();
         if ($slug) {
-
             $brand = Brands::findOne(['slug' => $slug]);
             if(!empty($brand)) {
                 $id = $brand->id;

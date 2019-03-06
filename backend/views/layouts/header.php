@@ -51,13 +51,13 @@ use yii\helpers\Html;
                 </li>
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="<?= $directoryAsset ?>/img/hamo.jpg" class="user-image" alt="User Image"/>
+                        <img src="<?= \yii\helpers\Url::to(['/images/hamo.jpg']) ?>" class="user-image" alt="User Image"/>
                         <span class="hidden-xs">Hamo Harutyunyan</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="<?= $directoryAsset ?>/img/hamo.jpg" class="img-circle"
+                            <img src="<?= \yii\helpers\Url::to(['/images/hamo.jpg']) ?>" class="img-circle"
                                  alt="User Image"/>
 
                             <p>

@@ -10,7 +10,7 @@ $this->title = 'ArmShoes';
     </div>
     <div class="body-content">
 
-        <div style="background-image: url('/admin/assets/bf2aa8d9/img/Dress-Shoes-for-Men-12.jpg'); background-size: cover" class="row">
+        <div style="background-image: url('<?= \yii\helpers\Url::to(['/images/Dress-Shoes-for-Men-12.jpg']) ?>'); background-size: cover" class="row">
             <div  class="col-lg-4">
                 <h2 style="visibility: hidden">Heading</h2>
                 <br><br><br><br>

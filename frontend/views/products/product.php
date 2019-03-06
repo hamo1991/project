@@ -67,7 +67,6 @@ $this->title = 'Product Details';
                                     <li><a><?= $size ?></a></li>
                                     <?php
                                 }
-
                                 ?>
                             </ul>
                         </div>
@@ -94,7 +93,6 @@ $this->title = 'Product Details';
                                 <button id="btn" type="submit" class="btn-primary btn-addtocart"><i
                                             class="icon-shopping-cart"></i>Add to Cart
                                 </button>
-
                             </div>
                         </div>
                     </form>
